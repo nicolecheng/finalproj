@@ -5,6 +5,11 @@ import java.awt.image.BufferedImage; // created buffer to hold image
 import javax.imageio.ImageIO; // perform read and write operation
 
 public class ImageTest{
+
+    public static void print(String){
+	System.out.println(String);
+    }
+
     public static void main (String[]args) throws IOException{
 	int width = 1000; // of image
 	int length = 900;
@@ -15,9 +20,9 @@ public class ImageTest{
 	    f = new File("PrivateInvestigator.png");
 	    buffer = new BufferedImage(width, length, BufferedImage.TYPE_INT_ARGB);
 	    buffer = ImageIO.read(f);
-	    System.out.println("done reading file");
+	    print("done reading file");
 	}catch(IOException e){
-	    System.out.println("error: did not successfully read file");
+	    print("error: did not successfully read file -- " + e);
 	}
 
     }
