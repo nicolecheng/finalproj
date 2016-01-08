@@ -1,13 +1,14 @@
 // these import statements prompt the code for working with images
-import java.io.File; // used to create a File object
-import java.io.IOException; // used to catch IO Exception that could occur during the reading/writing of an image file
-import java.awt.image.BufferedImage; // created buffer to hold image
-import javax.imageio.ImageIO; // perform read and write operation
+import java.io.*;
+import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import javax.swing.*;
 
 public class ImageTest{
 
-    public static void print(String){
-	System.out.println(String);
+    public static void print(String s){
+	System.out.println(s);
     }
 
     public static void main (String[]args) throws IOException{
