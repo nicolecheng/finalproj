@@ -5,17 +5,18 @@ import java.awt.image.*;
 import javax.imageio.*;
 import javax.swing.*;
 
-public class ImageTest{
+public class ImageTest{ // extends JPanel{
 
     public static void print(String s){
 	System.out.println(s);
     }
 
     public static void main (String[]args) throws IOException{
-	int width = 1000; // of image
-	int length = 900;
-	File f = null;
 	/*
+	int width = 2000; // of image
+	int length = 1000;
+	File f = null;
+	
 	try{
 	    f = new File("PrivateInvestigator.png");
 	    buffer = new BufferedImage(width, length, BufferedImage.TYPE_INT_ARGB);
@@ -45,7 +46,7 @@ public class ImageTest{
 		    j.pack();
 		    j.setLocationRelativeTo(null);
 		    j.setVisible(true);
-		    print("..");
+		    j.setSize(264,191);
 		}
 	    });
 	//	run();
