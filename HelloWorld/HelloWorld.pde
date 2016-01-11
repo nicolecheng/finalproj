@@ -1,5 +1,8 @@
+PImage toolBar;
+
 void  setup(){
 size(800,600);
+toolBar = loadImage("bar.PNG");
 }
 
 void draw(){
@@ -12,6 +15,7 @@ void draw(){
   //Third Folder
   folders(30,270,"Hello World");
  
+ Window();
 }
 
 void folders(int x, int y, String name){
@@ -20,16 +24,36 @@ void folders(int x, int y, String name){
   rect(x+40,y-10,40,10);
   fill(255);
   text(name,36,y+70);
-   MouseOver(x,y);
+  MouseOver(x,y);
 }
 
 void MouseOver(int x, int y){
  if(mouseX>x && mouseX<x+80 && mouseY>y && mouseY<y+60){
    fill(120,205,205,30);
+
+//A little bug with cursor
+//When hovering over the first two folder, would not turn into hand cursor
+//Even if it turn into the hand, it switches back and forth between hand and arrow quickly
+   cursor(HAND);
    stroke(1);
  }
    else{
   fill(120,205,205,0);   
+  cursor(ARROW);
    }
   rect(x-10,y-10,100,80);
+}
+
+void Window(){
+ noStroke();
+ fill(255,255,240);
+ rect(200,150,400,300);
+ fill(193,205,193);
+ rect(200,120,400,30);
+ /*fill(250);
+ rect(500,132,25,5);
+ rect(535,125,20,20);
+ */
+ image(toolBar,498,122);
+ stroke(1);
 }
