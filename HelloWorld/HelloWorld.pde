@@ -20,6 +20,13 @@ void draw(){
   folders(30,270,"Hello World");
  
  Window();
+/* if(mouseX>500 && mouseX<528 && mouseY>120 && mouseY<140){
+  tint(3,168,158,100);
+  image(toolBar1,500,120,28,19);
+ }
+ noTint();
+ */
+ toolbarSelect(200,120);
 }
 
 void folders(int x, int y, String name){
@@ -62,4 +69,20 @@ void Window(){
  image(toolBar2,528,120);
  image(toolBar3,555,120);
  stroke(1);
+}
+
+void toolbarSelect(int x, int y){
+ if(mouseX>x+300 && mouseX<x+328 && mouseY>y && mouseY<y+20){
+  tint(3,158,168,100);
+  image(toolBar1,x+300,y,28,19);
+ }
+ if(mouseX>x+328 && mouseX<x+355 && mouseY>y && mouseY<y+20){
+   tint(3,158,168,100);
+   image(toolBar2, x+328, y);
+ }
+ else if (mouseX>x+355 && mouseX<x+400 && mouseY>y && mouseY<y+20){
+   tint(255,0,0,100);
+   image(toolBar3, x+355, y);
+ }
+ noTint(); 
 }
