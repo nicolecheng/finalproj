@@ -1,8 +1,12 @@
-PImage toolBar;
+PImage toolBar1;
+PImage toolBar2;
+PImage toolBar3;
 
 void  setup(){
 size(800,600);
-toolBar = loadImage("bar.PNG");
+toolBar1 = loadImage("minimize.PNG");
+toolBar2 = loadImage("square.PNG");
+toolBar3 = loadImage("x.PNG");
 }
 
 void draw(){
@@ -54,6 +58,8 @@ void Window(){
  rect(500,132,25,5);
  rect(535,125,20,20);
  */
- image(toolBar,498,122);
+ image(toolBar1,500,120,28,19);
+ image(toolBar2,528,120);
+ image(toolBar3,555,120);
  stroke(1);
 }
