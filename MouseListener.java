@@ -1,9 +1,11 @@
-import java.awt.Frame;
-public class MouseListener {
+import java.io.*;
+import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import javax.swing.*;
 
-    //first creat GUI
-
-    JFrame frame = new JFrame("Mouse Listener Test");
-
+public interface MouseListener{
+    //idk what to do here
+    //come back to this later
 
 }

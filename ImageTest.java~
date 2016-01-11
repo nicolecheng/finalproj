@@ -12,7 +12,20 @@ public class ImageTest{ // extends JPanel{
     }
 
     public static void main (String[]args) throws IOException{
-
+	/*
+	int width = 2000; // of image
+	int length = 1000;
+	File f = null;
+	
+	try{
+	    f = new File("PrivateInvestigator.png");
+	    buffer = new BufferedImage(width, length, BufferedImage.TYPE_INT_ARGB);
+	    buffer = ImageIO.read(f);
+	    print("done reading file");
+	}catch(IOException e){
+	    print("error: did not successfully read file -- " + e);
+	}
+	*/
 	SwingUtilities.invokeLater(new Runnable(){
 		public void run(){
 		    BufferedImage buffer = null;
@@ -31,7 +44,7 @@ public class ImageTest{ // extends JPanel{
 		    j.getContentPane().add(jLabel, BorderLayout.CENTER);
 
 		    j.pack();
-		    //j.setLocationRelativeTo(null);
+		    j.setLocationRelativeTo(null);
 		    j.setVisible(true);
 		    j.setSize(264,191);
 		}
