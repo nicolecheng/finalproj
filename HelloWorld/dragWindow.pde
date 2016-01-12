@@ -1,25 +1,39 @@
-float winx;
-float winy;
-boolean over = false;
-boolean locked = false;
-float xOff = 0;
-float yOff = 0;
+
 
 
 void mousePressed(){
-  if(mouseX>winx && mouseX<winx+400 && mouseY>winy && mouseY<winy+30){
-   over = true; 
-  }else{
-   over = false; 
-  }
-  
   if(over){
-   locked = true; 
-  }else{
-   locked = false; 
-   
-   xOff = mouseX - winx;
-   yOff = mouseY - winy;
+  locked = true; 
+  xOff = mouseX - w.xcoord();
+  yOff = mouseY - w.ycoord();
+ }else{
+  locked = false; 
+ }   
+  
+  
+  if(overFolder){
+   if(mouseButton == LEFT){
+    mouseClicks +=1; 
+   }
   }
   
-}
+  if(overClose){
+   openNew = false;
+   overClose = false;
+   mouseClicks = 0;
+  }
+  
+   }
+
+ 
+ void mouseDragged(){
+  if(locked){
+   w.setX(mouseX - xOff);
+   w.setY(mouseY - yOff);
+ }
+ }
+ 
+ void mouseReleased(){
+  locked = false; 
+ }
+  
