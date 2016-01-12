@@ -7,6 +7,7 @@ float xOff = 0;
 float yOff = 0;
 boolean over = false;
 boolean locked = false;
+boolean overFolder = false;
 boolean openNew = false;
 int mouseClicks;
 
@@ -20,7 +21,9 @@ winy=150;
 }
 
 void draw(){
+  String coord = ""+winx+" , "+winy;
   background(0);
+  text(coord,700,100);
 
   //First Folder
   folders(30,30,"Hello World");
@@ -35,8 +38,10 @@ void draw(){
 if (openNew){
  Window(winx, winy); 
 }
-
-openWindow(200,150);
+if(mouseClicks>=2){
+  openWindow(200,150);
+  mouseClicks = 0;
+}
  
  //check for dragging window purpose
  if(mouseX>winx && mouseX<winx+400 && mouseY>winy-30 && mouseY<winy){
@@ -44,7 +49,4 @@ openWindow(200,150);
  }else{
  over = false; 
  }
- 
- ////load window 
- //Window(winx,winy);
 }
