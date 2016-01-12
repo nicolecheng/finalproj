@@ -1,26 +1,38 @@
+int catx = 40;
+int caty = 0;
+  
 void setup(){
-  rect(mouseX,450,90,70);
-  fill(102,51,0);
-  ellipse(10,10,10,10);
-  fill(100,100,100);
-  noStroke();
 
   background(255,255,255);
   size(500,500);
+  noStroke();
+
+// rectangle "basket"
+  fill(102,51,0);
+  rect(300,400,90,70);
+
+// example "cat"
+  fill(100,100,100);
+  ellipse(catx,caty,20,20);
+
 }
 
 void draw(){
-  int speed = 1;
-  int i = 0;
-  if (mouseY > 400){
-    background(255,255,255);
+  int speed = 1; // init speed
+  int i = 0; // loop de loop
+  background(255);
+  if (mouseY > 390){
+//    background(255,255,255);
     fill(102,51,0);
     rect(mouseX,mouseY,90,70);
-  }
-  ellipse(10,10+speed,10,10);
-  fill(100,100,100);
-  speed *= 9.81;
-  //print(speed);
-  //rect(150+i,150+i,100,200);
-  //i++;
+  }else{
+    fill(102,51,0);
+    rect(mouseX,390,90,70);
+  }    
+  
+  // cat falling!
+  caty += speed;
+  fill(100,100,100); 
+  ellipse(catx,caty,20,20);
+  speed += 9.81 * i; // this line is not working
 }
