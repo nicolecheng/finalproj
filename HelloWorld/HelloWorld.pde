@@ -7,6 +7,8 @@ float xOff = 0;
 float yOff = 0;
 boolean over = false;
 boolean locked = false;
+boolean openNew = false;
+int mouseClicks;
 
 void  setup(){
 size(800,600);
@@ -30,15 +32,19 @@ void draw(){
   folders(30,270,"Hello World");
     MouseOver(30,270);
  
+if (openNew){
+ Window(winx, winy); 
+}
+
+openWindow(200,150);
+ 
  //check for dragging window purpose
  if(mouseX>winx && mouseX<winx+400 && mouseY>winy-30 && mouseY<winy){
-  over = true; 
+ over = true; 
  }else{
-  over = false; 
+ over = false; 
  }
  
- //load window 
- Window(winx,winy);
- toolbarSelect(winx,winy);
- 
+ ////load window 
+ //Window(winx,winy);
 }
