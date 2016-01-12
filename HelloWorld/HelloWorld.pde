@@ -2,11 +2,20 @@ PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
 
+float winx;
+float winy;
+float xOff = 0;
+float yOff = 0;
+boolean over = false;
+boolean locked = false;
+
 void  setup(){
 size(800,600);
 toolBar1 = loadImage("minimize.PNG");
 toolBar2 = loadImage("square.PNG");
 toolBar3 = loadImage("x.PNG");
+winx=200;
+winy=150;
 }
 
 void draw(){
@@ -19,14 +28,15 @@ void draw(){
   //Third Folder
   folders(30,270,"Hello World");
  
- Window();
-/* if(mouseX>500 && mouseX<528 && mouseY>120 && mouseY<140){
-  tint(3,168,158,100);
-  image(toolBar1,500,120,28,19);
+ if(mouseX>winx && mouseX<winx+400 && mouseY>winy-30 && mouseY<winy){
+  over = true; 
+ }else{
+  over = false; 
  }
- noTint();
- */
- toolbarSelect(200,120);
+ 
+ Window(winx,winy);
+ toolbarSelect(winx,winy);
+ 
 }
 
 void folders(int x, int y, String name){
@@ -55,40 +65,30 @@ void MouseOver(int x, int y){
   rect(x-10,y-10,100,80);
 }
 
-void Window(){
+void Window(float x, float y){
  noStroke();
  fill(255,255,240);
- rect(200,150,400,300);
+ rect(x,y,400,300);
  fill(193,205,193);
- rect(200,120,400,30);
- /*fill(250);
- rect(500,132,25,5);
- rect(535,125,20,20);
- */
- image(toolBar1,500,120,28,19);
- image(toolBar2,528,120);
- image(toolBar3,555,120);
+ rect(x,y-30,400,30);
+ image(toolBar1,x+300,y-30,28,19);
+ image(toolBar2,x+328,y-30);
+ image(toolBar3,x+355,y-30);
  stroke(1);
 }
 
-void toolbarSelect(int x, int y){
- if(mouseX>x+300 && mouseX<x+328 && mouseY>y && mouseY<y+20){
+void toolbarSelect(float x, float y){
+ if(mouseX>x+300 && mouseX<x+328 && mouseY>y-30 && mouseY<y+10){
   tint(3,158,168,100);
-  image(toolBar1,x+300,y,28,19);
+  image(toolBar1,x+300,y-30,28,19);
  }
- if(mouseX>x+328 && mouseX<x+355 && mouseY>y && mouseY<y+20){
+ if(mouseX>x+328 && mouseX<x+355 && mouseY>y-30 && mouseY<y+10){
    tint(3,158,168,100);
-   image(toolBar2, x+328, y);
+   image(toolBar2, x+328, y-30);
  }
- else if (mouseX>x+355 && mouseX<x+400 && mouseY>y && mouseY<y+20){
+ else if (mouseX>x+355 && mouseX<x+400 && mouseY>y-30 && mouseY<y+10){
    tint(255,0,0,100);
-   image(toolBar3, x+355, y);
+   image(toolBar3, x+355, y-30);
  }
  noTint(); 
 }
-
-//void mouseDragged(){
-  
-  
-  
-//}
