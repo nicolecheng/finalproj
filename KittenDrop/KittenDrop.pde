@@ -65,15 +65,16 @@ void draw(){
       fill((float)cats[r][0],(float)cats[r][1],(float)cats[r][2]);
       ellipse((float)cats[r][3],(float)cats[r][4],20,20); // moving kitty
     }
-    if(cats[r][4] >= 525 ){ // past ycor threshold?
-      if (cats[r][3] >= mouseX && cats[r][3] <= mouseX + 90 && cats[r][7] == 1){ // in basket range?
+    if(cats[r][4] >= 525 && cats[r][3] >= mouseX && cats[r][3] <= mouseX + 90 && cats[r][7] == 1){ // past ycor threshold and in basket range?
         cats[r][7] = 0;
         score += 50; // 50 pts to griffindor!    
-      }else if (cats[r][3] == 1){ // pt deduction not working
-        score -= 25; // lose 25 pts for dropping the kitten
+    }
+    if (cats[r][4] >= 625 && (cats[r][3] < mouseX || cats[r][3] > mouseX + 90) && cats[r][7] == 1){ // pt deduction not working
+        cats[r][7] = 0;
+        score -= 100; // lose 100 pts for dropping the kitten
       }
     }
-  }
+  
 
   /*
   // ever so often, print out the status of each kitten 
