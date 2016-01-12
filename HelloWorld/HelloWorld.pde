@@ -9,6 +9,7 @@ boolean over = false;
 boolean locked = false;
 boolean overFolder = false;
 boolean openNew = false;
+boolean overClose = false;
 int mouseClicks;
 
 void  setup(){
@@ -27,13 +28,12 @@ void draw(){
 
   //First Folder
   folders(30,30,"Hello World");
-    MouseOver(30,30);
+ 
   //Second Folder
   folders(30,150,"Hello World");
-    MouseOver(30,150);
+ 
   //Third Folder
   folders(30,270,"Hello World");
-    MouseOver(30,270);
  
 if (openNew){
  Window(winx, winy); 
