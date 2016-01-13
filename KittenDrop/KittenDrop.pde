@@ -1,24 +1,20 @@
 int ncat; // number of cats to create
 double[][]cats; // array of cats and its [r, g, b, xcor, ycor, speed, loopval,falling?(1=yes)(0=no)]
 int score; // player's score
-int remcat; // remaining cats to catch
 PFont f; // player's stats to display
 
 void setup(){
 
   background(255,255,255);
-  //size(500,650);
-  size(880,880);
+  size(500,650);
   noStroke();
   
   //  var init
   ncat =  15;
   cats = new double[ncat][8];
   score = 0;
-  remcat = ncat;
-  f = createFont("Algerian",16,true);
+  f = createFont("Arial",16,true);
   textFont(f, 20); // size 20  
-  PImage bg; // background image
 
   // rectangle "basket"
   fill(102,51,0);
@@ -36,13 +32,11 @@ void setup(){
     cats[m][7] = 1; // yes, it is falling
   }
   
-  bg = loadImage("sky.jpg");
-  
 }
 
 void draw(){
   
-  background(bg);
+  background(255);
   int baskety = 525;
   if (mouseY > 525){
     baskety = mouseY;
@@ -57,8 +51,8 @@ void draw(){
         cats[r][5] += .003 * cats[r][6]; // increase speed
         cats[r][4] += cats[r][5]; // ycor change
         cats[r][6]++; // increase loopval thingy
-      }else{ // cat is not yet on the screen
-        cats[r][4]++; // don't start accelerating yet
+      }else{
+        cats[r][4]++;
       }
       fill((float)cats[r][0],(float)cats[r][1],(float)cats[r][2]);
       ellipse((float)cats[r][3],(float)cats[r][4],20,20); // moving kitty
@@ -68,13 +62,11 @@ void draw(){
     if(cats[r][4] >= 525 && cats[r][3] >= mouseX && cats[r][3] <= mouseX + 90 && cats[r][7] == 1){ 
         cats[r][7] = 0;
         score += 50; // 50 pts to griffindor!    
-        remcat--;
     }
     
     if (cats[r][4] >= 625 && (cats[r][3] < mouseX || cats[r][3] > mouseX + 90) && cats[r][7] == 1){
         cats[r][7] = 0;
         score -= 100; // lose 100 pts for dropping the kitten
-        remcat--;
       }
       
   }
@@ -91,12 +83,8 @@ void draw(){
     }
   }
   */
-  
-  fill(50,150,0);
-  text("Kitten Drop",15,25);
   fill(111,111,111);
-  text("Score:" + score, 390, 25);
-  text("Cats remaining:"+remcat,290,50);
+  text(score, 400, 25);
 
   println(score);
   
