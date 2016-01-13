@@ -5,6 +5,7 @@ int score; // player's score
 int remcat; // remaining cats to catch
 PFont f; // player's stats to display
 PImage cat; // cat image!
+PImage basket;
 
 void setup(){
 
@@ -23,9 +24,10 @@ void setup(){
   textFont(f, 20); // size 20  
   cat = loadImage("cat1.png");
 
-  // rectangle "basket"
-  fill(102,51,0);
-  rect(300,525,90,70);
+  // basket
+  basket = loadImage("basket1.png"); //640x535
+//  fill(102,51,0);
+//  rect(300,525,90,70);
 
   // setup cats
   for (int m = 0; m < ncat; m++){
@@ -45,8 +47,9 @@ void draw(){
   if (mouseY > 525){
     baskety = mouseY;
   }    
-  fill(102, 51, 0);
-  rect(mouseX, baskety, 90,70);
+  //fill(102, 51, 0);
+  //rect(mouseX, baskety, 90,70);
+  image(basket,mouseX,baskety,width/8,height/10); // 80x53.5
   
   // cat falling!
   for (int r = 0; r < ncat; r++){
@@ -58,19 +61,17 @@ void draw(){
       }else{ // cat is not yet on the screen
         cats[r][1]++; // don't start accelerating yet
       }
-      //fill((float)cats[r][0],(float)cats[r][1],(float)cats[r][2]);
       image(cat,(float)cats[r][0],(float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
-      //ellipse((float)cats[r][3],(float)cats[r][4],20,20); // moving kitty
     }
     
     // past ycor threshold and in basket range?
-    if(cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 90 && cats[r][4] == 1){ 
+    if(cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 80 && cats[r][4] == 1){ 
         cats[r][4] = 0;
         score += 50; // 50 pts to griffindor!  
         remcat--;
     }
     
-    if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 90) && cats[r][4] == 1){
+    if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 80) && cats[r][4] == 1){
         cats[r][4] = 0;
         score -= 100; // lose 100 pts for dropping the kitten
         remcat--;
@@ -78,7 +79,7 @@ void draw(){
       
   }
   
-
+/*
   
   // ever so often, print out the status of each kitten 
   if (Math.random() > 0.9){
@@ -89,7 +90,7 @@ void draw(){
       print( "////"+mouseX+"///" );
     }
   }
-  
+  */
 
   fill(50,150,0);
   text("Kitten Drop",15,25);
