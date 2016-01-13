@@ -1,6 +1,6 @@
 
 void mousePressed(){
-    //if mouse over the close-window button, then close the window
+    //if click mouse over the close-window button, then close the window
    if(overClose){
    openNew = false;
    overClose = false;
@@ -14,13 +14,14 @@ void mousePressed(){
   //if mouse over the tool bar, then make the boolean true
   if(over){
   locked = true; 
+  //calculate the value at which the window should be generated to create motion of movement
+ offs[winNum][0] = mouseX - coords[winNum][0];
+ offs[winNum][1] = mouseY - coords[winNum][1];
   }else{
   locked = false; 
  } 
  
- //calculate the value at which the window should be generated to create motion of movement
- offs[winNum][0] = mouseX - coords[winNum][0];
- offs[winNum][1] = mouseY - coords[winNum][1];
+ 
  
 //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
 if(overFolder1 || overFolder2 || overFolder3){

@@ -13,7 +13,7 @@ boolean over = false;
 boolean locked = false;
 float winx = 200;
 float winy = 150;
-Window w;
+Window w,e,r;
 
 //testing
 float coords[][] = {{200,150},{200,150},{200, 150}};
@@ -42,6 +42,7 @@ void draw(){
   //debugging use
   textSize(18);
   fill(255);
+  text(winNum,500,50);
   text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
     text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
       text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
@@ -64,9 +65,17 @@ void draw(){
  //if new window allowed to be opened, create the window and start it at position 200,150
  
   if(openNew){
-   w = new Window(coords[winNum][0],coords[winNum][1]);
+    if(winNum == 0){
+   w = new Window(coords[0][0],coords[0][1]);
      //check if mouse is over the tool bar, if so, allow user to drag the window
    w.check();
+    }else if(winNum == 1){
+     e = new Window(coords[1][0],coords[1][1]);
+    e.check(); 
+    }else{
+     r = new Window(coords[2][0],coords[2][1]);
+    r.check(); 
+    }
    
 }
 
