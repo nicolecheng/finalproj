@@ -19,7 +19,7 @@ void mousePressed(){
  yOff = mouseY - winy;
 
 //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
-if(overFolder){
+if(overFolder1 || overFolder2 || overFolder3){
    if(mouseButton == LEFT){
     mouseClicks +=1; 
    }
