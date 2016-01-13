@@ -1,9 +1,10 @@
+PImage bg; // background
 int ncat; // number of cats to create
-double[][]cats; // array of cats and its [r, g, b, xcor, ycor, speed, loopval,falling?(1=yes)(0=no)]
+double[][]cats; // array of cats and its [xcor, ycor, speed, loopval,falling?(1=yes)(0=no)]
 int score; // player's score
 int remcat; // remaining cats to catch
 PFont f; // player's stats to display
-PImage bg; // background
+PImage cat; // cat image!
 
 void setup(){
 
@@ -14,12 +15,13 @@ void setup(){
   
   //  var init
   ncat =  15;
-  cats = new double[ncat][8];
+  cats = new double[ncat][5];
   score = 0;
   remcat = ncat;
   remcat = ncat;
   f = createFont("Algerian",16,true);
   textFont(f, 20); // size 20  
+  cat = loadImage("cat1.png");
 
   // rectangle "basket"
   fill(102,51,0);
@@ -27,14 +29,11 @@ void setup(){
 
   // setup cats
   for (int m = 0; m < ncat; m++){
-    for (int r = 0; r < 3; r++){
-      cats[m][r] = Math.random() * 255; // give random color vals to each cat
-    }
-    cats[m][3] = (int)(Math.random() * 500); // xcor
-    cats[m][4] = (-1)*(int)(Math.random() * 1000); // when will the kittens fall down?
-    cats[m][5] = 5; // init speed
-    cats[m][6] = 1;
-    cats[m][7] = 1; // yes, it is falling
+    cats[m][0] = (int)(Math.random() * 500); // xcor
+    cats[m][1] = (-1)*(int)(Math.random() * 1000); // when will the kittens fall down?
+    cats[m][2] = 5; // init speed
+    cats[m][3] = 1;
+    cats[m][4] = 1; // yes, it is falling
   }
   
 }
@@ -51,27 +50,28 @@ void draw(){
   
   // cat falling!
   for (int r = 0; r < ncat; r++){
-    if(cats[r][7] == 1){ // if still falling
-      if (cats[r][4] > 0){
-        cats[r][5] += .003 * cats[r][6]; // increase speed
-        cats[r][4] += cats[r][5]; // ycor change
-        cats[r][6]++; // increase loopval thingy
+    if(cats[r][4] == 1){ // if still falling
+      if (cats[r][1] > 0){
+        cats[r][2] += .003 * cats[r][3]; // increase speed
+        cats[r][1] += cats[r][2]; // ycor change
+        cats[r][3]++; // increase loopval thingy
       }else{ // cat is not yet on the screen
-        cats[r][4]++; // don't start accelerating yet
+        cats[r][1]++; // don't start accelerating yet
       }
-      fill((float)cats[r][0],(float)cats[r][1],(float)cats[r][2]);
-      ellipse((float)cats[r][3],(float)cats[r][4],20,20); // moving kitty
+      //fill((float)cats[r][0],(float)cats[r][1],(float)cats[r][2]);
+      image(cat,(float)cats[r][0],(float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
+      //ellipse((float)cats[r][3],(float)cats[r][4],20,20); // moving kitty
     }
     
     // past ycor threshold and in basket range?
-    if(cats[r][4] >= 525 && cats[r][3] >= mouseX && cats[r][3] <= mouseX + 90 && cats[r][7] == 1){ 
-        cats[r][7] = 0;
+    if(cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 90 && cats[r][4] == 1){ 
+        cats[r][4] = 0;
         score += 50; // 50 pts to griffindor!  
         remcat--;
     }
     
-    if (cats[r][4] >= 625 && (cats[r][3] < mouseX || cats[r][3] > mouseX + 90) && cats[r][7] == 1){
-        cats[r][7] = 0;
+    if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 90) && cats[r][4] == 1){
+        cats[r][4] = 0;
         score -= 100; // lose 100 pts for dropping the kitten
         remcat--;
       }
@@ -79,23 +79,23 @@ void draw(){
   }
   
 
-  /*
+  
   // ever so often, print out the status of each kitten 
   if (Math.random() > 0.9){
     for (int r = 0; r < ncat; r++){
-      for (int o = 0; o < 7; o++){
+      for (int o = 0; o < 4; o++){
         print(cats[r][o] + ", ");
       }
-      print( "///////" );
+      print( "////"+mouseX+"///" );
     }
   }
-  */
+  
 
   fill(50,150,0);
   text("Kitten Drop",15,25);
   fill(111,111,111);
   text("Score:" + score, 390, 25);
-  text("Cats remaining:"+remcat,290,50);
+  text("Cats remaining:"+remcat,300,50);
 
   println(score);
   
