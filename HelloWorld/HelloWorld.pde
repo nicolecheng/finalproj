@@ -1,16 +1,16 @@
 PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
-
+int mouseClicks;
+boolean overFolder = false;
+boolean openNew = false;
+boolean overClose = false;
 float xOff = 0;
 float yOff = 0;
 boolean over = false;
 boolean locked = false;
-boolean overFolder = false;
-boolean openNew = false;
-boolean overClose = false;
-int mouseClicks;
-
+float winx = 200;
+float winy = 150;
 Window w;
 
 void  setup(){
@@ -33,13 +33,26 @@ void draw(){
   //Third Folder
   folders(30,270,"Hello World");
  
+ //check if mouse is double-clicked and allow for new window to open, then reset mouse click to 0
  if(mouseClicks>=2){
   openNew = true;
   mouseClicks = 0;
-}
-
-if (openNew){
-  w = new Window(200,150); 
+  
+ }
+ 
+ //if new window allowed to be opened, create the window and start it at position 200,150
+ 
+  if(openNew){
+   w = new Window(winx,winy);
+     //check if mouse is over the tool bar, if so, allow user to drag the window
+   w.check();
+   text(""+winx+" , "+winy,100,500);
+   if(over){
+    text("over is true",100,520); 
+   }
+   if(locked){
+     text("locked is true",100,550); 
+   }
 }
 
 }

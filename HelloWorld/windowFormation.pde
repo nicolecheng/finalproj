@@ -1,36 +1,14 @@
+//create a class to generate Windows
 class Window{
 
-float winx = 200;
-float winy = 150;
 
+//constructor
 Window(float x, float y){
- winx = x;
- winy = y;
+createWindow(x,y);
 }
 
-float xcoord(){
-   return winx;
- }
- 
- float ycoord(){
-  return winy; 
- }
- 
- void setX(float x){
-   winx = x;
- }
- 
- void setY(float y){
-  winy = y; 
- }
-
-void draw(){
-
-
-
-}
-
-void creatWindow(){
+//create window with tool bar, load image for window buttons
+void createWindow(float winx, float winy){
  noStroke();
  fill(255,255,240);
  rect(winx,winy,400,300);
@@ -43,6 +21,7 @@ void creatWindow(){
  stroke(1);
 }
 
+//create tool bar, check if mouse is over any of the buttons, if so, highlight the area
 void toolbarSelect(){
  if(mouseX>winx+300 && mouseX<winx+328 && mouseY>winy-30 && mouseY<winy-10){
   tint(3,158,168,100);
@@ -60,19 +39,14 @@ void toolbarSelect(){
  noTint(); 
 }
 
-void openWindow(){
-  openNew = true;
-}
-
-void check(){
 //check for dragging window purpose
+void check(){
  if(mouseX> winx && mouseX<winx+400 && mouseY>winy-30 && mouseY<winy){
  over = true; 
  }else{
  over = false; 
  }
- 
- 
- 
 }
+
+
 }

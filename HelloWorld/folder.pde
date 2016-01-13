@@ -1,4 +1,6 @@
+//create colder with given names,also check whether mouse is over the folder
 void folders(int x, int y, String name){
+  textSize(12);
   fill(255,245,145);
   rect(x,y,80,60);
   rect(x+40,y-10,40,10);
@@ -7,6 +9,7 @@ void folders(int x, int y, String name){
   MouseOver(x,y);
 }
 
+//if mouse is over the folder, then highlight the area and change the cursor to hand
 void MouseOver(int x, int y){
  if(mouseX>x && mouseX<x+80 && mouseY>y && mouseY<y+60){
    overFolder = true;
