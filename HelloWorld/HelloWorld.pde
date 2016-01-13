@@ -1,52 +1,73 @@
 PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
-float winx;
-float winy;
+int mouseClicks;
+boolean overFolder1 = false;
+boolean overFolder2 = false;
+boolean overFolder3 = false;
+boolean openNew = false;
+boolean overClose = false;
 float xOff = 0;
 float yOff = 0;
 boolean over = false;
 boolean locked = false;
-boolean overFolder = false;
-boolean openNew = false;
-int mouseClicks;
+float winx = 200;
+float winy = 150;
+Window w;
+
+//testing
+float coords[][] = {{200,150},{200,150},{200, 150}};
+float offs[][] ={{0,0},{0,0},{0,0}};
+int winNum = 0;
 
 void  setup(){
 size(800,600);
 toolBar1 = loadImage("minimize.PNG");
 toolBar2 = loadImage("square.PNG");
 toolBar3 = loadImage("x.PNG");
-winx=200;
-winy=150;
+
 }
 
 void draw(){
-  String coord = ""+winx+" , "+winy;
   background(0);
-  text(coord,700,100);
-
   //First Folder
   folders(30,30,"Hello World");
-    MouseOver(30,30);
+ 
   //Second Folder
   folders(30,150,"Hello World");
-    MouseOver(30,150);
-  //Third Folder
+ 
+//Third Folder
   folders(30,270,"Hello World");
-    MouseOver(30,270);
+  
+  //debugging use
+  textSize(18);
+  fill(255);
+  text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
+    text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
+      text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
+  
  
-if (openNew){
- Window(winx, winy); 
-}
-if(mouseClicks>=2){
-  openWindow(200,150);
+ //check if mouse is double-clicked and allow for new window to open, then reset mouse click to 0
+ if(mouseClicks>=2){
+  openNew = true;
   mouseClicks = 0;
-}
- 
- //check for dragging window purpose
- if(mouseX>winx && mouseX<winx+400 && mouseY>winy-30 && mouseY<winy){
- over = true; 
- }else{
- over = false; 
+  
+  if(overFolder1){
+   winNum = 0; 
+  }else if (overFolder2){
+   winNum = 1; 
+  }else{
+    winNum = 2;
+  }
  }
+ 
+ //if new window allowed to be opened, create the window and start it at position 200,150
+ 
+  if(openNew){
+   w = new Window(coords[winNum][0],coords[winNum][1]);
+     //check if mouse is over the tool bar, if so, allow user to drag the window
+   w.check();
+   
+}
+
 }
