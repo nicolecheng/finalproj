@@ -29,7 +29,7 @@ void MouseOver(int x, int y){
        if(mouseY>30 && mouseY<90){
         overFolder1 = true; 
        }else if (mouseY>150 && mouseY<210){
-        overFolder2 = true; 
+        overFolder2 = true;
        }else if (mouseY>270 && mouseY<330){
          overFolder3 = true;
        }else{

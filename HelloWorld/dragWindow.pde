@@ -5,6 +5,10 @@ void mousePressed(){
    openNew = false;
    overClose = false;
    mouseClicks = 0;
+   coords[winNum][0] = 200;
+   coords[winNum][1] = 150;
+   offs[winNum][0] = 0;
+   offs[winNum][1] = 0;
   }
   
   //if mouse over the tool bar, then make the boolean true
@@ -15,9 +19,9 @@ void mousePressed(){
  } 
  
  //calculate the value at which the window should be generated to create motion of movement
- xOff = mouseX - winx;
- yOff = mouseY - winy;
-
+ offs[winNum][0] = mouseX - coords[winNum][0];
+ offs[winNum][1] = mouseY - coords[winNum][1];
+ 
 //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
 if(overFolder1 || overFolder2 || overFolder3){
    if(mouseButton == LEFT){
@@ -30,9 +34,9 @@ if(overFolder1 || overFolder2 || overFolder3){
  void mouseDragged(){
    //if it's locked(meaning mouse over toolbar and clicked), change the coordinate of the window to create motion along with mouse movement
    if(locked){
-   winx = (mouseX - xOff);
-   winy = (mouseY - yOff);
- }
+   coords[winNum][0] = (mouseX - offs[winNum][0]);
+   coords[winNum][1] = (mouseY - offs[winNum][1]);
+   }
  
  }
  
