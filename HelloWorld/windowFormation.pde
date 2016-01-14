@@ -6,7 +6,7 @@ class Window{
 Window(float x, float y){
     coords[winNum][0] = x;
     coords[winNum][1] = y;
-createWindow(coords[0][0],coords[0][1]);
+createWindow(coords[winNum][0],coords[winNum][1]);
 }
 
 //create window with tool bar, load image for window buttons
