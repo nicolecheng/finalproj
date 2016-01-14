@@ -1,5 +1,4 @@
-//trying pop up window
-import java.swing.JOptionPane.*;
+
 
 String[] wordlist;
 int [] correct = {0};
@@ -43,7 +42,5 @@ text(input,130,100);
  text(""+chances,130,130); 
 questionSlot(wordlist[wordSelect]);
 
-
-final int choice = showOptionDialog(); 
 
 }
