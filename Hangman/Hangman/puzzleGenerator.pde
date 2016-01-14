@@ -9,7 +9,7 @@ void questionSlot(String word){
   for(int i = 0; i < chars; i++){
    correct = append(correct, 0); 
   }
-    toShow();
+    toShow(word,chars);
   
   //looping through given word 
   for(int i = 0;  i < chars; i++){
@@ -35,7 +35,10 @@ void questionSlot(String word){
 
 //check whether the character of the word is typed by user
 //if so, make the corresponding element in array "correct" = 1( = correct);
-void toShow(){
- correct[2] = 1;
- correct[5] = 1;
+void toShow(String word, int len){
+ for(int i = 0; i < len; i++){
+  if(word.charAt(i) == input){
+   correct[i] = 1; 
+  }
+ }
 }
