@@ -1,3 +1,5 @@
+
+
 //create slots according to how long the word is
 void questionSlot(String word){
   int chars = word.length();
@@ -46,6 +48,6 @@ void toShow(String word, int len){
  
  void gameOver(){
    if(chances <= 0){
-    setup(); 
+     setup();
    }
  }
