@@ -34,11 +34,18 @@ void questionSlot(String word){
 }
 
 //check whether the character of the word is typed by user
-//if so, make the corresponding element in array "correct" = 1( = correct);
+//if so, make the corresponding element in array "correct" = 1( = correct)
+//automatically set to 1 if character is '-'
 void toShow(String word, int len){
  for(int i = 0; i < len; i++){
-  if(word.charAt(i) == input){
+  if(word.charAt(i) == input || word.charAt(i) == '-'){
    correct[i] = 1; 
   }
  }
-}
+ }
+ 
+ void gameOver(){
+   if(chances <= 0){
+    setup(); 
+   }
+ }
