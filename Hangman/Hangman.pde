@@ -1,5 +1,4 @@
 
-
 String[] wordlist;
 int [] correct = {0};
 int wordSelect;

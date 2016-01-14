@@ -46,8 +46,3 @@ void toShow(String word, int len){
  }
  }
  
- void gameOver(){
-   if(chances <= 0){
-     setup();
-   }
- }
