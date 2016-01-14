@@ -1,4 +1,5 @@
 String[] wordlist;
+int [] correct = {};
 
 void setup(){
  size(600,400);
