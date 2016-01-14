@@ -4,6 +4,11 @@ PImage cert;
 PFont f; 
 int s; // which slide are we up to?
 
+// for the cute little certificate they can fill out in the tutorial
+String name;
+String codeName;
+String specialty;
+
 void setup(){
   
   bg = loadImage("banner.jpg"); // 960x465
@@ -17,15 +22,15 @@ void setup(){
   f = createFont("FreeMonoBoldOblique",16,true);
   textFont(f, 20); // size 20 
   fill(111,111,111);
-  text("click to continue...", 700, 440);
+  text("click to begin...", 700, 440);
   
 }
 
+void mouseClicked(){
+  s++;
+}
+
 void draw(){
-  
-  if (mouseClicked()){
-    s++;
-  }
   
   if (s==1){
     scene1();
@@ -40,17 +45,32 @@ void draw(){
 }
 
 void scene1(){
-  
+  /*
+  fill out certificate
+  */
+  background(255);
 }
 
 void scene2(){
+  /*
+  give backstory pt1
+  your agency is fighting another nation
+  you guys recovered an enemy laptop
+  */
   
 }
 
 void scene3(){
+  /*
+  backstory pt2
+  you are the most tech saavy person they have
+  you are given the task of cracking open the files
+  */
   
 }
 
 void scene4(){
-  
+  /*
+  blah blah blah ready to begin
+  */
 }
