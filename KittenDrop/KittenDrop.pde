@@ -15,7 +15,7 @@ void setup(){
   noStroke();
   
   //  var init
-  ncat =  15;
+  ncat =  20;
   cats = new double[ncat][5];
   score = 0;
   remcat = ncat;
@@ -67,13 +67,13 @@ void draw(){
     // past ycor threshold and in basket range?
     if(cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 80 && cats[r][4] == 1){ 
         cats[r][4] = 0;
-        score += 50; // 50 pts to griffindor!  
+        score += 10; // 10 pts to griffindor!  
         remcat--;
     }
     
     if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 80) && cats[r][4] == 1){
         cats[r][4] = 0;
-        score -= 100; // lose 100 pts for dropping the kitten
+        score -= 20; // lose 20 pts for dropping the kitten
         remcat--;
       }
       
@@ -99,5 +99,32 @@ void draw(){
   text("Cats remaining:"+remcat,300,50);
 
   println(score);
+  
+  if (remcat == 0){
+    Congrats();
+  }
+  
+}
+
+void Congrats(){
+  
+  if (score > 0){
+    background(bg);
+  
+    textFont(f, 30); // size 20 
+    fill(111,111,111);
+    text("CONGRATULATIONS!", 100, 250);
+    text("You have saved enough kittens", 7, 300);
+    text("to move onto the next stage.", 22, 350);
+  }else{
+    background(bg);
+  
+    textFont(f, 30); // size 20 
+    fill(111,111,111);
+    text("AH, FIDDLESTICKS!", 120, 250);
+    text("You didn't save enough kittens.", 8, 300);
+    text("Try again.", 170, 350);
+  }    
+  
   
 }
