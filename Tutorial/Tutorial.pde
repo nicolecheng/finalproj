@@ -48,6 +48,9 @@ void scene1(){
   /*
   fill out certificate
   */
+  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  String s = br.readLine();
+  int i = Integer.parseInt(br.readLine());
   background(255);
 }
 
