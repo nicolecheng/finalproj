@@ -5,15 +5,11 @@ void questionSlot(String word){
   int chars = word.length();
   int ycoord = 200;
   int xcount = 0;
-  text(chars,15,150);
   
-  //set defaul value of correct to 0( = incorrect)
-  for(int i = 0; i < chars; i++){
-   correct = append(correct, 0); 
-  }
-    toShow(word,chars);
+    //check which slots should show the letter
+  toShow(word,chars);
   
-  //looping through given word 
+  //looping through given word to generate slots accordingly 
   for(int i = 0;  i < chars; i++){
     
       //if too long, change to new line
@@ -26,7 +22,9 @@ void questionSlot(String word){
    rect(20+xcount*50,ycoord,35,35);
    xcount += 1;
     }
-      //connecting punc not counted and check if the letter is guessed right
+      //'-' is not counted
+      //and check if the letter is guessed right
+      //if yes, then show
     if(word.charAt(i) != '-' && correct[i] == 1){
   textSize(20);
   fill(0);

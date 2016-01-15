@@ -7,19 +7,20 @@ int chances;
 int tab = 0;
 PImage restart;
 PImage quit;
+
 void setup(){
   
   //when restarting, reset everything
+     
   for(int i = 0; i < correct.length; i++){
    correct[i] = 0; 
   }
   chances = 5;
   input = '-';
+  size(600,400);
   
- size(600,400);
    //reading in word list file, remove any white space from the words
 wordlist = trim(loadStrings("#wordList.txt#"));
-
 listLen = wordlist.length;
 
   //make sure everything is lower case
@@ -30,6 +31,11 @@ listLen = wordlist.length;
   //randomly choose a word from word list
   wordSelect = int(random(listLen));
   
+   //set defaul value of correct to 0( = incorrect)
+  for(int i = 0; i < wordlist[wordSelect].length()-1; i++){
+   correct = append(correct, 0); 
+  }
+  
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
   quit = loadImage("quit.png");
@@ -37,23 +43,23 @@ listLen = wordlist.length;
 
 void draw(){
   
+//use tab to determine which background to load
+  //tab 0 is the gaming environment background
  if(tab == 0){
-   background(#AEF0EC);
-  gameOver();
-  textSize(18);
-fill(0);
-text("test 1 2",15,100);
-text(wordlist[wordSelect],15,130);
-text(input,130,100);
-
- text(""+chances,130,130);
-questionSlot(wordlist[wordSelect]);
- }else if (tab == 1){
   background(#AEF0EC);
-  optionDialog(); 
- }else if (tab == 2){
-   background(0);
- }
- 
+    //check if it's game over or solved
+  gameOver();
+  solved();
+   //create puzzle 
+  questionSlot(wordlist[wordSelect]);
+   //tab 1 is the pop-up window background
+   }else if (tab == 1){
+    background(#AEF0EC);
+    popUp(); 
+    //tab 2 is entirely black, which is a substitution for the desktop 
+    //for now because the files are not combined yet
+   }else if (tab == 2){
+     background(0);
+   }
 
 }
