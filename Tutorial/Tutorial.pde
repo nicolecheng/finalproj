@@ -3,6 +3,8 @@ PImage welcs;
 PImage cert;
 PFont f; 
 int s; // which slide are we up to?
+int textx; // x pos on cert
+int texty; // y pos on cert
 
 // for the cute little certificate they can fill out in the tutorial
 String name;
@@ -23,6 +25,8 @@ void setup(){
   textFont(f, 20); // size 20 
   fill(111,111,111);
   text("click to begin...", 700, 440);
+  
+  textx = 5;
   
 }
 
@@ -48,12 +52,30 @@ void scene1(){
   /*
   fill out certificate
   */
-  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  String s = br.readLine();
-  int i = Integer.parseInt(br.readLine());
   background(255);
+  keyPressed();
+  //mouseclicked to change field -> texty += n
 }
-
+/*
+alternative: 
+  void keyPressed(){
+    if (key=='a'){
+      name += "a";
+    }else if (key=='b'){
+      name += "b";
+    }
+  }
+etc.
+*** create an array of letters
+*** almost like a library to make the ifs/elses easier
+*/
+void keyPressed(){
+  if (key == 'a'){
+    text("a",textx,texty);
+    textx+=5;
+  }  
+}
+ 
 void scene2(){
   /*
   give backstory pt1
