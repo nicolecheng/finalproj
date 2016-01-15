@@ -59,6 +59,9 @@ void draw(){
   text("" + chances + "  Tries left",250,50);
   //Show letters guessed so far
   text(inputs, 300-3*inputs.length(), 85);
+  //since I cannot figure out the word lol
+  text(wordlist[wordSelect],50,50);
+  
    //tab 1 is the pop-up window background
    }else if (tab == 1){
     background(#AEF0EC);

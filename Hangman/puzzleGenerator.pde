@@ -18,7 +18,14 @@ void questionSlot(String word){
       xcount = 0;
     }else{
       //create slot accordingly
-   fill(#B1C9C7);
+        //if the slot is space, make it a different color
+        if(word.charAt(i) == '-'){
+          noStroke();
+          fill(#AEF0EC);
+        }else{
+          stroke(2);
+          fill(#B1C9C7); 
+        }
    rect(20+xcount*50,ycoord,35,35);
    xcount += 1;
     }
