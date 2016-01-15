@@ -70,10 +70,11 @@ etc.
 *** almost like a library to make the ifs/elses easier
 */
 void keyPressed(){
-  if (key == 'a'){
-    text("a",textx,texty);
-    textx+=5;
-  }  
+  text(key, 50,50);
+  //if (key == 'a'){
+  //  text("a",textx,texty);
+  //  textx+=5;
+  //}  
 }
  
 void scene2(){
