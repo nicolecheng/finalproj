@@ -1,3 +1,5 @@
+// ******** MERGE CONFLICT
+
 PImage bg;
 PImage welcs;
 PImage cert;
