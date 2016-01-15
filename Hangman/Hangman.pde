@@ -17,6 +17,7 @@ void setup(){
   }
   chances = 5;
   input = '-';
+  inputs = "";
   size(600,400);
   
    //reading in word list file, remove any white space from the words
@@ -52,6 +53,12 @@ void draw(){
   solved();
    //create puzzle 
   questionSlot(wordlist[wordSelect]);
+  //Show how many chances left
+  textSize(18);
+  fill(0);
+  text("" + chances + "  Tries left",250,50);
+  //Show letters guessed so far
+  text(inputs, 300-3*inputs.length(), 85);
    //tab 1 is the pop-up window background
    }else if (tab == 1){
     background(#AEF0EC);
