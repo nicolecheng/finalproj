@@ -4,7 +4,9 @@ int [] correct = {0};
 int wordSelect;
 float listLen;
 int chances;
-
+int tab = 0;
+PImage restart;
+PImage quit;
 void setup(){
   
   //when restarting, reset everything
@@ -27,10 +29,16 @@ listLen = wordlist.length;
 
   //randomly choose a word from word list
   wordSelect = int(random(listLen));
+  
+  //load image for button "restart" and "quit"
+  restart = loadImage("restart.png");
+  quit = loadImage("quit.png");
 }
 
 void draw(){
-  background(#AEF0EC);
+  
+ if(tab == 0){
+   background(#AEF0EC);
   gameOver();
   textSize(18);
 fill(0);
@@ -38,8 +46,14 @@ text("test 1 2",15,100);
 text(wordlist[wordSelect],15,130);
 text(input,130,100);
 
- text(""+chances,130,130); 
+ text(""+chances,130,130);
 questionSlot(wordlist[wordSelect]);
-
+ }else if (tab == 1){
+  background(#AEF0EC);
+  optionDialog(); 
+ }else if (tab == 2){
+   background(0);
+ }
+ 
 
 }
