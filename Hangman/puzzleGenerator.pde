@@ -23,7 +23,8 @@ void questionSlot(String word){
           noStroke();
           fill(#AEF0EC);
         }else{
-          stroke(2);
+          strokeWeight(1);
+          stroke(0);
           fill(#B1C9C7); 
         }
    rect(20+xcount*50,ycoord,35,35);

@@ -51,6 +51,8 @@ void draw(){
     //check if it's game over or solved
   gameOver();
   solved();
+    //draw the stick figure 
+    stickFigure();
    //create puzzle 
   questionSlot(wordlist[wordSelect]);
   //Show how many chances left
@@ -65,6 +67,8 @@ void draw(){
    //tab 1 is the pop-up window background
    }else if (tab == 1){
     background(#AEF0EC);
+     //draw the stick figure 
+    stickFigure();
     popUp(); 
     //tab 2 is entirely black, which is a substitution for the desktop 
     //for now because the files are not combined yet
