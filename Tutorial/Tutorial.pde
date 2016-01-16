@@ -35,8 +35,7 @@ void setup(){
 void mouseClicked(){
   s++;
   if (s==1){
-    background(255);
-    image(cert,180,100);
+    s1Setup();
     scene1();
   }
 }
@@ -52,48 +51,44 @@ void draw(){
 }
 
 void scene1(){
-  /*
-  fill out certificate
-  */
-//  background(255);
-//  image(cert,180,100);
+  //fill out certificate
+  keyPressed();
+}
+
+void s1Setup(){
+  name = " ";
+  codeName = " ";
+  specialty = " ";
+  step = 0;
+  background(255);
+  image(cert,180,100);  
   text("Fill out your certificate!", 380, 20);
   text("Press 3 to move to next field", 360, 40);
   text("Press 4 to clear certificate", 370, 60);
   fill(0);
   text("Click anywhere on the screen to continue", 500, 450);
-  keyPressed();
 }
 
 void keyPressed(){
-  if (s == 1){
-    // text("ahdjagsaf",textx,texty);
-    if (keyPressed){
-      //text("bam", textx, texty);
-      if (key == '3'){
-        step++;
-      }
-      if (key == '4'){
-        name = " ";
-        codeName = " ";
-        specialty = " ";
-        step = 0;
-        background(255);
-        image(cert,180,100);
-      }
-      if (key > 64){
-        if (step == 0){
-          name += key;
-          text(name, 300,205);
-        } else if (step == 1){
-            codeName += key;
-            text(codeName, 370, 240);
-        } else if (step == 2){
-            specialty += key;
-            text(specialty, 340, 270);
-        }
-      }  
+  if (s == 1 && keyPressed){
+    if (key == '3'){
+      step++;
     }
+    if (key == '4'){
+      s1Setup();
+    }
+    if (key > 64){
+      if (step == 0){
+        name += key;
+        text(name, 300,205);    
+      } else if (step == 1){
+        codeName += key;
+        text(codeName, 370, 240);
+      } else if (step == 2){
+          specialty += key;
+          text(specialty, 340, 270);
+      }
+    }  
   }
 }
  
