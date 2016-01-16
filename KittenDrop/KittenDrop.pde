@@ -100,9 +100,8 @@ void draw(){
 
   println(score);
   
-<<<<<<< HEAD
-}
-=======
+
+
   if (remcat == 0){
     Congrats();
   }
@@ -131,4 +130,3 @@ void Congrats(){
   
   
 }
->>>>>>> 6c8b2bc8ee340bf3457865d5dac8dfab3ece2813
