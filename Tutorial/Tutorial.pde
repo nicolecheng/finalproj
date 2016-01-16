@@ -6,6 +6,8 @@ int s; // which slide are we up to?
 int textx; // x pos on cert
 int texty; // y pos on cert
 
+int step; // which cert field?
+
 // for the cute little certificate they can fill out in the tutorial
 String name;
 String codeName;
@@ -20,10 +22,6 @@ void setup(){
   size(960,465);
   background(bg);
   image(welcs,90,80, width/1.3,height/1.4);
-  
-  name = " ";
-  codeName = " ";
-  specialty = " ";
   
   f = createFont("FreeMonoBoldOblique",16,true);
   textFont(f, 20); // size 20 
@@ -51,19 +49,6 @@ void draw(){
   }else if (s==4){
     scene4();
   }
-  /*
-  if (s==1){
-    background(255);
-    image(cert,180,100);
-    scene1();
-  }else if (s==2){
-    scene2();
-  }else if (s==3){
-    scene3();
-  }else if (s==4){
-    scene4();
-  }
-  */
 }
 
 void scene1(){
@@ -73,31 +58,43 @@ void scene1(){
 //  background(255);
 //  image(cert,180,100);
   text("Fill out your certificate!", 380, 20);
-  text("Press enter to move to next field", 340, 40);
-  text("Press the . button to clear certificate", 325, 60);
+  text("Press 3 to move to next field", 360, 40);
+  text("Press 4 to clear certificate", 370, 60);
   fill(0);
   text("Click anywhere on the screen to continue", 500, 450);
   keyPressed();
 }
 
 void keyPressed(){
-  int step = 0;
-  //text("ahdjagsaf",textx,texty);
-  if (keyPressed){
-    if (step == 0){
-      name += key;
-      text(name, 300,210);
-    }
-  }
-  /*
-      if (key == "Enter"){
+  if (s == 1){
+    // text("ahdjagsaf",textx,texty);
+    if (keyPressed){
+      //text("bam", textx, texty);
+      if (key == '3'){
         step++;
       }
-    } else if (step == 1 && keyPressed){
-      codeName += key;
-      text(codeName, 350, 230);
-    //textx += 1;
-  }  */
+      if (key == '4'){
+        name = " ";
+        codeName = " ";
+        specialty = " ";
+        step = 0;
+        background(255);
+        image(cert,180,100);
+      }
+      if (key > 64){
+        if (step == 0){
+          name += key;
+          text(name, 300,205);
+        } else if (step == 1){
+            codeName += key;
+            text(codeName, 370, 240);
+        } else if (step == 2){
+            specialty += key;
+            text(specialty, 340, 270);
+        }
+      }  
+    }
+  }
 }
  
 void scene2(){
@@ -106,7 +103,7 @@ void scene2(){
   your agency is fighting another nation
   you guys recovered an enemy laptop
   */
-  
+  background(33,0,33);
 }
 
 void scene3(){
