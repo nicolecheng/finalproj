@@ -2,11 +2,13 @@ PImage bg;
 PImage welcs;
 PImage cert;
 PFont f; 
+PFont sf;
 int s; // which slide are we up to?
 int textx; // x pos on cert
 int texty; // y pos on cert
 
 int step; // which cert field?
+String s2m; // scene 2's message to user
 
 // for the cute little certificate they can fill out in the tutorial
 String name;
@@ -27,9 +29,8 @@ void setup(){
   textFont(f, 20); // size 20 
   fill(111,111,111);
   text("click to begin...", 700, 440);
-  
-  textx = 350;
-  texty = 210;
+
+  sf = createFont("Courier New Bold",16,true);  
 }
 
 void mouseClicked(){
@@ -77,7 +78,7 @@ void keyPressed(){
     if (key == '4'){
       s1Setup();
     }
-    if (key > 64){
+    if (key > 64 || key == ' '){
       if (step == 0){
         name += key;
         text(name, 300,205);    
@@ -97,8 +98,26 @@ void scene2(){
   give backstory pt1
   your agency is fighting another nation
   you guys recovered an enemy laptop
+  
+  String[] fontList = PFont.list();
+  printArray(fontList);
   */
-  background(33,0,33);
+  
+  background(245,245,204);
+  fill(255);
+  noStroke();
+  rect(40,30,890,300);
+  textFont(sf,16); // size 16
+  fill(111,111,111);
+  s2m = " Secret Agent " + codeName + ", \n" + 
+        " We have recently uncovered an enemy laptop near your base. \n" +
+        " The enemy was holding onto it with his dear life until one of our men took him down. \n" +
+        " We believe that there is very sensitive information stored deep inside of it. \n" +
+        " You are the only one who can unlock it. \n" +
+        " Your talent in " + specialty + "makes you perfect for the job. \n" + 
+        name + ", we are relying on you to save the world. \n \n" +
+        " Signed, \n Agent P";
+  text(s2m, 60,60);
 }
 
 void scene3(){
