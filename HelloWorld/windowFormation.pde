@@ -1,3 +1,5 @@
+//related to desktop
+
 //create a class to generate Windows
 class Window{
 

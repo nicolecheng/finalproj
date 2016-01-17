@@ -1,3 +1,4 @@
+//related to desktop
 
 //create folder with given names,also check whether mouse is over the folder, when mouse hovering over folder, highlight and change cursor
 void folders(int x, int y, String name){
