@@ -155,10 +155,10 @@ void scene3(){
   s3m = "Wow, Secret Agent " + codeName + ", that was intense.\n" +
         "It looks like you have quite a journey ahead of you. \n" +
         "The fate of justice lies on your shoulders. \n" +
-        "Should you be brave enough to accept this mission, click anywhere to begin. \n" + 
+        "Should you be brave enough to accept this mission, best of luck. \n" + 
         "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
         "All the Best,\n Agent Yuniclo";      
   text(s3m, 45, 120);
   fill(200);
-  text("click anywhere on the screen to continue...", 370, 580);  
+  text("to accept, click anywhere on the screen...", 375, 580);  
 }

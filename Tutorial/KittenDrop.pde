@@ -15,7 +15,7 @@ void kittenSetup(){
   noStroke();
   
   //  var init
-  ncat =  20;
+  ncat =  (int)(Math.random()*30)+10; // 10-40 cats
   cats = new double[ncat][5];
   score = 0;
   remcat = ncat;
@@ -42,7 +42,7 @@ void kittenSetup(){
 
 void kittenDraw(){
   background(255);
-  //background(kbg);
+  background(kbg);
   int baskety = 525;
   if (mouseY > 525){
     baskety = mouseY;
@@ -92,11 +92,10 @@ void kittenDraw(){
   }
   */
 
-  fill(50,150,0);
+  fill(255);
   text("Kitten Drop",15,25);
-  fill(111,111,111);
-  text("Score:" + score, 390, 25);
-  text("Cats remaining:"+remcat,300,50);
+  text("Score:" + score, 690, 25);
+  text("Cats remaining:"+remcat,600,50);
 
   println(score);
   
@@ -111,18 +110,18 @@ void kittenDraw(){
 void Congrats(){
   
   if (score > 0){
-    //background(kbg);
+    background(kbg);
   
-    textFont(f, 30); // size 20 
-    fill(111,111,111);
-    text("CONGRATULATIONS!", 100, 250);
-    text("You have saved enough kittens", 7, 300);
-    text("to move onto the next stage.", 22, 350);
+    textFont(f, 25); // size 25 
+    fill(255);
+    text("CONGRATULATIONS!", 290, 200);
+    text("You saved enough kittens", 240, 250);
+    text("to move onto the next stage.", 220, 300);
   }else{
-    //background(kbg);
+    background(kbg);
   
-    textFont(f, 30); // size 20 
-    fill(111,111,111);
+    textFont(f, 25); // size 25 
+    fill(255);
     text("AH, FIDDLESTICKS!", 120, 250);
     text("You didn't save enough kittens.", 8, 300);
     text("Try again.", 170, 350);
