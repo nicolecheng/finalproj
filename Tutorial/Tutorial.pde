@@ -1,19 +1,24 @@
-PImage bg;
-PImage welcs;
-PImage cert;
-PFont f; 
-PFont sf;
-int s; // which slide are we up to?
-int textx; // x pos on cert
-int texty; // y pos on cert
-
-int step; // which cert field?
-String s2m; // scene 2's message to user
-
-// for the cute little certificate they can fill out in the tutorial
 String name;
 String codeName;
 String specialty;
+int s; // which slide are we up to?
+
+// welcome page
+PImage bg;
+PImage welcs;
+
+// scene 1
+PImage cert;
+PFont f; 
+int step; // which cert field? (used only in scene 1)
+
+// scene 2
+PFont sf;
+String s2m; // scene 2's message to user
+
+// scene 3
+PFont tf;
+String s3m; // my message to user
 
 void setup(){
   
@@ -31,6 +36,7 @@ void setup(){
   text("click to begin...", 700, 440);
 
   sf = createFont("Courier New Bold",16,true);  
+  tf = createFont("Blackadder ITC",16,true);
 }
 
 void mouseClicked(){
@@ -46,9 +52,8 @@ void draw(){
     scene2();
   }else if (s==3){
     scene3();
-  }else if (s==4){
-    scene4();
   }
+  // if (s==4){ desktopStuff; }
 }
 
 void scene1(){
@@ -63,11 +68,12 @@ void s1Setup(){
   step = 0;
   background(255);
   image(cert,180,100);  
-  text("Fill out your certificate!", 380, 20);
-  text("Press 3 to move to next field", 360, 40);
-  text("Press 4 to clear certificate", 370, 60);
   fill(0);
-  text("Click anywhere on the screen to continue", 500, 450);
+  text("Fill out your certificate!", 380, 35);
+  text("Press 3 to move to next field", 360, 55);
+  text("Press 4 to clear certificate", 370, 75);
+  fill(70);
+  text("click anywhere on the screen to continue...", 530, 450);
 }
 
 void keyPressed(){
@@ -109,28 +115,35 @@ void scene2(){
   rect(40,30,890,300);
   textFont(sf,16); // size 16
   fill(111,111,111);
-  s2m = " Secret Agent " + codeName + ", \n" + 
+  
+  s2m = " Secret Agent" + codeName + ", \n" + 
         " We have recently uncovered an enemy laptop near your base. \n" +
         " The enemy was holding onto it with his dear life until one of our men took him down. \n" +
         " We believe that there is very sensitive information stored deep inside of it. \n" +
         " You are the only one who can unlock it. \n" +
-        " Your talent in " + specialty + "makes you perfect for the job. \n" + 
+        " Your talent in" + specialty + " makes you perfect for the job. \n" + 
         name + ", we are relying on you to save the world. \n \n" +
-        " Signed, \n Agent P";
-  text(s2m, 60,60);
+        " Signed, \n Agent P"; //  P&F fandom (?!)
+        
+  text(s2m, 80,70);
+  text("click anywhere on the screen to continue...", 530, 450);
 }
 
 void scene3(){
   /*
-  backstory pt2
-  you are the most tech saavy person they have
-  you are given the task of cracking open the files
-  */
-  
-}
-
-void scene4(){
-  /*
   blah blah blah ready to begin
   */
+  background(255);
+  textFont(tf,30);
+  fill(0);
+  
+  s3m = "Wow, Secret Agent " + codeName + ", that was intense.\n" +
+        "It looks like you have quite a journey ahead of you. \n" +
+        "The fate of justice lies on your shoulders. \n" +
+        "Should you be brave enough to accept this mission, click anywhere to begin. \n" + 
+        "If not, I am sorry that you live a cowardly life. It must be hard. \n\n" +
+        "All the Best,\n Agent Yuniclo";
+        
+  text(s3m, 60, 70);
+  
 }
