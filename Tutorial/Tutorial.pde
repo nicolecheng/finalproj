@@ -9,7 +9,7 @@ PImage welcs;
 
 // scene 1
 PImage cert;
-PFont f; 
+PFont fo; 
 int step; // which cert field? (used only in scene 1)
 
 // scene 2
@@ -21,22 +21,26 @@ PFont tf;
 String s3m; // my message to user
 
 void setup(){
-  
-  bg = loadImage("banner.jpg"); // 960x465
+
+  String[] fontList = PFont.list();
+  printArray(fontList);
+
+  bg = loadImage("tutbg.jpg"); // must be 800x600
   welcs = loadImage("WelcomeMessage.png");
   cert = loadImage("AgentBadge.jpg"); // 621x321  
   
-  size(960,465);
+  size(800,600);
   background(bg);
-  image(welcs,90,80, width/1.3,height/1.4);
+  image(welcs,50,140, width/1.1,height/2);
   
-  f = createFont("FreeMonoBoldOblique",16,true);
-  textFont(f, 20); // size 20 
+  fo = createFont("Trebuchet MS Bold Italic",16,true);
+  textFont(fo, 18); // size 18 
   fill(111,111,111);
-  text("click to begin...", 700, 440);
+  text("click to begin...", 650, 570);
 
   sf = createFont("Courier New Bold",16,true);  
   tf = createFont("Blackadder ITC",16,true);
+  
 }
 
 void mouseClicked(){
@@ -44,6 +48,8 @@ void mouseClicked(){
   if (s==1){
     s1Setup();
     scene1();
+  }else if (s==4){
+    kittenSetup();
   }
 }
 
@@ -52,8 +58,9 @@ void draw(){
     scene2();
   }else if (s==3){
     scene3();
+  }else if (s==4){
+    kittenDraw();
   }
-  // if (s==4){ desktopStuff; }
 }
 
 void scene1(){
@@ -67,13 +74,14 @@ void s1Setup(){
   specialty = " ";
   step = 0;
   background(255);
-  image(cert,180,100);  
+  image(cert,90,165);  
   fill(0);
-  text("Fill out your certificate!", 380, 35);
-  text("Press 3 to move to next field", 360, 55);
-  text("Press 4 to clear certificate", 370, 75);
+  textFont(fo, 20);
+  text("Fill out your certificate!", 280, 45);
+  text("Press 3 to move to next field", 260, 70);
+  text("Press 4 to clear certificate", 270, 95);
   fill(70);
-  text("click anywhere on the screen to continue...", 530, 450);
+  text("click anywhere on the screen to continue...", 370, 570);
 }
 
 void keyPressed(){
@@ -87,13 +95,13 @@ void keyPressed(){
     if (key > 64 || key == ' '){
       if (step == 0){
         name += key;
-        text(name, 300,205);    
+        text(name, 210,270);    
       } else if (step == 1){
         codeName += key;
-        text(codeName, 370, 240);
+        text(codeName, 280, 305);
       } else if (step == 2){
           specialty += key;
-          text(specialty, 340, 270);
+          text(specialty, 250, 335);
       }
     }  
   }
@@ -104,16 +112,13 @@ void scene2(){
   give backstory pt1
   your agency is fighting another nation
   you guys recovered an enemy laptop
-  
-  String[] fontList = PFont.list();
-  printArray(fontList);
   */
   
   background(245,245,204);
   fill(255);
   noStroke();
-  rect(40,30,890,300);
-  textFont(sf,16); // size 16
+  rect(20,20,780,400);
+  textFont(sf,14); // size 14
   fill(111,111,111);
   
   s2m = " Secret Agent" + codeName + ", \n" + 
@@ -126,7 +131,7 @@ void scene2(){
         " Signed, \n Agent P"; //  P&F fandom (?!)
         
   text(s2m, 80,70);
-  text("click anywhere on the screen to continue...", 530, 450);
+  text("click anywhere on the screen to continue...", 370, 570);
 }
 
 void scene3(){
