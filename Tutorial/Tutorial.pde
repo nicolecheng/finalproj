@@ -21,6 +21,7 @@ PImage matrix;
 // scene 3
 PFont tf;
 String s3m; // my message to user
+PImage scroll;
 
 void setup(){
 
@@ -32,6 +33,7 @@ void setup(){
   cert = loadImage("AgentBadge.jpg"); // 621x321  
   grid = loadImage("oopsgrid.jpg"); // 800x600
   matrix = loadImage("matrix.png"); // 800x600
+  scroll = loadImage("scroll.jpg"); // 960x1222
   
   size(800,600);
   background(bg);
@@ -145,7 +147,8 @@ void scene3(){
   /*
   blah blah blah ready to begin
   */
-  background(255);
+  background(0);
+  image(scroll, 0, 10, width/1.005, height/1.1);//960x1222
   textFont(tf,30);
   fill(0);
   
@@ -154,8 +157,8 @@ void scene3(){
         "The fate of justice lies on your shoulders. \n" +
         "Should you be brave enough to accept this mission, click anywhere to begin. \n" + 
         "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
-        "All the Best,\n Agent Yuniclo";
-        
-  text(s3m, 40, 90);
-  
+        "All the Best,\n Agent Yuniclo";      
+  text(s3m, 45, 120);
+  fill(200);
+  text("click anywhere on the screen to continue...", 370, 580);  
 }
