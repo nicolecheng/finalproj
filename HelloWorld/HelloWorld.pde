@@ -2,13 +2,14 @@
 // 0 = desktop
 // 1 = Hang man
 // 2 = Kitten drop
-int environ = 2;
+int environ = 0;
 
 //Main desktop stimulation variables
 PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
 PImage gameHangman;
+PImage gameKittendrop;
 int mouseClicks;
 boolean overFolder1 = false;
 boolean overFolder2 = false;
@@ -16,6 +17,7 @@ boolean overFolder3 = false;
 boolean openNew = false;
 boolean overClose = false;
 boolean overHangman = false;
+boolean overKittendrop = false;
 int gameClicks = 0;
 float xOff = 0;
 float yOff = 0;
@@ -65,6 +67,7 @@ toolBar1 = loadImage("minimize.PNG");
 toolBar2 = loadImage("square.PNG");
 toolBar3 = loadImage("x.PNG");
 gameHangman = loadImage("hangman.jpeg");
+gameKittendrop = loadImage("kittendrop.jpg");
 }
 
 //______________Related to Hangman___________________
@@ -183,8 +186,13 @@ void draw(){
     }
    }
    
+   //open up different games accordingly
    if(gameClicks >= 2){
+     if(overHangman){
     environ = 1;
+     }else if(overKittendrop){
+      environ = 2; 
+     }
     setup();
    }
 }

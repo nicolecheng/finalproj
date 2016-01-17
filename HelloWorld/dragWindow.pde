@@ -49,7 +49,7 @@ void mousePressed() {
     }
     
     //counting clicks to open content inside folders
-    if(overHangman && mouseButton == LEFT){
+    if((overHangman || overKittendrop) && (mouseButton == LEFT)){
       gameClicks +=1;
     }
     

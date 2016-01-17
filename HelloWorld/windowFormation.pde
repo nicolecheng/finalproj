@@ -31,6 +31,12 @@ void createWindow(float winx, float winy){
   fill(0);
   text("Hang Man", winx+43, winy+110);
  }
+ if(winNum == 1){
+  image(gameKittendrop, winx+40, winy+35, 55,55);
+  textSize(12);
+  fill(0);
+  text("Kitten Drop", winx+43, winy+110);
+ }
  
  toolbarSelect(winx,winy);
  stroke(1);
@@ -74,10 +80,23 @@ void openContent(float winx , float winy){
        tint(3,158,168,100);
        image(gameHangman, winx+40, winy+35,55,55);
        overHangman = true;
+    }else{
+     overHangman = false; 
+    }
+  }
+  
+    //second folder
+    if(winNum == 1){
+     if( mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+70){
+       tint(3,158,168,100);
+       image(gameKittendrop, winx+40, winy+35,55,55);
+       overKittendrop = true;
+     }else{
+      overKittendrop = false; 
+     }
     }
     
     noTint();
   } 
-}
 
 }
