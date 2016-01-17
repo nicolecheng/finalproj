@@ -3,7 +3,7 @@
 //create slots according to how long the word is
 void questionSlot(String word){
   int chars = word.length();
-  int ycoord = 200;
+  int ycoord = 350;
   int xcount = 0;
   
     //check which slots should show the letter
@@ -13,7 +13,7 @@ void questionSlot(String word){
   for(int i = 0;  i < chars; i++){
     
       //if too long, change to new line
-    if(20+xcount*50>545){
+    if(100+xcount*50>730){
       ycoord += 50;
       xcount = 0;
     }else{
@@ -27,7 +27,7 @@ void questionSlot(String word){
           stroke(0);
           fill(#B1C9C7); 
         }
-   rect(20+xcount*50,ycoord,35,35);
+   rect(100+xcount*50,ycoord,35,35);
    xcount += 1;
     }
       //'-' is not counted
@@ -36,7 +36,7 @@ void questionSlot(String word){
     if(word.charAt(i) != '-' && correct[i] == 1){
   textSize(20);
   fill(0);
-  text(word.charAt(i),30+(xcount-1)*50,ycoord+25);
+  text(word.charAt(i),110+(xcount-1)*50,ycoord+25);
     }
   }
 }

@@ -18,7 +18,7 @@ void setup(){
   chances = 5;
   input = '-';
   inputs = "";
-  size(600,400);
+  size(800,600);
   
    //reading in word list file, remove any white space from the words
 wordlist = trim(loadStrings("#wordList.txt#"));
@@ -58,9 +58,9 @@ void draw(){
   //Show how many chances left
   textSize(18);
   fill(0);
-  text("" + chances + "  Tries left",250,50);
+  text("" + chances + "  Tries left",330,100);
   //Show letters guessed so far
-  text(inputs, 300-3*inputs.length(), 85);
+  text(inputs, 400-3*inputs.length(), 180);
   //since I cannot figure out the word lol
   text(wordlist[wordSelect],50,50);
   
