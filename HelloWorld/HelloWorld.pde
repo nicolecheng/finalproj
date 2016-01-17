@@ -2,12 +2,13 @@
 // 0 = desktop
 // 1 = Hang man
 // 2 = Kitten drop
-int environ = 1;
+int environ = 0;
 
 //Main desktop stimulation variables
 PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
+PImage gameHangman;
 int mouseClicks;
 boolean overFolder1 = false;
 boolean overFolder2 = false;
@@ -51,6 +52,7 @@ if (environ == 0) {
 toolBar1 = loadImage("minimize.PNG");
 toolBar2 = loadImage("square.PNG");
 toolBar3 = loadImage("x.PNG");
+gameHangman = loadImage("hangman.jpeg");
 }
 
 //______________Related to Hangman___________________

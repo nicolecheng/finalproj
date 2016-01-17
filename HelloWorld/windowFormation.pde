@@ -1,5 +1,6 @@
 //related to desktop
 
+
 //create a class to generate Windows
 class Window{
 
@@ -9,6 +10,7 @@ Window(float x, float y){
     coords[winNum][0] = x;
     coords[winNum][1] = y;
 createWindow(coords[winNum][0],coords[winNum][1]);
+openContent(x, y);
 }
 
 //create window with tool bar, load image for window buttons
@@ -21,6 +23,15 @@ void createWindow(float winx, float winy){
  image(toolBar1,winx+300,winy-30,28,19);
  image(toolBar2,winx+328,winy-30);
  image(toolBar3,winx+355,winy-30);
+ 
+ //according to different folder, show different content
+ if(winNum == 0){
+  image(gameHangman, winx+40, winy+35,55,55);
+  textSize(12);
+  fill(0);
+  text("Hang Man", winx+43, winy+110);
+ }
+ 
  toolbarSelect(winx,winy);
  stroke(1);
 }
@@ -53,5 +64,27 @@ void check(){
  
 }
 
+
+//open different contents in the folders
+void openContent(float winx , float winy){
+  
+  //first folder
+  if(winNum == 0){
+    if(mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+70){
+       tint(3,158,168,100);
+       image(gameHangman, winx+40, winy+35,55,55);
+       //overHangman = true;
+    }
+    
+    noTint();
+  }
+  
+  //change environ variable to go to different contents
+  //if(openHangman){
+  // environ = 1;
+  //}
+  // setup();
+  // draw();
+}
 
 }
