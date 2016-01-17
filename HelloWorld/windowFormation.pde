@@ -73,18 +73,11 @@ void openContent(float winx , float winy){
     if(mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+70){
        tint(3,158,168,100);
        image(gameHangman, winx+40, winy+35,55,55);
-       //overHangman = true;
+       overHangman = true;
     }
     
     noTint();
-  }
-  
-  //change environ variable to go to different contents
-  //if(openHangman){
-  // environ = 1;
-  //}
-  // setup();
-  // draw();
+  } 
 }
 
 }

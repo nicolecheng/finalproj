@@ -15,6 +15,8 @@ boolean overFolder2 = false;
 boolean overFolder3 = false;
 boolean openNew = false;
 boolean overClose = false;
+boolean overHangman = false;
+int gameClicks = 0;
 float xOff = 0;
 float yOff = 0;
 boolean over = false;
@@ -109,6 +111,7 @@ void draw(){
   textSize(18);
   fill(255);
   text(winNum,500,50);
+  text(gameClicks,500,70);
   text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
     text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
       text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
@@ -117,7 +120,6 @@ void draw(){
  if(mouseClicks>=2){
   openNew = true;
   mouseClicks = 0;
-  
   if(overFolder1){
    winNum = 0; 
   }else if (overFolder2){
@@ -140,8 +142,12 @@ void draw(){
      r = new Window(coords[2][0],coords[2][1]);
     r.check(); 
     }
+   }
    
-}
+   if(gameClicks >= 2){
+    environ = 1;
+    setup();
+   }
 }
 
 if (environ == 1){

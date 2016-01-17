@@ -25,10 +25,8 @@ void mousePressed() {
     } 
 
     //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
-    if (overFolder1 || overFolder2 || overFolder3) {
-      if (mouseButton == LEFT) {
+    if ((overFolder1 || overFolder2 || overFolder3)&&(mouseButton == LEFT)) {
         mouseClicks +=1;
-      }
     }
   }
 
@@ -49,6 +47,12 @@ void mousePressed() {
         draw();
       }
     }
+    
+    //counting clicks to open content inside folders
+    if(overHangman && mouseButton == LEFT){
+      gameClicks +=1;
+    }
+    
   }
 
 
