@@ -9,6 +9,8 @@ PImage basket;
 
 void kittenSetup(){
   
+  moveOn = false; // can't move on until you win the game
+  
   background(255);
   //size(500,650);
   kbg = loadImage("thesky.jpg");
@@ -26,8 +28,6 @@ void kittenSetup(){
 
   // basket
   basket = loadImage("basket1.png"); //640x535
-//  fill(102,51,0);
-//  rect(300,525,90,70);
 
   // setup cats
   for (int m = 0; m < ncat; m++){
@@ -47,8 +47,6 @@ void kittenDraw(){
   if (mouseY > 525){
     baskety = mouseY;
   }    
-  //fill(102, 51, 0);
-  //rect(mouseX, baskety, 90,70);
   image(basket,mouseX,baskety,width/8,height/10); // 80x53.5
   
   // cat falling!
@@ -61,7 +59,7 @@ void kittenDraw(){
       }else{ // cat is not yet on the screen
         cats[r][1]++; // don't start accelerating yet
       }
-      image(cat,(float)cats[r][0],(float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
+      image(cat,(float)cats[r][0],(float)cats[r][1], width/20, height/25);
     }
     
     // past ycor threshold and in basket range?
@@ -97,7 +95,7 @@ void kittenDraw(){
   text("Score:" + score, 690, 25);
   text("Cats remaining:"+remcat,600,50);
 
-  println(score);
+//  println(score);
   
 
 
@@ -110,21 +108,23 @@ void kittenDraw(){
 void Congrats(){
   
   if (score > 0){
+    moveOn = true; // gratz. you can move on
+    
     background(kbg);
   
     textFont(f, 25); // size 25 
     fill(255);
-    text("CONGRATULATIONS!", 290, 200);
-    text("You saved enough kittens", 240, 250);
-    text("to move onto the next stage.", 220, 300);
+    text("CONGRATULATIONS!", 270, 220);
+    text("You saved enough kittens", 220, 270);
+    text("to move onto the next stage.", 205, 320);
   }else{
     background(kbg);
   
     textFont(f, 25); // size 25 
     fill(255);
-    text("AH, FIDDLESTICKS!", 120, 250);
-    text("You didn't save enough kittens.", 8, 300);
-    text("Try again.", 170, 350);
+    text("AH, FIDDLESTICKS!", 285, 220);
+    text("You didn't save enough kittens.", 190, 270);
+    text("Click here to try again.", 240, 320);
   }    
   
 }

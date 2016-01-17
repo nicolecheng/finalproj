@@ -2,6 +2,7 @@ String name;
 String codeName;
 String specialty;
 int s; // which slide are we up to?
+boolean moveOn; // is the user allowed to move onto next scene?
 
 // welcome page
 PImage bg;
@@ -25,8 +26,10 @@ PImage scroll;
 
 void setup(){
 
-  String[] fontList = PFont.list();
-  printArray(fontList);
+//  String[] fontList = PFont.list();
+//  printArray(fontList);
+
+  moveOn = true;
 
   bg = loadImage("tutbg.jpg"); // must be 800x600
   welcs = loadImage("WelcomeMessage.png");
@@ -50,7 +53,9 @@ void setup(){
 }
 
 void mouseClicked(){
-  s++;
+  if(moveOn){
+    s++;
+  }
   if (s==1){
     s1Setup();
     scene1();
