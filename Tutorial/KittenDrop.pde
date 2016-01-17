@@ -111,7 +111,7 @@ void kittenDraw(){
 void Congrats(){
   
   if (score > 0){
-    background(kbg);
+    //background(kbg);
   
     textFont(f, 30); // size 20 
     fill(111,111,111);
@@ -119,7 +119,7 @@ void Congrats(){
     text("You have saved enough kittens", 7, 300);
     text("to move onto the next stage.", 22, 350);
   }else{
-    background(kbg);
+    //background(kbg);
   
     textFont(f, 30); // size 20 
     fill(111,111,111);

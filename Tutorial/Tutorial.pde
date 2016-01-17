@@ -9,12 +9,14 @@ PImage welcs;
 
 // scene 1
 PImage cert;
+PImage grid;
 PFont fo; 
 int step; // which cert field? (used only in scene 1)
 
 // scene 2
 PFont sf;
 String s2m; // scene 2's message to user
+PImage matrix;
 
 // scene 3
 PFont tf;
@@ -28,6 +30,8 @@ void setup(){
   bg = loadImage("tutbg.jpg"); // must be 800x600
   welcs = loadImage("WelcomeMessage.png");
   cert = loadImage("AgentBadge.jpg"); // 621x321  
+  grid = loadImage("oopsgrid.jpg"); // 800x600
+  matrix = loadImage("matrix.png"); // 800x600
   
   size(800,600);
   background(bg);
@@ -73,18 +77,18 @@ void s1Setup(){
   codeName = " ";
   specialty = " ";
   step = 0;
-  background(255);
+  background(grid);
   image(cert,90,165);  
-  fill(0);
+  fill(255);
   textFont(fo, 20);
-  text("Fill out your certificate!", 280, 45);
-  text("Press 3 to move to next field", 260, 70);
-  text("Press 4 to clear certificate", 270, 95);
-  fill(70);
+  text("Fill out your certificate!", 280, 55);
+  text("Press 3 to move to next field", 260, 80);
+  text("Press 4 to clear certificate", 270, 105);
   text("click anywhere on the screen to continue...", 370, 570);
 }
 
 void keyPressed(){
+  fill(0);
   if (s == 1 && keyPressed){
     if (key == '3'){
       step++;
@@ -114,24 +118,27 @@ void scene2(){
   you guys recovered an enemy laptop
   */
   
-  background(245,245,204);
-  fill(255);
+  background(matrix);
+  fill(0);
   noStroke();
-  rect(20,20,780,400);
-  textFont(sf,14); // size 14
-  fill(111,111,111);
+  rect(20,50,760,380);
+  textFont(sf,17); // size 17
+  fill(0,255,0);
   
-  s2m = " Secret Agent" + codeName + ", \n" + 
+  s2m = " Secret Agent" + codeName + ", \n\n" + 
         " We have recently uncovered an enemy laptop near your base. \n" +
-        " The enemy was holding onto it with his dear life until one of our men took him down. \n" +
-        " We believe that there is very sensitive information stored deep inside of it. \n" +
+        " The enemy was holding onto it with his dear life until...\n one of our men took him down. \n" +
+        " We believe that there is very sensitive information to be uncovered. \n" +
         " You are the only one who can unlock it. \n" +
         " Your talent in" + specialty + " makes you perfect for the job. \n" + 
         name + ", we are relying on you to save the world. \n \n" +
         " Signed, \n Agent P"; //  P&F fandom (?!)
         
-  text(s2m, 80,70);
-  text("click anywhere on the screen to continue...", 370, 570);
+  text(s2m, 35, 95);
+  fill(0);
+  rect(320,550,455,35);
+  fill(0,255,0);
+  text("click anywhere on the screen to continue...", 330, 570);
 }
 
 void scene3(){
@@ -146,9 +153,9 @@ void scene3(){
         "It looks like you have quite a journey ahead of you. \n" +
         "The fate of justice lies on your shoulders. \n" +
         "Should you be brave enough to accept this mission, click anywhere to begin. \n" + 
-        "If not, I am sorry that you live a cowardly life. It must be hard. \n\n" +
+        "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
         "All the Best,\n Agent Yuniclo";
         
-  text(s3m, 60, 70);
+  text(s3m, 40, 90);
   
 }
