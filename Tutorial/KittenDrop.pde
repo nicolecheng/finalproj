@@ -1,4 +1,4 @@
-PImage bg; // background
+PImage kbg; // background
 int ncat; // number of cats to create
 double[][]cats; // array of cats and its [xcor, ycor, speed, loopval,falling?(1=yes)(0=no)]
 int score; // player's score
@@ -7,11 +7,11 @@ PFont f; // player's stats to display
 PImage cat; // cat image!
 PImage basket;
 
-void setup(){
-
+void kittenSetup(){
+  
   background(255);
-  size(500,650);
-  bg = loadImage("thesky.jpg");
+  //size(500,650);
+  kbg = loadImage("thesky.jpg");
   noStroke();
   
   //  var init
@@ -40,9 +40,9 @@ void setup(){
   
 }
 
-void draw(){
-  
-  background(bg);
+void kittenDraw(){
+  background(255);
+  //background(kbg);
   int baskety = 525;
   if (mouseY > 525){
     baskety = mouseY;
@@ -111,7 +111,7 @@ void draw(){
 void Congrats(){
   
   if (score > 0){
-    background(bg);
+    //background(kbg);
   
     textFont(f, 30); // size 20 
     fill(111,111,111);
@@ -119,7 +119,7 @@ void Congrats(){
     text("You have saved enough kittens", 7, 300);
     text("to move onto the next stage.", 22, 350);
   }else{
-    background(bg);
+    //background(kbg);
   
     textFont(f, 30); // size 20 
     fill(111,111,111);
@@ -127,6 +127,5 @@ void Congrats(){
     text("You didn't save enough kittens.", 8, 300);
     text("Try again.", 170, 350);
   }    
-  
   
 }
