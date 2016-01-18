@@ -68,6 +68,9 @@ toolBar2 = loadImage("square.PNG");
 toolBar3 = loadImage("x.PNG");
 gameHangman = loadImage("hangman.jpeg");
 gameKittendrop = loadImage("kittendrop.jpg");
+mouseClicks = 0;
+gameClicks = 0;
+tab = 0;
 }
 
 //______________Related to Hangman___________________
