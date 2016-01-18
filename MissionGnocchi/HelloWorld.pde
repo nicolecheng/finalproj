@@ -71,7 +71,7 @@ void desktopDraw(){
   text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
     text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
       text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
-  
+
   //check if mouse is double-clicked and allow for new window to open, then reset mouse click to 0
  if(mouseClicks>=2){
   openNew = true;
@@ -109,4 +109,5 @@ void desktopDraw(){
      }
     setup();
    }
+
 }

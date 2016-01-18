@@ -20,6 +20,11 @@ void mouseClicked(){
   if(moveOn){
     s++;
   }
+  if(overHangman){
+    environ = 2;
+  }else if(overKittendrop){
+      environ = 3; 
+  }  
   if (s==1){
     s1Setup();
     scene1();
@@ -29,12 +34,18 @@ void mouseClicked(){
   }else if(environ==2 && moveOn){
     print("hangman setup stuff");
     hangmanSetup();
-    //hangman = true;
+    hangman = true;
     moveOn = false;
   }else if(environ==3 && moveOn){
     kittenSetup();
     kitten = true;
     moveOn = false;
+  }
+  
+  if(overHangman){
+    environ = 2;
+  }else if(overKittendrop){
+      environ = 3; 
   }
 }
 

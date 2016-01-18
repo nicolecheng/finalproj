@@ -22,7 +22,7 @@ void keyPressed(){
         }
       }  
     }
-  }else if(environ==3){
+  }else if(environ==2){
     //make sure it's also lower case
     input = Character.toLowerCase(key);
     pressed = true;
