@@ -99,7 +99,7 @@ void desktopDraw(){
     r.check(); 
     }
    }
-   
+/*   
    //open up different games accordingly
    if(gameClicks >= 2){
      if(overHangman){
@@ -109,5 +109,5 @@ void desktopDraw(){
      }
     setup();
    }
-
+*/
 }

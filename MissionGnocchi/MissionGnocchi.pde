@@ -1,5 +1,5 @@
 boolean moveOn; // is the user allowed to move onto next scene?
-boolean hangman = false;
+boolean hangman = false; //  still in the game?
 boolean kitten = false;
 int environ = 0;
 
@@ -41,11 +41,12 @@ void mouseClicked(){
     kitten = true;
     moveOn = false;
   }
-  
-  if(overHangman){
-    environ = 2;
-  }else if(overKittendrop){
-      environ = 3; 
+  if (gameClicks>=2){
+    if(overHangman){
+      environ = 2;
+    }else if(overKittendrop){
+        environ = 3; 
+    }
   }
 }
 
