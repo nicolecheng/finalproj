@@ -22,7 +22,7 @@ void hangmanSetup(){
     for(int i = 0; i < correct.length; i++){
      correct[i] = 0; 
     }
-    chances = 5;
+    chances = 6;
     input = '-';
     inputs = "";
   
@@ -100,9 +100,11 @@ void stickFigure(){
  vertex(160,80);
  vertex(160,100);
  endShape();
- ellipse(160,120,40,40);
- 
  //first failed try
+  if (chances<=5){
+   ellipse(160,120,40,40);
+  }
+//second
  if(chances <= 4){
    noFill();
    beginShape();
@@ -112,15 +114,15 @@ void stickFigure(){
    vertex(170,138);
    endShape();
  }
- //second failure
+ //third failure
  if(chances <= 3){
    line(150,138,130,160);
  }
- //third failure
+ //fourth failure
  if(chances <=2){
   line(170,138,190,160); 
  }
- //fourth
+ //fifth
  if(chances <=1){
   line(144,200,143,220); 
  }

@@ -34,10 +34,11 @@ void questionSlot(String word){
       //and check if the letter is guessed right
       //if yes, then show
     //if(word.charAt(i) != '-' && correct[i] == 1){
-  //textSize(20);
-  //fill(0);
-  //text(word.charAt(i),110+(xcount-1)*50,ycoord+25);
-    //}
+  if(correct[i]==1){
+    textSize(20);
+    fill(0);
+    text(word.charAt(i),110+(xcount-1)*50,ycoord+25);
+  }
   }
 }
 
