@@ -36,6 +36,12 @@
    }else if(finished){
      text("Congrats! The Password is :", 250, 280);
      text("CodingIsFUN",290,350);
+     textFont(sf,16);
+     text("click to continue...", 600, 590);
+     s = 4;
+     hangman = false;
+     moveOn=false;
+     //desktopSetup();
    }
  }
  

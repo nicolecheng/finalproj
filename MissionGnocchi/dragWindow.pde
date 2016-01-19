@@ -35,7 +35,8 @@ void mousePressed() {
       //player decides to restart the game
       if (again) {
         tab = 0;
-        setup();
+        hangmanSetup();
+        //setup();
         again = false;
       }
 

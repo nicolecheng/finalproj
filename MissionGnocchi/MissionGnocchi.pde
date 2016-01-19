@@ -20,11 +20,19 @@ void mouseClicked(){
   if(moveOn){
     s++;
   }
+    if (s==1){
+    s1Setup();
+    scene1();
+  }else if (s==4){
+    environ = 1;
+    desktopSetup();
+  }  
   if(overHangman){
     environ = 2;
   }else if(overKittendrop){
-      environ = 3; 
-  }  
+    environ = 3; 
+    moveOn=true;
+  } 
   if (s==1){
     s1Setup();
     scene1();
@@ -32,22 +40,33 @@ void mouseClicked(){
     environ = 1;
     desktopSetup();
   }else if(environ==2 && moveOn){
-    print("hangman setup stuff");
+    //print("hangman setup stuff");
     hangmanSetup();
     hangman = true;
     moveOn = false;
-  }else if(environ==3 && moveOn){
+  //}else if(environ==3 && !(kitten)){
+  //  environ=1;
+  //  desktopSetup();
+  //  s=4;
+  }else if(environ==3 && moveOn && kitten){
+    kittenSetup();
+    moveOn = false;
+  }else if(environ==3 && moveOn && !kitten){
     kittenSetup();
     kitten = true;
     moveOn = false;
+  }else if(environ==3 && s==8){
+    environ=1;
+    desktopSetup();
+    s=4;
   }
-  if (gameClicks>=2){
-    if(overHangman){
-      environ = 2;
-    }else if(overKittendrop){
-        environ = 3; 
-    }
-  }
+  //if (gameClicks>=2){
+  //  if(overHangman){
+  //    environ = 2;
+  //  }else if(overKittendrop){
+  //      environ = 3; 
+  //  }
+  //}
 }
 
 void draw(){
@@ -55,11 +74,12 @@ void draw(){
     scene2();
   }else if (s==3){
     scene3();
-  }else if (environ==1){
+  }else if (environ==1 || s == 4){
     desktopDraw();
   }else if(environ==2 && hangman){
     hangmanDraw();
   }else if(environ==3 && kitten){
     kittenDraw();
   }
+  
 }

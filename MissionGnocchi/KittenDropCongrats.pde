@@ -1,21 +1,32 @@
 void Congrats(){
   
   if (score > 0){
-    background(bg);
+    moveOn = true; // gratz. you can move on
+    
+    background(kbg);
   
-    textFont(f, 30); // size 20 
-    fill(111,111,111);
-    text("CONGRATULATIONS!", 100, 250);
-    text("You have saved enough kittens", 7, 300);
-    text("to move onto the next stage.", 22, 350);
+    textFont(f, 25); // size 25 
+    fill(255);
+    text("CONGRATULATIONS!", 270, 220);
+    text("You saved enough kittens", 220, 270);
+    text("to move onto the next stage.", 205, 320);
+
+    text("Click here to continue.", 240, 370);
+    //s=4;
+    //print(s);
+    environ=1;
+    //desktopSetup();
+    //s=8;
+    //setup();
+    //s=8;
   }else{
-    background(bg);
+    background(kbg);
   
-    textFont(f, 30); // size 20 
-    fill(111,111,111);
-    text("AH, FIDDLESTICKS!", 120, 250);
-    text("You didn't save enough kittens.", 8, 300);
-    text("Try again.", 170, 350);
-  }    
+    textFont(f, 25); // size 25 
+    fill(255);
+    text("AH, FIDDLESTICKS!", 285, 220);
+    text("You didn't save enough kittens.", 190, 270);
+    text("Click here to try again.", 240, 320);
+  }   
   
 }

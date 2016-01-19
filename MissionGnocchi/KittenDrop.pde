@@ -94,7 +94,7 @@ void kittenDraw(){
   text("Kitten Drop",15,25);
   text("Score:" + score, 690, 25);
   text("Cats remaining:"+remcat,600,50);
-
+  text("Move your mouse to catch the kittens!",15, 50);
 //  println(score);
   
 
