@@ -29,3 +29,5 @@ Changelog:
 			- bugfix: congrats page comes after restart
 			- bug found: congrats page doesn't come when game is exited and reopened
 				- maybe we should get rid of the exit button -- it's kind of unnecessary
+			- bug found: pressing on an incorrect letter multiple times takes away chances
+			- bug fix: ^ fixed that

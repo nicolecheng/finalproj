@@ -38,18 +38,15 @@
      text("CodingIsFUN",290,350);
      textFont(sf,16);
      text("click to continue...", 600, 590);
-     //s = 4;
-     //hangman = false;
-     moveOn=true;
-     //desktopSetup();
+     moveOn = true;
    }
-   stuck=false;
+   stuck = false;
  }
  
  //see if the puzzle is solved
  void solved(){
-   moveOn = true;
-   finished = (correct[0] == 1);
+  //moveOn = true;
+  finished = (correct[0] == 1);
   for(int i = 0; i < correct.length; i++){
   finished = finished && (correct[i] == 1);  
   }
