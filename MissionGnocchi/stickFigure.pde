@@ -17,6 +17,7 @@ boolean finished = false;
 
 void hangmanSetup(){
   environ=2;
+  stuck=true;
   //______________Related to Hangman___________________
 //  if(environ == 2){
     //when restarting, reset everything

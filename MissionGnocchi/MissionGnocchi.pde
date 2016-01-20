@@ -38,7 +38,7 @@ void mouseClicked(){
   }else if (environ==2 && !stuck){ // not stuck on hangman
       if (moveOn){ // finished game
         environ = 1;
-        moveOn = false;
+        //moveOn = false;
       }else{ // did not finish game yet
         hangmanSetup();
       }
@@ -63,13 +63,6 @@ void mouseClicked(){
     s=4;
   }
   */
-  //if (gameClicks>=2){
-  //  if(overHangman){
-  //    environ = 2;
-  //  }else if(overKittendrop){
-  //      environ = 3; 
-  //  }
-  //}
 }
 
 void draw(){

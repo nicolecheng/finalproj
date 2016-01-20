@@ -41,9 +41,9 @@
      //s = 4;
      //hangman = false;
      moveOn=true;
-     stuck = false;
      //desktopSetup();
    }
+   stuck=false;
  }
  
  //see if the puzzle is solved
