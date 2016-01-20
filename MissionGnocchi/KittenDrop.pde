@@ -8,7 +8,7 @@ PImage cat; // cat image!
 PImage basket;
 
 void kittenSetup(){
-  
+  environ=3;
   moveOn = false; // can't move on until you win the game
   
   background(255);

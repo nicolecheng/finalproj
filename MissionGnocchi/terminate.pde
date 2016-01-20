@@ -38,9 +38,10 @@
      text("CodingIsFUN",290,350);
      textFont(sf,16);
      text("click to continue...", 600, 590);
-     s = 4;
-     hangman = false;
-     moveOn=false;
+     //s = 4;
+     //hangman = false;
+     moveOn=true;
+     stuck = false;
      //desktopSetup();
    }
  }
