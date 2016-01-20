@@ -4,12 +4,12 @@ int [] correct = {0};
 int wordSelect;
 float listLen;
 int chances;
-int tab = 0;
+int tab;
 PImage restart;
 PImage quit;
 char input;
 boolean pressed = false;
-String inputs = "";
+String inputs;
 boolean  again = false;
 boolean exit = false;
 boolean finished = false;
@@ -17,7 +17,11 @@ boolean finished = false;
 
 void hangmanSetup(){
   environ=2;
+  tab = 0;
   stuck=true;
+  moveOn=false;
+  inputs = "";
+  background(#AEF0EC);
   //______________Related to Hangman___________________
 //  if(environ == 2){
     //when restarting, reset everything
@@ -68,7 +72,7 @@ void hangmanDraw(){
       stickFigure();
       //create puzzle 
       //wordlist = trim(loadStrings("words.txt"));
-      print(wordlist[wordSelect]);
+      //print(wordlist[wordSelect]);
       questionSlot(wordlist[wordSelect]);
       //Show how many chances left
       textSize(18);

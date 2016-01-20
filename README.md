@@ -26,7 +26,6 @@ Changelog:
 			- bugfix: password at the end of hangman is given
 			- new feature (ish) : "click to continue" message of the hangman congrats page is no longer just for show
 			- bug found: when hangman is lost, winning the restarts doesn't give you the congratulatory page
-			- bugfix: congrats page comes after restart
 			- bug found: congrats page doesn't come when game is exited and reopened
 				- maybe we should get rid of the exit button -- it's kind of unnecessary
 			- bug found: pressing on an incorrect letter multiple times takes away chances

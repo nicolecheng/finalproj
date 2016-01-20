@@ -17,7 +17,9 @@
    fill(0);
      //if puzzle not solved
    if(!finished){
-     text("Sorry, you didn't finish the puzzle", 250, 260);
+     text("Sorry, you didn't finish the puzzle", 270, 260);
+     text("Click anywhere on the screen to retry", 265,300);
+     /*
      image(restart,280,290,50,50);
      image(quit,450,290,50,50);
        //high light button when hovering over it
@@ -32,6 +34,7 @@
       again = false;
       exit = false;
      }
+     */
      //if puzzle solved
    }else if(finished){
      text("Congrats! The Password is :", 250, 280);
