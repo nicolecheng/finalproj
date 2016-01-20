@@ -1,1 +1,24 @@
 # finalproj
+Team Yuniclo -- Nicole Cheng & Yuki (Yuxuan) Chen
+Period 7
+
+Mission Gnocchi
+
+Project description:
+You are put into the shoes of a secret agent tasked with the diffcult mission of unlocking an enemy computer to unlock sensitive information.
+
+To compile/run:
+The G4P library is needed for the passcode functions to work. To run, open the file up in processing and press run.
+
+How to use it:
+Upon running the program, you are prompted to complete a tutorial, in which you click the mouse to move to the next scene. 
+At one of the tutorial scenes, you are able to fill out a certificate of authenticity to become a secret agent.
+Your mission is given to you in a message from Agent P -- you must unlock an enemy computer. 
+Once you complete the tutorial, you will see an interactive desktop simulation. 
+You can click on the folder icons and open up files and games.
+Some folders / files / games require a secret passcode, which can be obtained from winning a game.
+After unlocking the final file, you will receive a final message from the owner of the computer -- woah!
+
+Changelog:
+- January 20:
+  - Nicole: - wrote stuff in the README file
