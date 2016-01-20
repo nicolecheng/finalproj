@@ -1,6 +1,8 @@
 // Related to Hangman
 
 void keyPressed(){
+  
+  if (environ == 1){
     //make sure it's also lower case
   input = Character.toLowerCase(key);
   pressed = true;
@@ -12,6 +14,7 @@ void keyPressed(){
   if(wordlist[wordSelect].indexOf(input) == -1){
     chances -=1;
   }
+}
 }
 
 void keyReleased(){

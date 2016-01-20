@@ -15,6 +15,7 @@ boolean overFolder1 = false;
 boolean overFolder2 = false;
 boolean overFolder3 = false;
 boolean openNew = false;
+boolean openPW = false;
 boolean overClose = false;
 boolean overHangman = false;
 boolean overKittendrop = false;
@@ -174,6 +175,12 @@ void draw(){
   }
  }
  
+ //if(openPW){
+ //  fill(255);
+ //  text("Should have PW",200,200);
+ // createPW(); 
+ //}
+ 
  //if new window allowed to be opened, create the window and start it at position 200,150
  if(openNew){
     if(winNum == 0){
@@ -206,7 +213,7 @@ if (environ == 1){
   //tab 0 is the gaming environment background
    if(tab == 0){
   background(#AEF0EC);
-    //check if it's game over or solved
+  //check if it's game over or solved
   gameOver();
   solved();
     //draw the stick figure 
@@ -216,7 +223,15 @@ if (environ == 1){
   //Show how many chances left
   textSize(18);
   fill(0);
-  text("" + chances + "  Tries left",330,100);
+  text("" + chances + "  Tries left ",330,100);
+  
+  //debugging purpose
+  for(int i = 0; i < correct.length; i++){
+   fill(0);
+   textSize(15);
+   text(correct[i],300+10*i,500);
+  }
+  
   //Show letters guessed so far
   text(inputs, 400-3*inputs.length(), 180);
   //since I cannot figure out the word lol
