@@ -1,6 +1,8 @@
+
 //Hang man variables
 String[] wordlist;
-int [] correct = {0};
+//int [] correct;// = {0};
+ArrayList<Integer>correct;
 int wordSelect;
 float listLen;
 int chances;
@@ -20,19 +22,12 @@ void hangmanSetup(){
   tab = 0;
   stuck=true;
   moveOn=false;
-  inputs = "";
   background(#AEF0EC);
-  //______________Related to Hangman___________________
-//  if(environ == 2){
-    //when restarting, reset everything
-    for(int i = 0; i < correct.length; i++){
-     correct[i] = 0; 
-    }
-    chances = 6;
-    input = '-';
-    inputs = "";
   
-   //reading in word list file, remove any white space from the words
+  //______________Related to Hangman___________________
+  
+    
+  //reading in word list file, remove any white space from the words
   //wordlist = trim(loadStrings("#wordList.txt#"));
   wordlist = trim(loadStrings("words.txt"));
   listLen = wordlist.length;
@@ -43,17 +38,35 @@ void hangmanSetup(){
   }
 
   //randomly choose a word from word list
-  wordSelect = int(random(listLen));
+  wordSelect = int(random(listLen));  
+    
   
-   //set defaul value of correct to 0( = incorrect)
-  for(int i = 0; i < wordlist[wordSelect].length()-1; i++){
-   correct = append(correct, 0); 
+//  if(environ == 2){
+  /*
+    //when restarting, reset everything    
+    for(int i = 0; i < correct.length; i++){
+     correct[i] = 0; 
+    }
+  */  
+    chances = 6;
+    input = '-';
+    inputs = "";
+    correct = new ArrayList<Integer>(wordlist[wordSelect].length());
+  //print(correct.isEmpty());
+  //print(wordlist[wordSelect]);
+   //set default value of correct to 0( = incorrect)
+  for(int m = 0; m < wordlist[wordSelect].length(); m++){
+   //correct = append(correct, 0);
+   correct.add(0);
   }
   
+  
+  /*
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
   quit = loadImage("quit.png");
 //  }
+*/
 }
 
 //related to Hang Man
