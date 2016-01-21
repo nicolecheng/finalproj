@@ -108,7 +108,7 @@ void scene3(){
   */
   background(0);
   image(scroll, 0, 10, width/1.005, height/1.1);//960x1222
-  textFont(tf,30);
+  textFont(tf,20);
   fill(0);
   
   s3m = "Wow, Secret Agent " + codeName + ", that was intense.\n" +
