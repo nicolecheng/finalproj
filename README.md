@@ -22,8 +22,8 @@ After unlocking the final file, you will receive a final message from the owner 
 Changelog:
 - January 20:
   - Nicole: - wrote stuff in the README file
-            - bug fix: hangman no longer lets you restart the game every time the mouse is clicked
-			- bug fix: password at the end of hangman is given
+		- bug fix: hangman no longer lets you restart the game every time the mouse is clicked
+		- bug fix: password at the end of hangman is given
 			- new feature (ish) : "click to continue" message of the hangman congrats page is no longer just for show
 			- bug found: when hangman is lost, winning the restarts doesn't give you the congratulatory page
 			- bug fix: ^fixed
@@ -32,3 +32,11 @@ Changelog:
 			- bug fix: ^ removed, and working now
 			- bug found: pressing on an incorrect letter multiple times takes away chances
 			- bug fix: ^ fixed that
+- January 21:
+	- bug found: restart and exit button functions for hangman
+	- To-Do List:
+		- new mini game
+		- congrats page of kittendrop
+		- passcode stuff
+		- ending
+		- new folder
