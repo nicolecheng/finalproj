@@ -12,8 +12,7 @@ void Congrats(){
     text("to move onto the next stage.", 205, 320);
 
     text("Click here to continue.", 240, 370);
-    //s=4;
-    //print(s);
+    stuck = false; // no longer stuck
     environ=1;
     //desktopSetup();
     //s=8;

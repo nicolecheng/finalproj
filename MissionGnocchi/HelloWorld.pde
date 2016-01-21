@@ -19,7 +19,7 @@ boolean openNew = false;
 boolean overClose = false;
 boolean overHangman = false;
 boolean overKittendrop = false;
-int gameClicks = 0;
+//int gameClicks = 0;
 float xOff = 0;
 float yOff = 0;
 boolean over = false;
@@ -44,7 +44,7 @@ size(800,600);
     gameHangman = loadImage("hangman.jpeg");
     gameKittendrop = loadImage("kittendrop.jpg");
     mouseClicks = 0;
-    gameClicks = 0;
+    //gameClicks = 0;
     tab = 0;
  // }
 }
@@ -67,10 +67,10 @@ void desktopDraw(){
   textSize(18);
   fill(255);
   text(winNum,500,50);
-  text(gameClicks,500,70);
+  //text(gameClicks,500,70);
   text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
-    text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
-      text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
+  text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
+  text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
 
   //check if mouse is double-clicked and allow for new window to open, then reset mouse click to 0
  if(mouseClicks>=2){
@@ -99,15 +99,4 @@ void desktopDraw(){
     r.check(); 
     }
    }
-/*   
-   //open up different games accordingly
-   if(gameClicks >= 2){
-     if(overHangman){
-    environ = 2;
-     }else if(overKittendrop){
-      environ = 3; 
-     }
-    setup();
-   }
-*/
 }

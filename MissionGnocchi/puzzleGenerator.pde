@@ -34,7 +34,7 @@ void questionSlot(String word){
       //and check if the letter is guessed right
       //if yes, then show
     //if(word.charAt(i) != '-' && correct[i] == 1){
-  if(correct[i]==1){
+  if(correct.get(i)==1){
     textSize(20);
     fill(0);
     text(word.charAt(i),110+(xcount-1)*50,ycoord+25);
@@ -48,7 +48,7 @@ void questionSlot(String word){
 void toShow(String word, int len){
  for(int i = 0; i < len; i++){
   if(word.charAt(i) == input || word.charAt(i) == '-'){
-   correct[i] = 1; 
+   correct.set(i,1);// = 1; 
   }
  }
  }

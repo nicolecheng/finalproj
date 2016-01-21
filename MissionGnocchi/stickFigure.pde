@@ -1,32 +1,33 @@
+
 //Hang man variables
 String[] wordlist;
-int [] correct = {0};
+//int [] correct;// = {0};
+ArrayList<Integer>correct;
 int wordSelect;
 float listLen;
 int chances;
-int tab = 0;
+int tab;
 PImage restart;
 PImage quit;
 char input;
 boolean pressed = false;
-String inputs = "";
+String inputs;
 boolean  again = false;
 boolean exit = false;
 boolean finished = false;
 
 
 void hangmanSetup(){
-  //______________Related to Hangman___________________
-//  if(environ == 2){
-    //when restarting, reset everything
-    for(int i = 0; i < correct.length; i++){
-     correct[i] = 0; 
-    }
-    chances = 6;
-    input = '-';
-    inputs = "";
+  environ=2;
+  tab = 0;
+  stuck=true;
+  moveOn=false;
+  background(#AEF0EC);
   
-   //reading in word list file, remove any white space from the words
+  //______________Related to Hangman___________________
+  
+    
+  //reading in word list file, remove any white space from the words
   //wordlist = trim(loadStrings("#wordList.txt#"));
   wordlist = trim(loadStrings("words.txt"));
   listLen = wordlist.length;
@@ -37,17 +38,35 @@ void hangmanSetup(){
   }
 
   //randomly choose a word from word list
-  wordSelect = int(random(listLen));
+  wordSelect = int(random(listLen));  
+    
   
-   //set defaul value of correct to 0( = incorrect)
-  for(int i = 0; i < wordlist[wordSelect].length()-1; i++){
-   correct = append(correct, 0); 
+//  if(environ == 2){
+  /*
+    //when restarting, reset everything    
+    for(int i = 0; i < correct.length; i++){
+     correct[i] = 0; 
+    }
+  */  
+    chances = 6;
+    input = '-';
+    inputs = "";
+    correct = new ArrayList<Integer>(wordlist[wordSelect].length());
+  //print(correct.isEmpty());
+  //print(wordlist[wordSelect]);
+   //set default value of correct to 0( = incorrect)
+  for(int m = 0; m < wordlist[wordSelect].length(); m++){
+   //correct = append(correct, 0);
+   correct.add(0);
   }
   
+  
+  /*
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
   quit = loadImage("quit.png");
 //  }
+*/
 }
 
 //related to Hang Man
@@ -66,7 +85,7 @@ void hangmanDraw(){
       stickFigure();
       //create puzzle 
       //wordlist = trim(loadStrings("words.txt"));
-      print(wordlist[wordSelect]);
+      //print(wordlist[wordSelect]);
       questionSlot(wordlist[wordSelect]);
       //Show how many chances left
       textSize(18);

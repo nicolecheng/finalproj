@@ -13,11 +13,14 @@
      //basic background required for both message
    fill(#E2E8DA);
    rect(225,200,350,200);
-   textSize(18);
+   //textSize(18);
    fill(0);
      //if puzzle not solved
    if(!finished){
-     text("Sorry, you didn't finish the puzzle", 250, 260);
+     textFont(sf,14);
+     text("Sorry, you didn't finish the puzzle", 270, 260);
+     text("Click anywhere on the screen to retry", 265,300);
+     /*
      image(restart,280,290,50,50);
      image(quit,450,290,50,50);
        //high light button when hovering over it
@@ -32,24 +35,25 @@
       again = false;
       exit = false;
      }
+     */
      //if puzzle solved
    }else if(finished){
+     textFont(sf,16);
      text("Congrats! The Password is :", 250, 280);
      text("CodingIsFUN",290,350);
-     textFont(sf,16);
      text("click to continue...", 600, 590);
-     s = 4;
-     hangman = false;
-     moveOn=false;
-     //desktopSetup();
+     moveOn = true;
    }
+   stuck = false;
  }
  
  //see if the puzzle is solved
  void solved(){
-   moveOn = true;
-   finished = (correct[0] == 1);
-  for(int i = 0; i < correct.length; i++){
-  finished = finished && (correct[i] == 1);  
+  //moveOn = true;
+  finished = (correct.get(0) == 1);
+  for(int i = 0; i < correct.size(); i++){
+    finished = finished && (correct.get(i) == 1);  
+    print(correct.get(i));
   }
+  print(finished);
  }

@@ -48,12 +48,12 @@ void mousePressed() {
         draw();
       }
     }
-    
+    /*
     //counting clicks to open content inside folders
     if((overHangman || overKittendrop) && (mouseButton == LEFT)){
       gameClicks +=1;
     }
-    
+    */
   }
 
 
