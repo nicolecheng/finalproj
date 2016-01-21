@@ -28,21 +28,31 @@ public void password1_change2(GPassword source, GEvent event) { //_CODE_:passwor
   if (event.toString() == "ENTERED"){
     strPw1 = source.getPassword();
   }
+  if(event.toString() == "LOST_FOCUS"){
+   pw1.setVisible(false); 
+  }
 } //_CODE_:password1:804951:
 
 public void password2_change2(GPassword source, GEvent event) { //_CODE_:password1:804951
   if (event.toString() == "ENTERED"){
     strPw2 = source.getPassword();
   }
+  if(event.toString() == "LOST_FOCUS"){
+   pw2.setVisible(false); 
+  }
 }
 
 void checkPW(){
- if(strPw1.equals("CodingIsFun") || strPw2.equals("KittensAreCute")){
+ if(strPw1.equals("Cute") || strPw2.equals("Pawsitive")){
    fill(255);
-  openNew = true;
   strPw1 = "";
   strPw2 = "";
-  if(winNum == 0){
+  if(winNum == 1){
+   openNew[1] = true; 
+  }else if (winNum == 2){
+   openNew[2] = true; 
+  }
+  if(winNum == 0 || winNum == 2){
   pw1.setVisible(false);
   }else if(winNum == 1){
    pw2.setVisible(false); 

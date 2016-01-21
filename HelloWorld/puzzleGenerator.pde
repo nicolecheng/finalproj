@@ -5,6 +5,13 @@ void questionSlot(String word){
   int chars = word.length();
   int ycoord = 350;
   int xcount = 0;
+  if(finished){
+   fill(0);
+   text("Finished!",100,550);
+  }
+  for (int i = 0; i < correct.length; i++){
+   text(correct[i], 100+i*10, 600); 
+  }
   
     //check which slots should show the letter
   toShow(word,chars);

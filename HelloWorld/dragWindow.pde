@@ -5,7 +5,9 @@ void mousePressed() {
   if (environ == 0) {
     //if click mouse over the close-window button, then close the window
     if (overClose) {
-      openNew = false;
+      for(int i = 0; i < openNew.length; i++){
+        openNew[i] = false;
+      }
       overClose = false;
       mouseClicks = 0;
       coords[winNum][0] = 200;
@@ -26,34 +28,61 @@ void mousePressed() {
 
     //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
     if ((overFolder1 || overFolder2 || overFolder3)&&(mouseButton == LEFT)) {
-        mouseClicks +=1;
+      mouseClicks +=1;
+      if(overFolder1){
+       openNew[1]=false;
+       openNew[2]=false;
+      }else if(overFolder2){
+        openNew[0]=false;
+       openNew[2]=false;
+      }else if(overFolder3){
+       openNew[1]=false;
+       openNew[0]=false; 
+      }
     }
   }
 
-    //___________________Related to Hangman____________________
-    if (environ == 1) {
-      //player decides to restart the game
-      if (again) {
-        tab = 0;
-        setup();
-        again = false;
-      }
+  //___________________Related to Hangman____________________
+  if (environ == 1) {
+    //player decides to restart the game
+    if (again) {
+      tab = 0;
+      setup();
+      again = false;
+      finished = false;
+    }
 
-      //player decides to end the game
-      if (exit) {
-        environ = 0;
-        exit = false;
-        setup();
-        draw();
-      }
+    //player decides to end the game
+    if (exit) {
+      environ = 0;
+      exit = false;
+      finished = false;
+      setup();
+      draw();
     }
-    
-    //counting clicks to open content inside folders
-    if((overHangman || overKittendrop) && (mouseButton == LEFT)){
-      gameClicks +=1;
-    }
-    
   }
+
+  //_______________Related to KittenDrop_______________________
+  if (environ == 2) {
+    if (again) {
+      score = 0;
+      environ = 2;
+      setup();
+      draw();
+      again = false;
+    } else if (exit) {
+      environ = 0;
+      exit = false;
+      setup();
+      draw();
+    }
+  }
+
+  //counting clicks to open content inside folders
+  if ((overHangman || overKittendrop) && (mouseButton == LEFT)) {
+    gameClicks +=1;
+  }
+}
 
 
 void mouseDragged() {
