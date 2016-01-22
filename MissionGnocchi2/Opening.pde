@@ -70,7 +70,7 @@ void s1Setup() {
   enterName = new GTextField(this, 210, 255, 200, 20);
   enterName.addEventHandler(this, "nameHandler");
   enterCodeName = new GTextField(this, 280, 290, 200, 20);
-  enterName.addEventHandler(this, "codeNameHandler");
+  enterCodeName.addEventHandler(this, "codeNameHandler");
   enterSpecialty = new GTextField(this, 260, 320, 200, 20);
   enterSpecialty.addEventHandler(this, "specialtyHandler");
 
@@ -80,16 +80,6 @@ void s1Setup() {
 }
 
 void codeNameHandler(GTextField source, GEvent event) {
-  name = source.getText();
-  if (event.toString().equals("GETS_FOCUS")) {
-    //countClicks = false;
-  }
-  if (event.toString().equals("CHANGED")){
-   filled[0] = true; 
-  }
-}
-
-void nameHandler(GTextField source, GEvent event) {
   codeName = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
@@ -97,6 +87,17 @@ void nameHandler(GTextField source, GEvent event) {
   if (event.toString().equals("CHANGED")){
    filled[1] = true; 
   }
+}
+
+void nameHandler(GTextField source, GEvent event) {
+  name = source.getText();
+  if (event.toString().equals("GETS_FOCUS")) {
+    //countClicks = false;
+  }
+  if (event.toString().equals("CHANGED")){
+   filled[0] = true; 
+  }
+
 }
 
 void specialtyHandler(GTextField source, GEvent event) {
@@ -108,7 +109,7 @@ void specialtyHandler(GTextField source, GEvent event) {
    filled[2] = true; 
   }
 }
-
+/*
 void filledOut(){
   boolean goOn = true;
  for(int i = 0; i < filled.length; i++){
@@ -119,6 +120,14 @@ void filledOut(){
   print("here");
   s=1;
  }
+}*/
+boolean filledOut(){
+  for (int i=0; i<filled.length;i++){
+    if (!filled[i]){
+      return false;
+    }
+  }
+  return true;
 }
 
 void scene2(){

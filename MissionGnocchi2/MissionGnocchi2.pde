@@ -298,18 +298,9 @@ void draw() {
 }
 
 void mouseClicked(){
-  print("filled");
-  print(filled[0]);
-  print(filled[1]);
-  print(filled[2]);
-  print(s);
-  print(stopLoop);
-  print("name:");
-  print(name);
-  print("codename:");
-  print(codeName);
-  print("specialty:");
-  print(specialty);
+  if (environ==-1 && filledOut()){
+    stopLoop=false;
+  }
   if (environ==-1 && !stopLoop){
     s++;
   }
