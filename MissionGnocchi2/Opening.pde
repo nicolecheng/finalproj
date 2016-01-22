@@ -67,7 +67,7 @@ void s1Setup() {
   fill(255);
   textFont(fo, 20);
   text("Fill out your certificate!", 280, 55);
-  enterName = new GTextField(this, 250, 250, 200, 20);
+  enterName = new GTextField(this, 210, 255, 200, 20);
   enterName.addEventHandler(this, "nameHandler");
   enterCodeName = new GTextField(this, 280, 290, 200, 20);
   enterName.addEventHandler(this, "codeNameHandler");
@@ -79,7 +79,7 @@ void s1Setup() {
   text("After filling in, click anywhere to continue...", 370, 570);
 }
 
-void nameHandler(GTextField source, GEvent event) {
+void codeNameHandler(GTextField source, GEvent event) {
   name = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
@@ -89,7 +89,7 @@ void nameHandler(GTextField source, GEvent event) {
   }
 }
 
-void codeNameHandler(GTextField source, GEvent event) {
+void nameHandler(GTextField source, GEvent event) {
   codeName = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
