@@ -1,5 +1,10 @@
 
 void mousePressed() {
+  
+  //__________________________Related to Opening______________
+  if(environ == -1 && countClicks){
+   s++; 
+  }
   //_________________Related to desktop_________________
 
   if (environ == 0) {
