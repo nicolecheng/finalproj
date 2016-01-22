@@ -1,8 +1,10 @@
 boolean moveOn; // is the user allowed to move onto next scene?
 int environ = 0;
 boolean stuck; // are you stuck in the game? (aka you haven't finished the game yet)
+int gameClicks;
 
 void setup(){
+  gameClicks = 0;
   size(800,600);
   if (environ==0){
     tutorialSetup();

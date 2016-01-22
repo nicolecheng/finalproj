@@ -15,7 +15,7 @@ int mouseClicks;
 boolean overFolder1 = false;
 boolean overFolder2 = false;
 boolean overFolder3 = false;
-boolean openNew = false;
+boolean [] openNew = {false,false,false};
 boolean overClose = false;
 boolean overHangman = false;
 boolean overKittendrop = false;
@@ -50,7 +50,7 @@ size(800,600);
 }
 
 void desktopDraw(){
-  
+ 
 //_________________________________Related to desktop__________________________________
 //  if( environ == 1){
   background(0);
@@ -71,7 +71,7 @@ void desktopDraw(){
   text("folder 1"+coords[0][0]+","+coords[0][1],500,100);
   text("folder 2"+coords[1][0]+","+coords[1][1],500,125);
   text("folder 3"+coords[2][0]+","+coords[2][1],500,150);
-
+/*
   //check if mouse is double-clicked and allow for new window to open, then reset mouse click to 0
  if(mouseClicks>=2){
   openNew = true;
@@ -99,4 +99,43 @@ void desktopDraw(){
     r.check(); 
     }
    }
+*/
+
+    if (overClose) {
+      for(int i = 0; i < openNew.length; i++){
+        openNew[i] = false;
+      }
+      overClose = false;
+      mouseClicks = 0;
+      coords[winNum][0] = 200;
+      coords[winNum][1] = 150;
+      offs[winNum][0] = 0;
+      offs[winNum][1] = 0;
+    }
+
+    //if mouse over the tool bar, then make the boolean true
+    if (over) {
+      locked = true; 
+      //calculate the value at which the window should be generated to create motion of movement
+      offs[winNum][0] = mouseX - coords[winNum][0];
+      offs[winNum][1] = mouseY - coords[winNum][1];
+    } else {
+      locked = false;
+    } 
+
+    //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
+    if ((overFolder1 || overFolder2 || overFolder3)&&(mouseButton == LEFT)) {
+      mouseClicks +=1;
+      if(overFolder1){
+       openNew[1]=false;
+       openNew[2]=false;
+      }else if(overFolder2){
+        openNew[0]=false;
+       openNew[2]=false;
+      }else if(overFolder3){
+       openNew[1]=false;
+       openNew[0]=false; 
+      }
+    }
+
 }
