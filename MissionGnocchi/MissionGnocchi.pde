@@ -18,6 +18,8 @@ void setup(){
 }
 
 void mouseClicked(){
+  print(overFolder1);
+  print(overHangman);
   if(environ==0 && moveOn){
     s++;
   }
