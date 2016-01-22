@@ -1,8 +1,10 @@
 boolean moveOn; // is the user allowed to move onto next scene?
 int environ = 0;
 boolean stuck; // are you stuck in the game? (aka you haven't finished the game yet)
+int gameClicks;
 
 void setup(){
+  gameClicks = 0;
   size(800,600);
   if (environ==0){
     tutorialSetup();
@@ -16,6 +18,8 @@ void setup(){
 }
 
 void mouseClicked(){
+  print(overFolder1);
+  print(overHangman);
   if(environ==0 && moveOn){
     s++;
   }
@@ -28,13 +32,25 @@ void mouseClicked(){
       desktopSetup();
     }
   }else if (environ==1){ // on simulation
-    if(overHangman){
-      stuck=true;
-      hangmanSetup();
-    }else if(overKittendrop){
-      stuck=true;
-      kittenSetup();
+    if(overFolder1){
+      winNum = 0;
+    }else if(overFolder2) {
+      winNum = 1;
+    }else{
+      winNum = 2;
     }
+    //if (winNum == 1 || winNum == 2) {
+    //  createPW();
+    //} else if (winNum == 0) {
+    //  openNew[0] = true;
+    //}
+    //if(overHangman){
+    //  stuck=true;
+    //  hangmanSetup();
+    //}else if(overKittendrop){
+    //  stuck=true;
+    //  kittenSetup();
+    //}
   }else if (environ==2 && !stuck){ // not stuck on hangman
       if (moveOn){ // finished game
         environ = 1;
