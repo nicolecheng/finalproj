@@ -197,9 +197,13 @@ void desktopDraw(){
     //open up different games accordingly
     if (gameClicks >= 2) {
       if (overHangman) {
-        environ = 1;
+        stuck = true;
+        hangmanSetup();
+        //environ = 1;
       } else if (overKittendrop) {
-        environ = 2;
+        stuck = true;
+        kittenSetup();
+        //environ = 2;
       }
       setup();
     }

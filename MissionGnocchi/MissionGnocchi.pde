@@ -32,13 +32,25 @@ void mouseClicked(){
       desktopSetup();
     }
   }else if (environ==1){ // on simulation
-    if(overHangman){
-      stuck=true;
-      hangmanSetup();
-    }else if(overKittendrop){
-      stuck=true;
-      kittenSetup();
+    if(overFolder1){
+      winNum = 0;
+    }else if(overFolder2) {
+      winNum = 1;
+    }else{
+      winNum = 2;
     }
+    //if (winNum == 1 || winNum == 2) {
+    //  createPW();
+    //} else if (winNum == 0) {
+    //  openNew[0] = true;
+    //}
+    //if(overHangman){
+    //  stuck=true;
+    //  hangmanSetup();
+    //}else if(overKittendrop){
+    //  stuck=true;
+    //  kittenSetup();
+    //}
   }else if (environ==2 && !stuck){ // not stuck on hangman
       if (moveOn){ // finished game
         environ = 1;
