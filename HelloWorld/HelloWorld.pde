@@ -138,9 +138,12 @@ void  setup() {
 void draw() {
   
   //____________________________Related to Opening
-  if(environ == -1 && !stopLoop){
+  if(environ == -1){
    println(s);
+   filledOut();
+   if(!stopLoop){
     Opening();
+   }
   }
 
   //_________________________________Related to desktop__________________________________

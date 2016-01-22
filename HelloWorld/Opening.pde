@@ -66,7 +66,7 @@ void s1Setup() {
   enterName = new GTextField(this, 250, 250, 200, 20);
   enterName.addEventHandler(this, "nameHandler");
   enterCodeName = new GTextField(this, 280, 290, 200, 20);
-  enterName.addEventHandler(this, "codeNameHandler");
+  enterCodeName.addEventHandler(this, "codeNameHandler");
   enterSpecialty = new GTextField(this, 260, 320, 200, 20);
   enterSpecialty.addEventHandler(this, "specialtyHandler");
 
@@ -105,10 +105,13 @@ void specialtyHandler(GTextField source, GEvent event) {
   }
 }
 
+
+
 void filledOut(){
   boolean goOn = true;
  for(int i = 0; i < filled.length; i++){
    goOn = goOn && filled[i];
+     println("filled"+i+" :" + filled[i]+" ");
  }
  if(goOn){
   stopLoop = false; 

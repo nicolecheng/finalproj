@@ -1,10 +1,6 @@
 
 void mousePressed() {
-  
-  //__________________________Related to Opening______________
-  if(environ == -1){
-   s++; 
-  }
+ 
   //_________________Related to desktop_________________
 
   if (environ == 0) {
@@ -103,4 +99,11 @@ void mouseReleased() {
   //____________related to desktop _____________________
   //when mouse released, don't want the window to move anymore
   locked = false;
+}
+
+void mouseClicked(){
+ //__________________________Related to Opening______________
+  if(environ == -1 && !stopLoop){
+   s++; 
+  } 
 }
