@@ -103,7 +103,10 @@ void mouseReleased() {
 
 void mouseClicked(){
  //__________________________Related to Opening______________
-  if(environ == -1 && !stopLoop){
-   s++; 
+  if(environ == -1 && filledOut()){
+   stopLoop = false;
   } 
+  if(environ == -1 && !stopLoop){
+   s++;
+  }
 }

@@ -8,7 +8,7 @@ String specialty;
 int s = 0; // which slide are we up to?
 boolean countClicks = true;
 boolean stopLoop = false;
-boolean [] filled = {false,false,false};
+boolean [] filled = {false, false, false};
 
 // welcome page
 PImage bg0;
@@ -59,7 +59,7 @@ void Opening() {
 void s1Setup() {
   stopLoop = true;
   background(grid);
-  image(cert, 90, 165);  
+  image(cert, 90, 165); 
   fill(255);
   textFont(fo, 20);
   text("Fill out your certificate!", 280, 55);
@@ -80,8 +80,8 @@ void nameHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[0] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[0] = true;
   }
 }
 
@@ -90,8 +90,8 @@ void codeNameHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[1] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[1] = true;
   }
 }
 
@@ -100,20 +100,19 @@ void specialtyHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[2] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[2] = true;
   }
 }
 
 
 
-void filledOut(){
-  boolean goOn = true;
- for(int i = 0; i < filled.length; i++){
-   goOn = goOn && filled[i];
-     println("filled"+i+" :" + filled[i]+" ");
- }
- if(goOn){
-  stopLoop = false; 
- }
+boolean filledOut() {
+  for (int i = 0; i < filled.length; i++) {
+    println("filled"+i+" :" + filled[i]+" ");
+    if(!filled[i]){
+     return false; 
+    }
+  }
+  return true;
 }
