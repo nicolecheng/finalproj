@@ -8,6 +8,7 @@ String specialty;
 int s = 0; // which slide are we up to?
 boolean countClicks = true;
 boolean stopLoop = false;
+boolean [] filled = {false,false,false};
 
 // welcome page
 PImage bg0;
@@ -51,6 +52,7 @@ void Opening() {
   tf = createFont("Blackadder ITC", 16, true);
   if (s==1) {
     s1Setup();
+    filledOut();
   }
 }
 
@@ -64,7 +66,9 @@ void s1Setup() {
   enterName = new GTextField(this, 250, 250, 200, 20);
   enterName.addEventHandler(this, "nameHandler");
   enterCodeName = new GTextField(this, 280, 290, 200, 20);
-  enterName.addEventHandler(this, "nameHandler");
+  enterName.addEventHandler(this, "codeNameHandler");
+  enterSpecialty = new GTextField(this, 260, 320, 200, 20);
+  enterSpecialty.addEventHandler(this, "specialtyHandler");
 
   //text("Press 3 to move to next field", 260, 80);
   //text("Press 4 to clear certificate", 270, 105);
@@ -74,13 +78,39 @@ void s1Setup() {
 void nameHandler(GTextField source, GEvent event) {
   name = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
-    countClicks = false;
+    //countClicks = false;
+  }
+  if (event.toString().equals("CHANGED")){
+   filled[0] = true; 
   }
 }
 
 void codeNameHandler(GTextField source, GEvent event) {
   codeName = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
-    countClicks = false;
+    //countClicks = false;
   }
+  if (event.toString().equals("CHANGED")){
+   filled[1] = true; 
+  }
+}
+
+void specialtyHandler(GTextField source, GEvent event) {
+  specialty = source.getText();
+  if (event.toString().equals("GETS_FOCUS")) {
+    //countClicks = false;
+  }
+  if (event.toString().equals("CHANGED")){
+   filled[2] = true; 
+  }
+}
+
+void filledOut(){
+  boolean goOn = true;
+ for(int i = 0; i < filled.length; i++){
+   goOn = goOn && filled[i];
+ }
+ if(goOn){
+  stopLoop = false; 
+ }
 }

@@ -139,6 +139,7 @@ void draw() {
   
   //____________________________Related to Opening
   if(environ == -1 && !stopLoop){
+   println(s);
     Opening();
   }
 
