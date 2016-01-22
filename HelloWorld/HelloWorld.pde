@@ -2,7 +2,7 @@
 // 0 = desktop
 // 1 = Hang man
 // 2 = Kitten drop
-int environ = 0;
+int environ = -1;
 
 //Main desktop stimulation variables
 PImage toolBar1;
@@ -136,6 +136,12 @@ void  setup() {
 }
 
 void draw() {
+  
+  //____________________________Related to Opening
+  if(environ == -1 && !stopLoop){
+   println(s);
+    Opening();
+  }
 
   //_________________________________Related to desktop__________________________________
   if ( environ == 0) {
