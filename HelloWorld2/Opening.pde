@@ -8,7 +8,7 @@ String specialty;
 int s = 0; // which slide are we up to?
 boolean countClicks = true;
 boolean stopLoop = false;
-boolean [] filled = {false,false,false};
+boolean [] filled = {false, false, false};
 
 // welcome page
 PImage bg0;
@@ -53,10 +53,13 @@ void Opening() {
   if (s==1) {
     s1Setup();
     filledOut();
-  }else if (s==2){
+  } else if (s==2) {
     scene2();
-  }else if (s==3){
+  } else if (s==3) {
     scene3();
+  }else if(s>=4){
+   environ = 0;
+   setup();
   }
 }
 
@@ -84,8 +87,8 @@ void codeNameHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[1] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[1] = true;
   }
 }
 
@@ -94,10 +97,9 @@ void nameHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[0] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[0] = true;
   }
-
 }
 
 void specialtyHandler(GTextField source, GEvent event) {
@@ -105,77 +107,79 @@ void specialtyHandler(GTextField source, GEvent event) {
   if (event.toString().equals("GETS_FOCUS")) {
     //countClicks = false;
   }
-  if (event.toString().equals("CHANGED")){
-   filled[2] = true; 
+  if (event.toString().equals("CHANGED")) {
+    filled[2] = true;
   }
 }
 /*
 void filledOut(){
-  boolean goOn = true;
+ boolean goOn = true;
  for(int i = 0; i < filled.length; i++){
-   goOn = goOn && filled[i];
+ goOn = goOn && filled[i];
  }
  if(goOn){
-  stopLoop = false; 
-  print("here");
-  s=1;
+ stopLoop = false; 
+ print("here");
+ s=1;
  }
-}*/
-boolean filledOut(){
-  for (int i=0; i<filled.length;i++){
-    if (!filled[i]){
+ }*/
+boolean filledOut() {
+  for (int i=0; i<filled.length; i++) {
+    if (!filled[i]) {
       return false;
     }
   }
   return true;
 }
 
-void scene2(){
+void scene2() {
   /*
   give backstory pt1
-  your agency is fighting another nation
-  you guys recovered an enemy laptop
-  */
-  
+   your agency is fighting another nation
+   you guys recovered an enemy laptop
+   */
+  enterName.setVisible(false);
+  enterCodeName.setVisible(false);
+  enterSpecialty.setVisible(false);
   background(matrix);
   fill(0);
   noStroke();
-  rect(20,50,760,380);
-  textFont(sf,17); // size 17
-  fill(0,255,0);
-  
+  rect(20, 50, 760, 380);
+  textFont(sf, 17); // size 17
+  fill(0, 255, 0);
+
   s2m = " Secret Agent " + codeName + ", \n\n" + 
-        " We have recently uncovered an enemy laptop near your base. \n" +
-        " The enemy was holding onto it with his dear life until...\n one of our men took him down. \n" +
-        " We believe that there is very sensitive information to be uncovered. \n" +
-        " You are the only one who can unlock it. \n " +
-        " Your talent in " + specialty + " makes you perfect for the job. \n" + 
-        name + ", we are relying on you to save the world. \n \n" +
-        " Signed, \n Agent P"; //  P&F fandom (?!)
-        
+    " We have recently uncovered an enemy laptop near your base. \n" +
+    " The enemy was holding onto it with his dear life until...\n one of our men took him down. \n" +
+    " We believe that there is very sensitive information to be uncovered. \n" +
+    " You are the only one who can unlock it. \n " +
+    " Your talent in " + specialty + " makes you perfect for the job. \n" + 
+    name + ", we are relying on you to save the world. \n \n" +
+    " Signed, \n Agent P"; //  P&F fandom (?!)
+
   text(s2m, 35, 95);
   fill(0);
-  rect(320,550,455,35);
-  fill(0,255,0);
+  rect(320, 550, 455, 35);
+  fill(0, 255, 0);
   text("click anywhere on the screen to continue...", 330, 570);
 }
 
-void scene3(){
+void scene3() {
   /*
   blah blah blah ready to begin
-  */
+   */
   background(0);
   image(scroll, 0, 10, width/1.005, height/1.1);//960x1222
-  textFont(tf,20);
+  textFont(tf, 20);
   fill(0);
-  
+
   s3m = "Wow, Secret Agent " + codeName + ", that was intense.\n" +
-        "It looks like you have quite a journey ahead of you. \n" +
-        "The fate of justice lies on your shoulders. \n" +
-        "Should you be brave enough to accept this mission, best of luck. \n" + 
-        "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
-        "All the Best,\n Agent Yuniclo";      
+    "It looks like you have quite a journey ahead of you. \n" +
+    "The fate of justice lies on your shoulders. \n" +
+    "Should you be brave enough to accept this mission, best of luck. \n" + 
+    "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
+    "All the Best,\n Agent Yuniclo";      
   text(s3m, 45, 120);
   fill(200);
-  text("to accept, click anywhere on the screen...", 375, 580);  
+  text("to accept, click anywhere on the screen...", 375, 580);
 }
