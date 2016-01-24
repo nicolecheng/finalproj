@@ -4,7 +4,9 @@ int g;
 PImage wasd, play, geogif;
 PFont ins;
 PImage redright, redleft; // red panda char
-int first, second; // to loop background
+int first, second, third; // to loop background
+boolean right;
+float[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
 
 void setup(){
   intro = loadImage("intro.jpg");
@@ -15,14 +17,16 @@ void setup(){
   wasd = loadImage("wasd.png");
   play = loadImage("play.png");
   geogif = loadImage("geogif.gif");
-  redright = loadImage("redright.png"); // perry for instructions
+  redright = loadImage("redright.gif"); 
   redleft = loadImage("redleft.png"); // the character
   ins = createFont("Anonymous Pro Bold", 27);
   textFont(ins);
   size(800,600);
   g = 0;
-  first = 0;
-  second = 800;
+  first = 0; // center
+  second = 800; // right
+  third = -800; // left
+  right = true;
 }
 
 void draw(){
@@ -60,19 +64,45 @@ void mouseClicked(){
 }
 
 void keyPressed(){
-  if(g==1){
+  if(g==2){
+    if (key=='a'){
+      first+=10;
+      second+=10;
+      third+=10;
+      right=false; // going left
+    }else if(key=='d'){
+      first-=10;
+      second-=10;
+      third-=10;
+      right=true; // going right
+    }
+  }else if(g==1){
     g++; // move to game
   }
 }
 
 void geo(){
+  
   background(111);
   image(intro, first, 0);
   image(intro, second, 0);
-  first--;
-  second--;
+  image(intro, third, 0);
+  fill(111);
+  noStroke();
+  rect(0,450,800,150);
+  
+  if(right){
+    image(redright, wren[0], wren[1], width/5, height/5);
+  }else{
+    image(redleft, wren[0], wren[1], width/5, height/5);
+  }
   if (first<=-800){
     first = 0;
     second = 800;
+    third = 1600;
+  }else if(first>=800){
+    first = 0;
+    second = -800;
+    third = -1600;
   }
 }
