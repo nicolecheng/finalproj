@@ -38,11 +38,12 @@ void draw(){
   }else if(g==1){
     background(geogif);
     image(play, 140, 0, width/1.5, height/6);
-    image(wasd, 40, 125);
     fill(255);
-    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively.", 210, 160);
-    image(redleft, 500, 230, width/3, height/3);
-    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 290);
+    image(wasd, 40, 135);
+    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively.", 210, 170);
+    image(redleft, 500, 250, width/3, height/3);
+    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 310);
+    text("Are you ready? This is it.\n Press any key to begin.", 180, 500);
   }else if(g==2){
     geo();
   }
@@ -50,10 +51,18 @@ void draw(){
 }
 
 void mouseClicked(){
-  g++;
+  if(g==0){
+    g++; // move to instructions page
+  }
+}
+
+void keyPressed(){
+  if(g==1){
+    g++; // move to game
+  }
 }
 
 void geo(){
-  background(intro);
+  background(111);//intro);
   
 }
