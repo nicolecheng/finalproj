@@ -13,12 +13,16 @@ void setup(){
 void draw(){
   
   background(intro);
-  image(dash, 10, 40, width/3, height/3);
-  image(geo, 40, 130, width/3, height/3);
-  image(cont, 150, 400, width/4, height/4);
   
   stat = (int)(Math.random()*2);
-  if(stat>1){
+  if(stat>0){
+  image(cont, 535, 510, width/3, height/6);
+  image(dash, 135, 40, width/1.5, height/3);
+  image(geo, 135, 175, width/1.5, height/3);
+  }else{
+  image(cont2, 535, 510, width/3, height/6);
+  image(dash, 145, 40, width/1.5, height/3);
+  image(geo, 145, 175, width/1.5, height/3);
   }
     
 }
