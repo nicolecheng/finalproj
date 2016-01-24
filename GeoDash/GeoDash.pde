@@ -3,6 +3,7 @@ int stat; // static continue text
 int g;
 PImage wasd, play, geogif;
 PFont ins;
+PImage redright, redleft; // red panda char
 
 void setup(){
   intro = loadImage("intro.jpg");
@@ -13,6 +14,8 @@ void setup(){
   wasd = loadImage("wasd.png");
   play = loadImage("play.png");
   geogif = loadImage("geogif.gif");
+  redright = loadImage("redright.png"); // perry for instructions
+  redleft = loadImage("redleft.png"); // the character
   ins = createFont("Anonymous Pro Bold", 27);
   textFont(ins);
   size(800,600);
@@ -38,6 +41,8 @@ void draw(){
     image(wasd, 40, 125);
     fill(255);
     text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively.", 210, 160);
+    image(redleft, 500, 230, width/3, height/3);
+    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 290);
   }else if(g==2){
     geo();
   }
