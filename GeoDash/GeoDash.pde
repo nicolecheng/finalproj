@@ -4,6 +4,7 @@ int g;
 PImage wasd, play, geogif;
 PFont ins;
 PImage redright, redleft; // red panda char
+int first, second; // to loop background
 
 void setup(){
   intro = loadImage("intro.jpg");
@@ -20,6 +21,8 @@ void setup(){
   textFont(ins);
   size(800,600);
   g = 0;
+  first = 0;
+  second = 800;
 }
 
 void draw(){
@@ -63,6 +66,13 @@ void keyPressed(){
 }
 
 void geo(){
-  background(111);//intro);
-  
+  background(111);
+  image(intro, first, 0);
+  image(intro, second, 0);
+  first--;
+  second--;
+  if (first<=-800){
+    first = 0;
+    second = 800;
+  }
 }
