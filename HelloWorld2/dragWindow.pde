@@ -80,6 +80,8 @@ void mousePressed() {
     } else if (exit) {
       environ = 0;
       exit = false;
+      kittendrop.pause();
+      playDesktop = true;
       setup();
       draw();
     }

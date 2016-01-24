@@ -6,6 +6,7 @@ int environ = -1;
 AudioPlayer opening;
 AudioPlayer desktop;
 AudioPlayer hangman;
+AudioPlayer kittendrop;
 
 //Main desktop stimulation variables
 PImage toolBar1;
@@ -68,7 +69,8 @@ void  setup() {
   opening = minim.loadFile("Opening.mp3");
   desktop = minim.loadFile("desktop.mp3");
   hangman = minim.loadFile("Hangman.mp3");
-  
+kittendrop = minim.loadFile("kittenDrop.mp3");
+
   size(800, 600);
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
@@ -221,6 +223,7 @@ void draw() {
       } else if (overKittendrop) {
         environ = 2;
         desktop.pause();
+        playKittenDrop = true;
       }
       setup();
     }
