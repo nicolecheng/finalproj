@@ -21,6 +21,7 @@ After unlocking the final file, you will receive a final message from the owner 
 
 Changelog:
 - January 20:
+	-Nicole:
             - bug fix: hangman no longer lets you restart the game every time the mouse is clicked
 			- bug fix: password at the end of hangman is given
 			- new feature (ish) : "click to continue" message of the hangman congrats page is no longer just for show
@@ -37,3 +38,18 @@ Changelog:
 			- new feature: text boxes for certificate
 			- to-do: fix scene transition; text box positioning
 			- merged folders to HelloWorld and MissionGnocchi2
+	-Nicole:
+			- bug found: word solved is not triggering
+			- scene changes are not triggering either
+			- bug found: text boxes on certificate are not registering and storing
+			- bug fix: ^ fixed
+-January 22:
+	- Nicole:
+			- bug fix: scene changes and environ changes are registering with mouseClicks
+			- bug fix: the text boxes are recognized as filled in, letting the tutorial go on
+-January 23:
+	- Nicole:
+			- creating a third game -- similar to geometry dash
+			- this is the "boss level", so it'll have a cover page and an instructions page
+			- intro page to the game looks nice
+			- instructions page is coming along
