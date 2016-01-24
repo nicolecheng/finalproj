@@ -57,9 +57,11 @@ void Opening() {
     scene2();
   } else if (s==3) {
     scene3();
-  }else if(s>=4){
-   environ = 0;
-   setup();
+  } else if (s>=4) {
+    environ = 0;
+    opening.pause();
+    playDesktop = true;
+    setup();
   }
 }
 

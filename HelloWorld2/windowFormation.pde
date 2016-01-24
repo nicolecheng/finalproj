@@ -76,7 +76,7 @@ void openContent(float winx , float winy){
   
   //first folder
   if(winNum == 0){
-    if(mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+70){
+    if(mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+90){
        tint(3,158,168,100);
        image(gameHangman, winx+40, winy+35,55,55);
        overHangman = true;
@@ -87,7 +87,7 @@ void openContent(float winx , float winy){
   
     //second folder
     if(winNum == 1){
-     if( mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+70){
+     if( mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+90){
        tint(3,158,168,100);
        image(gameKittendrop, winx+40, winy+35,55,55);
        overKittendrop = true;

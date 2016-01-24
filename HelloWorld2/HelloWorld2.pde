@@ -3,6 +3,9 @@
 // 1 = Hang man
 // 2 = Kitten drop
 int environ = -1;
+AudioPlayer opening;
+AudioPlayer desktop;
+AudioPlayer hangman;
 
 //Main desktop stimulation variables
 PImage toolBar1;
@@ -14,7 +17,7 @@ int mouseClicks;
 boolean overFolder1 = false;
 boolean overFolder2 = false;
 boolean overFolder3 = false;
-boolean [] openNew = {false,false,false};
+boolean [] openNew = {false, false, false};
 boolean openPW = false;
 boolean overClose = false;
 boolean overHangman = false;
@@ -60,6 +63,12 @@ float offs[][] ={{0, 0}, {0, 0}, {0, 0}};
 int winNum = 0;
 
 void  setup() {
+  //playMusic();
+  minim = new Minim(this);
+  opening = minim.loadFile("Opening.mp3");
+  desktop = minim.loadFile("desktop.mp3");
+  hangman = minim.loadFile("Hangman.mp3");
+  
   size(800, 600);
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
@@ -136,15 +145,18 @@ void  setup() {
 }
 
 void draw() {
-  
+
+  playMusic();    
   //____________________________Related to Opening
-  if(environ == -1 && !stopLoop){
-   println(s);
+  if (environ == -1 && !stopLoop) {
+    println(s);
     Opening();
+    playOpening = false;
   }
 
   //_________________________________Related to desktop__________________________________
   if ( environ == 0) {
+    // setup();
     background(0);
     //First Folder
     folders(30, 30, "Hello World");
@@ -181,31 +193,34 @@ void draw() {
       }
     }
 
-//check if password is correct
+    //check if password is correct
     checkPW();
 
     //if new window allowed to be opened(Password is correct), create the window and start it at position 200,150
     //first folder
     if (openNew[0]) {
-        w = new Window(coords[0][0], coords[0][1]);
-        //check if mouse is over the tool bar, if so, allow user to drag the window
-        w.check();
-      }
-      //second folder
-      else if ((winNum == 1) && openNew[1]) {
-       e = new Window(coords[1][0], coords[1][1]);
-       e.check();
-      } else if ((winNum == 2) && openNew[2]){
-       r = new Window(coords[2][0], coords[2][1]);
-       r.check();
-      }
+      w = new Window(coords[0][0], coords[0][1]);
+      //check if mouse is over the tool bar, if so, allow user to drag the window
+      w.check();
+    }
+    //second folder
+    else if ((winNum == 1) && openNew[1]) {
+      e = new Window(coords[1][0], coords[1][1]);
+      e.check();
+    } else if ((winNum == 2) && openNew[2]) {
+      r = new Window(coords[2][0], coords[2][1]);
+      r.check();
+    }
 
     //open up different games accordingly
     if (gameClicks >= 2) {
       if (overHangman) {
         environ = 1;
+        desktop.pause();
+        playHangman = true;
       } else if (overKittendrop) {
         environ = 2;
+        desktop.pause();
       }
       setup();
     }
@@ -297,11 +312,11 @@ void draw() {
   }
 }
 
-void mouseClicked(){
-  if (environ==-1 && filledOut()){
+void mouseClicked() {
+  if (environ==-1 && filledOut()) {
     stopLoop=false;
   }
-  if (environ==-1 && !stopLoop){
+  if (environ==-1 && !stopLoop) {
     s++;
   }
 }

@@ -62,8 +62,10 @@ void mousePressed() {
       environ = 0;
       exit = false;
       finished = false;
+      hangman.pause();
+      playDesktop = true;
       setup();
-      draw();
+      //draw();
     }
   }
 
