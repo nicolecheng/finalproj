@@ -181,7 +181,7 @@ void scene3() {
     "Should you be brave enough to accept this \nmission, best of luck. \n" + 
     "If not, I am sorry that you live such \na cowardly life. It must be hard. \n\n" +
     "All the Best,\n Agent Yuniclo"; 
-  textSize(24);
+  textSize(22);
   text(s3m, 55, 120);
   fill(200);
   text("to accept, click anywhere on the screen...", 350, 580);
