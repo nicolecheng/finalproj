@@ -323,7 +323,7 @@ void draw() {
         } else { // cat is not yet on the screen
           cats[r][1]++; // don't start accelerating yet
         }
-        image(cat, (float)cats[r][0], (float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
+        image(cat, (float)cats[r][0], (float)cats[r][1], width/25, height/25);
       }
 
       // past ycor threshold and in basket range?
