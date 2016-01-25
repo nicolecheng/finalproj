@@ -95,7 +95,7 @@ void mousePressed() {
   }
 
   //counting clicks to open content inside folders
-  if ((overHangman || overKittendrop) && (mouseButton == LEFT)) {
+  if ((overHangman || overKittendrop|| overGeoDash || overSecret) && (mouseButton == LEFT)) {
     gameClicks +=1;
   }
 }

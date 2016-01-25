@@ -37,7 +37,18 @@ void createWindow(float winx, float winy){
   fill(0);
   text("Kitten Drop", winx+43, winy+110);
  }
- 
+ if(winNum == 2){
+  image(gameGeoDash, winx+40, winy+35, 55, 55);
+  textSize(12);
+  fill(0);
+  text("GeoDash", winx+43, winy+110);
+ }
+ if(winNum == 3){
+   image(topSecret, winx+40, winy+35, 55, 55);
+  textSize(12);
+  fill(0);
+  text("Destination", winx+43, winy+110);
+ }
  toolbarSelect(winx,winy);
  stroke(1);
 }
@@ -95,6 +106,28 @@ void openContent(float winx , float winy){
       overKittendrop = false; 
      }
     }
+    
+    //third Folder (GeoDash)______________________________
+    if(winNum == 2){
+     if( mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+90){
+       tint(3,158,168,100);
+       image(gameGeoDash, winx+40, winy+35,55,55);
+       overGeoDash = true;
+     }else{
+      overGeoDash = false; 
+     }
+    }
+    
+    //fourth folder
+    if(winNum == 3){
+    if(mouseX>winx+40 && mouseX<winx+95 && mouseY>winy+35 && mouseY<winy+90){
+       tint(3,158,168,100);
+       image(topSecret, winx+40, winy+35,55,55);
+       overSecret = true;
+    }else{
+     overSecret = false; 
+    }
+  }
     
     noTint();
   } 

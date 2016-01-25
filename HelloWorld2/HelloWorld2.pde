@@ -1,8 +1,10 @@
 //variable used across all platform to transfer from desktop to gaming environment
+// -1 = opening
 // 0 = desktop
 // 1 = Hang man
 // 2 = Kitten drop
-int environ = -1;
+// 3 = ending
+int environ = 3;
 AudioPlayer opening;
 AudioPlayer desktop;
 AudioPlayer hangman;
@@ -15,6 +17,7 @@ PImage toolBar3;
 PImage gameHangman;
 PImage gameKittendrop;
 PImage gameGeoDash;
+PImage topSecret;
 
 int mouseClicks;
 
@@ -31,6 +34,7 @@ boolean overClose = false;
 boolean overHangman = false;
 boolean overKittendrop = false;
 boolean overGeoDash = false;
+boolean overSecret = false;
 boolean over = false;
 boolean locked = false;
 
@@ -95,6 +99,7 @@ void  setup() {
     gameHangman = loadImage("hangman.jpeg");
     gameKittendrop = loadImage("kittendrop.jpg");
     gameGeoDash = loadImage("GeoDash.jpg");
+    topSecret = loadImage("secretFile.gif");
     mouseClicks = 0;
     gameClicks = 0;
     tab = 0;
@@ -156,6 +161,10 @@ void  setup() {
       cats[m][4] = 1; // yes, it is falling
     }
   }
+  
+  if(environ == 3){
+   endSetting(); 
+  }
 }
 
 void draw() {
@@ -206,7 +215,6 @@ void draw() {
         winNum = 3;
       }
       if (winNum == 1 || winNum == 2 || winNum == 3) {
-        println("password plz");
         createPW();
       } else if (winNum == 0) {
         openNew[0] = true;
@@ -245,6 +253,10 @@ void draw() {
         environ = 2;
         desktop.pause();
         playKittenDrop = true;
+      }else if (overGeoDash){
+       //_______________________________________________________Put GeoDash stuff here______________________________________________________ 
+      }else if(overSecret){
+        environ = 3;
       }
       setup();
     }
@@ -334,6 +346,11 @@ void draw() {
       Congrats();
     }
   }
+  
+  //___________________________________________Related to Ending__________________________________
+  if(environ == 3){
+    ending();
+  }
 }
 
 void mouseClicked() {
@@ -342,5 +359,10 @@ void mouseClicked() {
   }
   if (environ==-1 && !stopLoop) {
     s++;
+  }
+  
+  if(environ == 3){
+   index++;
+   endSetting();
   }
 }
