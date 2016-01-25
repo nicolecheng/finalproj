@@ -53,9 +53,23 @@ Changelog:
 			- this is the "boss level", so it'll have a cover page and an instructions page
 			- intro page to the game looks nice
 			- instructions page is coming along
+
+	- Yuki:
+			- Add background music into project
+			- Background music changes according to different setting
+			- Transitioning between scenes
+
 -January 24:
 	- Nicole:
 			- Dashing Geometry: title page and instructions page complete
 			- bug found: looping background has glitches
 			- bug fix: ^ fixed
 			- new feature: cute little red panda character with left and right-facing positions
+
+ 	- Yuki :
+			- Finalizing the way background music is played
+			- create another folder to contain new game GeoDash
+			- Add new scene/final scene
+			- Wrote very cheesy script for character
+			- Still need to fix some bug with final scene
+			- Still need to complete the "minimize" and "maximize" functions for windows
