@@ -33,14 +33,15 @@ void setup(){
   third = -800; // left
   fourth = 800; // just to patch first, second, third
   right = true;
-  nshapes = 200; // how many shooting shapes?
+  nshapes = 400; // how many shooting shapes?
   remshapes = nshapes;
   shapes = new double[nshapes][7]; //[xcor, ycor, hit?, shape, r, g, b]
   health = 100;
+  step = 0;
   
   for (int m = 0; m < nshapes; m++) {
-    shapes[m][0] = 800+(int)(Math.random() * 20000); // when will they come onto the screen?
-    shapes[m][1] = (int)(Math.random() * 500); // ycor
+    shapes[m][0] = 800+(int)(Math.random() * 30000); // when will they come onto the screen?
+    shapes[m][1] = (int)(Math.random() * 600); // ycor
     shapes[m][2] = 0; // no, it has not hit wren yet
     shapes[m][3] = (int)(Math.random()*3); // 0 = circle, 1 = square, 2 = triangle
     for(int i=4; i<7;i++){
@@ -84,6 +85,9 @@ void draw(){
 void mouseClicked(){
   if(g==0){
     g++; // move to instructions page
+  }
+  if(health<=0){
+    setup();
   }
 }
 
@@ -173,12 +177,19 @@ void geo(){
   fill(255);
   text("Health: "+health, 20,20);
   text("Bullets Left: "+remshapes, 20, 50);
-  text("Steps: "+step+"/200", 20, 80);
-  if(step>=200){
-   background(intro);
-   textSize(30);
-   fill(255);
-   text("You got Agent Wren through the passage.\n           Congratulations.", 80, 220);
-   text("Agent Wren and the agency thank you deeply. \n     The final password is: PASSWORD", 50, 320);
+  text("Steps: "+step+"/1000", 20, 80);
+  if(step>=1000){
+    background(intro);
+    textSize(30);
+    fill(255);
+    text("You got Agent Wren through the passage.\n           Congratulations.", 80, 220);
+    text("Agent Wren and the agency thank you deeply. \n     The final password is: PASSWORD", 50, 320);
+  }
+  if(health<=0){
+    background(intro);
+    textSize(30);
+    fill(255);
+    text("Agent Wren is hurt too badly to go on.\n     He needs to retreat and rest.", 80,270);
+    text("Click on the screen to try again.", 130, 370);
   }
 }
