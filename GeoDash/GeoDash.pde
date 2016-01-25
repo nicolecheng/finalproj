@@ -35,17 +35,15 @@ void setup(){
   right = true;
   nshapes = 200; // how many shooting shapes?
   remshapes = nshapes;
-  shapes = new double[nshapes][9]; //[xcor, ycor, velocity, loopval, hit?, shape, r, g, b]
+  shapes = new double[nshapes][7]; //[xcor, ycor, hit?, shape, r, g, b]
   health = 100;
   
   for (int m = 0; m < nshapes; m++) {
     shapes[m][0] = 800+(int)(Math.random() * 20000); // when will they come onto the screen?
     shapes[m][1] = (int)(Math.random() * 500); // ycor
-    shapes[m][2] = 5; // init speed
-    shapes[m][3] = 1; // used to multiply by acceleration constant to determine velocity
-    shapes[m][4] = 0; // no, it has not hit wren yet
-    shapes[m][5] = (int)(Math.random()*3); // 0 = circle, 1 = square, 2 = triangle
-    for(int i=6; i<9;i++){
+    shapes[m][2] = 0; // no, it has not hit wren yet
+    shapes[m][3] = (int)(Math.random()*3); // 0 = circle, 1 = square, 2 = triangle
+    for(int i=4; i<7;i++){
       shapes[m][i]=(int)(Math.random()*255); // color
     }
   } 
@@ -65,17 +63,19 @@ void draw(){
     image(geo, 145, 175, width/1.5, height/3);
     }
   }else if(g==1){
-    textSize(27);
+    textSize(22);
     background(geogif);
     image(play, 140, 0, width/1.5, height/6);
-    fill(255);
+    fill(240);
     image(wasd, 40, 135);
-    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively,\n to dodge the geometric shapes.", 210, 170);
+    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively,\n to dodge the geometric shapes.", 250, 170);
     image(redleft, 500, 260, width/3, height/3);
-    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 320);
-    text("Are you ready? This is it.\n Press any key to begin.", 180, 490);
-    textSize(17);
-    text("Note: Wren can levitate. Gravity and jumping don't exist for him.", 100, 580);
+    textSize(18);
+    text("Meet Agent Wren, the red panda.\nYou are going to guide him through \nthis arduous journey. Wren levitates \nand moves at the speed of light.",40, 290);
+    text("In other words, gravity doesn't apply \nto him, and when he moves forward, \neverything seems to be frozen.", 40, 390 );
+    text("For every shape that hits you, you will lose HP. \nIn addition to dodging shapes, you must cover a certain amount of ground.", 40, 465);
+    text("Your HP, step count, and the # of bullets remaining will be displayed.", 60, 515);
+    text("Are you ready? This is it.\n Press any key to begin.", 240, 550);
   }else if(g==2){
     geo();
   }  
@@ -115,14 +115,14 @@ void keyPressed(){
 
 void geo(){
   
-  background(111);
+  background(intro);
   image(intro, first, 0);
   image(intro, second, 0);
   image(intro, third, 0);
   image(intro, fourth, 0);
-  fill(111);
-  noStroke();
-  rect(0,450,800,150);
+  //fill(111);
+  //noStroke();
+  //rect(0,450,800,150);
   
   //wren
   if(right){
@@ -143,32 +143,30 @@ void geo(){
   }
   
   for (int r = 0; r < nshapes; r++) {
-    if (shapes[r][4] == 0) { // if still hasn't hit wren
+    if (shapes[r][2] == 0) { // if still hasn't hit wren
       if (shapes[r][0] < 800) { // if on screen
-        shapes[r][2] += .003 * shapes[r][3]; // increase speed
-        shapes[r][0] -= shapes[r][2]; // xcor change
-        shapes[r][3]++; // increase loopval thingy
+        shapes[r][0] -= 5; // xcor change
       } else { // shape is not yet on the screen
         shapes[r][0]--; // don't start accelerating yet
       }
-      if(shapes[r][5]==0){
-        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
-        ellipse((float)shapes[r][0], (float)shapes[r][1],10,10);
-      }else if(shapes[r][5]==1){
-        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
-        rect((float)shapes[r][0], (float)shapes[r][1],10,10);
-      }else if(shapes[r][5]==2){
-        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
-        triangle((float)shapes[r][0], (float)shapes[r][1],(float)shapes[r][0]-5, (float)shapes[r][1]+10,(float)shapes[r][0]+5, (float)shapes[r][1]+10);
+      if(shapes[r][3]==0){
+        fill((float)shapes[r][4],(float)shapes[r][5],(float)shapes[r][6]);
+        ellipse((float)shapes[r][0], (float)shapes[r][1],20,20);
+      }else if(shapes[r][3]==1){
+        fill((float)shapes[r][4],(float)shapes[r][5],(float)shapes[r][6]);
+        rect((float)shapes[r][0], (float)shapes[r][1],20,20);
+      }else if(shapes[r][3]==2){
+        fill((float)shapes[r][4],(float)shapes[r][5],(float)shapes[r][6]);
+        triangle((float)shapes[r][0], (float)shapes[r][1],(float)shapes[r][0]-10, (float)shapes[r][1]+20,(float)shapes[r][0]+10, (float)shapes[r][1]+20);
       }
     }
-    if (shapes[r][0] <= 430 && shapes[r][1] >= wren[1] && shapes[r][1] <= wren[1]+110 && shapes[r][4] == 0) { 
-      shapes[r][4] = 1; //hit
+    if (shapes[r][0] <= 430 && shapes[r][1] >= wren[1] && shapes[r][1] <= wren[1]+110 && shapes[r][2] == 0) { 
+      shapes[r][2] = 1; //hit
       health -= 10; // ouch 
       remshapes--;
     }
-    if(shapes[r][0]<=0 && shapes[r][4]==0){ // past page
-      shapes[r][4]=1; // past
+    if(shapes[r][0]<=0 && shapes[r][2]==0){ // past page
+      shapes[r][2]=1; // past
       remshapes--;
     }
   }
