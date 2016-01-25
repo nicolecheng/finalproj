@@ -6,6 +6,7 @@ PFont ins;
 PImage redright, redleft; // red panda char
 int first, second, third, fourth; // to loop background
 boolean right;
+boolean bend;
 int[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
 int step = 0; // which part of game are we up to? 
 
@@ -29,6 +30,7 @@ void setup(){
   third = -800; // left
   fourth = 800; // just to patch first, second, third
   right = true;
+  bend = false;
 }
 
 void draw(){
@@ -67,24 +69,31 @@ void mouseClicked(){
 
 void keyPressed(){
   if(g==2){
-    if (key=='a'){
+    if (key=='a'){ // back
       first+=10;
       second+=10;
       third+=10;
       right=false; // going left
-      step+=10;
+      step-=10;
       fourth=-800+first;
-    }else if(key=='d'){
+    }else if(key=='d'){ // forward
       first-=10;
       second-=10;
       third-=10;
       right=true; // going right
-      step-=10;
+      step+=10;
       fourth=800+first;
+    }else if(key=='w'){ // up
+    }else if(key=='s'){ //down
+      bend = true;
     }
   }else if(g==1){
     g++; // move to game
   }
+}
+
+void keyReleased(){
+  bend=false;
 }
 
 void geo(){
@@ -99,9 +108,17 @@ void geo(){
   rect(0,450,800,150);
   
   if(right){
-    image(redright, wren[0], wren[1], width/5, height/5);
+    if(bend){
+      image(redright, wren[0], wren[1]+30, width/5, height/7); // if squatting
+    }else{
+      image(redright, wren[0], wren[1], width/5, height/5);
+    }
   }else{
-    image(redleft, wren[0], wren[1], width/5, height/5);
+    if(bend){
+      image(redleft, wren[0], wren[1]+30, width/5, height/7);
+    }else{
+      image(redleft, wren[0], wren[1], width/5, height/5);
+    }
   }
   if (first<=-800){
     first = 0;
