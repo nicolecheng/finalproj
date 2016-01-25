@@ -1,17 +1,18 @@
 # finalproj
-Team Yuniclo -- Nicole Cheng & Yuki (Yuxuan) Chen
-Period 7
-
-Mission Gnocchi
-
-Project description:
-You are put into the shoes of a secret agent tasked with the diffcult mission of unlocking an enemy computer to unlock sensitive information.
-
-To compile/run:
-The G4P library is needed for the passcode functions to work. 
-The Minim (2.2.2) library is needed for the audio.
-To run, open the file up in processing and press run.
-
+<b>
+Team Yuniclo -- Nicole Cheng & Yuki (Yuxuan) Chen <br>
+Period 7<br>
+<br>
+Mission Gnocchi<br>
+<br>
+Project description:</b><br>
+You are put into the shoes of a secret agent tasked with the diffcult mission of unlocking an enemy computer to unlock sensitive information.<br>
+<br>
+<b>To compile/run:</b><br>
+The G4P library is needed for the passcode functions to work.<br> 
+The Minim (2.2.2) library is needed for the audio.<br>
+To run, open the file up in processing and press run.<br>
+<br>
 How to use it:
 Upon running the program, you are prompted to complete a tutorial, in which you click the mouse to move to the next scene. 
 At one of the tutorial scenes, you are able to fill out a certificate of authenticity to become a secret agent.
