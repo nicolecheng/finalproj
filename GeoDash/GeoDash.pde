@@ -48,8 +48,7 @@ void setup(){
     for(int i=6; i<9;i++){
       shapes[m][i]=(int)(Math.random()*255); // color
     }
-  }
-  
+  } 
 }
 
 void draw(){
@@ -162,21 +161,15 @@ void geo(){
         fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
         triangle((float)shapes[r][0], (float)shapes[r][1],(float)shapes[r][0]-5, (float)shapes[r][1]+10,(float)shapes[r][0]+5, (float)shapes[r][1]+10);
       }
-      //image(cat, (float)cats[r][0], (float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
     }
-
-    if (shapes[r][0] <= 430 && shapes[r][1] >= wren[1] && shapes[r][1] <= wren[1]+110 && shapes[r][4] == 1) { 
-      shapes[r][4] = 0;
+    if (shapes[r][0] <= 430 && shapes[r][1] >= wren[1] && shapes[r][1] <= wren[1]+110 && shapes[r][4] == 0) { 
+      shapes[r][4] = 1; //hit
       health -= 10; // ouch 
       remshapes--;
     }
-/*
-    if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 80) && cats[r][4] == 1) {
-      cats[r][4] = 0;
-      score -= 20; // lose 20 pts for dropping the kitten
-      remcat--;
+    if(shapes[r][0]<=0 && shapes[r][4]==0){ // past page
+      shapes[r][4]=1; // past
+      remshapes--;
     }
-  
-  */
   }
 }
