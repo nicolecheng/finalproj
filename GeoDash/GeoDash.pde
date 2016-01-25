@@ -9,7 +9,7 @@ boolean right;
 boolean bend;
 int[]wren = {300,350}; // xcor, ycor
 double[][]shapes; // 3d array of shooting shapes
-int nshapes;
+int nshapes, remshapes;
 int health;
 int step; // you must cover a certain amount of ground to win
 
@@ -34,6 +34,7 @@ void setup(){
   fourth = 800; // just to patch first, second, third
   right = true;
   nshapes = 200; // how many shooting shapes?
+  remshapes = nshapes;
   shapes = new double[nshapes][9]; //[xcor, ycor, velocity, loopval, hit?, shape, r, g, b]
   health = 100;
   
@@ -163,14 +164,13 @@ void geo(){
       }
       //image(cat, (float)cats[r][0], (float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
     }
-/*
-    // past ycor threshold and in basket range?
-    if (cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 80 && cats[r][4] == 1) { 
-      cats[r][4] = 0;
-      score += 10; // 10 pts to griffindor!  
-      remcat--;
-    }
 
+    if (shapes[r][0] <= 430 && shapes[r][1] >= wren[1] && shapes[r][1] <= wren[1]+110 && shapes[r][4] == 1) { 
+      shapes[r][4] = 0;
+      health -= 10; // ouch 
+      remshapes--;
+    }
+/*
     if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 80) && cats[r][4] == 1) {
       cats[r][4] = 0;
       score -= 20; // lose 20 pts for dropping the kitten
