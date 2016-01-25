@@ -95,14 +95,14 @@ void keyPressed(){
       third+=10;
       right=false; // going left
       fourth=-800+first;
-      step+=10;
+      step-=1;
     }else if(key=='d'){ // forward
       first-=10;
       second-=10;
       third-=10;
       right=true; // going right
       fourth=800+first;
-      step-=10;
+      step+=1;
     }else if(key=='w'){ // up
       wren[1]-=10;
     }else if(key=='s'){ //down
@@ -169,5 +169,16 @@ void geo(){
       shapes[r][2]=1; // past
       remshapes--;
     }
+  }  
+  fill(255);
+  text("Health: "+health, 20,20);
+  text("Bullets Left: "+remshapes, 20, 50);
+  text("Steps: "+step+"/200", 20, 80);
+  if(step>=200){
+   background(intro);
+   textSize(30);
+   fill(255);
+   text("You got Agent Wren through the passage.\n           Congratulations.", 80, 220);
+   text("Agent Wren and the agency thank you deeply. \n     The final password is: PASSWORD", 50, 320);
   }
 }
