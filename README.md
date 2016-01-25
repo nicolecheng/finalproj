@@ -98,7 +98,7 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>	 new feature: hp, steps, and remaining bullets stats on screen</li>
 			<li> game is fully-functioning, i believe</li>
 	</ul></li></ul></li>
- 	<lu> Yuki : <ul>
+ 	<li> Yuki : <ul>
 <li>			 Finalizing the way background music is played</li>
 	<li>		 create another folder to contain new game GeoDash</li>
 		<li>	 Add new scene/final scene</li>
