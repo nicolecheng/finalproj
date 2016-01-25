@@ -7,7 +7,7 @@ PImage redright, redleft; // red panda char
 int first, second, third, fourth; // to loop background
 boolean right;
 boolean bend;
-int[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
+int[]wren = {300,350}; // xcor, ycor
 int step = 0; // which part of game are we up to? 
 
 void setup(){
@@ -30,7 +30,6 @@ void setup(){
   third = -800; // left
   fourth = 800; // just to patch first, second, third
   right = true;
-  bend = false;
 }
 
 void draw(){
@@ -47,14 +46,17 @@ void draw(){
     image(geo, 145, 175, width/1.5, height/3);
     }
   }else if(g==1){
+    textSize(27);
     background(geogif);
     image(play, 140, 0, width/1.5, height/6);
     fill(255);
     image(wasd, 40, 135);
-    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively.", 210, 170);
-    image(redleft, 500, 250, width/3, height/3);
-    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 310);
-    text("Are you ready? This is it.\n Press any key to begin.", 180, 500);
+    text("Use the W, A, S, and D keys to move up,\n left, down, and right, respectively,\n to dodge the geometric shapes.", 210, 170);
+    image(redleft, 500, 260, width/3, height/3);
+    text("Meet Wren, the red panda.\nYou are going to guide him\nthrough this arduous journey.", 40, 320);
+    text("Are you ready? This is it.\n Press any key to begin.", 180, 490);
+    textSize(17);
+    text("Note: Wren can levitate. Gravity and jumping don't exist for him.", 100, 580);
   }else if(g==2){
     geo();
   }
@@ -84,16 +86,13 @@ void keyPressed(){
       step+=10;
       fourth=800+first;
     }else if(key=='w'){ // up
+      wren[1]-=10;
     }else if(key=='s'){ //down
-      bend = true;
+      wren[1]+=10;
     }
   }else if(g==1){
     g++; // move to game
   }
-}
-
-void keyReleased(){
-  bend=false;
 }
 
 void geo(){
@@ -108,18 +107,11 @@ void geo(){
   rect(0,450,800,150);
   
   if(right){
-    if(bend){
-      image(redright, wren[0], wren[1]+30, width/5, height/7); // if squatting
-    }else{
-      image(redright, wren[0], wren[1], width/5, height/5);
-    }
+    image(redright, wren[0], wren[1], width/5, height/5);
   }else{
-    if(bend){
-      image(redleft, wren[0], wren[1]+30, width/5, height/7);
-    }else{
-      image(redleft, wren[0], wren[1], width/5, height/5);
-    }
+    image(redleft, wren[0], wren[1], width/5, height/5);
   }
+  
   if (first<=-800){
     first = 0;
     second = 800;
