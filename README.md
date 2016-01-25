@@ -45,7 +45,7 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>		 not "entering"</li>
 <li>			 bug fix: hangman congrats page now working</li>
 	<li>		 new feature: reinserted retry and quit buttons, which now work</li>
-	</li></li></ul>
+	</li></li></ul></ul>
 			
 <li> January 21: 
 <ul>
@@ -62,6 +62,7 @@ After unlocking the final file, you will receive a final message from the owner 
 <li>			 textfields inserted</li>
 	<li>		 new breakthrough: folder passwords can be used!</li>
 	</li></li> </ul>
+	</ul>
 <li> January 22:
 <ul>
 	<li> Nicole: <ul>
@@ -71,7 +72,7 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>	 bug fix: optimized scene / environ changes with keyPressed()</li>
 			<li> invisible text boxes now</li>
 			</li>
-			</li></ul>
+			</li></ul></ul>
 <li> January 23:
 	<ul><li> Nicole: <ul>
 <li>			 creating a third game -- similar to geometry dash</li>
@@ -83,7 +84,7 @@ After unlocking the final file, you will receive a final message from the owner 
 	<li>		 Add background music into project</li>
 		<li>	 Background music changes according to different setting</li>
 		<li>	 Transitioning between scenes</li>
-</li></li></ul>
+</li></li></ul></ul>
 <li> January 24:
 	<ul><li> Nicole:<ul>
 <li>			 Dashing Geometry: title page and instructions page complete</li>
@@ -101,7 +102,7 @@ After unlocking the final file, you will receive a final message from the owner 
 			<li> Wrote very cheesy script for character</li>
 <li>			 Still need to fix some bug with final scene</li>
 	<li>		 Still need to complete the "minimize" and "maximize" functions for windows</li>
-	</li></li></ul>
+	</li></li></ul></ul>
 <li> January 25:
 	<ul><li> Nicole: <ul>
 		<li>	 combined HelloWorld2 and GeoDash into HelloWorld3</li>
@@ -111,4 +112,4 @@ After unlocking the final file, you will receive a final message from the owner 
 <li>			 to do: grammar issues in finale</li> 
 </li>
 </ul></li>
-</ul>
+</ul></ul>
