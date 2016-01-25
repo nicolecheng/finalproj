@@ -161,9 +161,9 @@ void  setup() {
       cats[m][4] = 1; // yes, it is falling
     }
   }
-  
-  if(environ == 3){
-   endSetting(); 
+
+  if (environ == 3) {
+    endSetting();
   }
 }
 
@@ -253,9 +253,9 @@ void draw() {
         environ = 2;
         desktop.pause();
         playKittenDrop = true;
-      }else if (overGeoDash){
-       //_______________________________________________________Put GeoDash stuff here______________________________________________________ 
-      }else if(overSecret){
+      } else if (overGeoDash) {
+        //_______________________________________________________Put GeoDash stuff here______________________________________________________
+      } else if (overSecret) {
         environ = 3;
       }
       setup();
@@ -346,9 +346,9 @@ void draw() {
       Congrats();
     }
   }
-  
+
   //___________________________________________Related to Ending__________________________________
-  if(environ == 3){
+  if (environ == 3) {
     ending();
   }
 }
@@ -360,9 +360,15 @@ void mouseClicked() {
   if (environ==-1 && !stopLoop) {
     s++;
   }
-  
-  if(environ == 3){
-   index++;
-   endSetting();
-  }
+
+  //_______________________Related to Ending___________________________
+  if (environ == 3) {
+    if (index<=10) {
+      index++;
+    }
+    if (index == 11) {
+      fin = true;
+    }
+  endSetting();
+}
 }

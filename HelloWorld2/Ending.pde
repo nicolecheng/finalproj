@@ -4,6 +4,7 @@ PImage father;
 //check which conversation dialogue to show
 int index = 1;
 PImage dialogue;
+boolean fin;
 
 void endSetting() {
   letter = loadImage("letter.jpg");
@@ -11,7 +12,12 @@ void endSetting() {
   dialogue = loadImage("dialogue"+index+".png");
   background(letter);
   image(father,20,420,180,180);
+  if(!fin){
   image(dialogue,210,380,580,220);
+  }else if (fin){
+    image(dialogue,0,0,800,600);
+    //environ = 0; 
+  }
 }
 
 void ending() {
