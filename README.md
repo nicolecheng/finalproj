@@ -23,7 +23,7 @@ After unlocking the final file, you will receive a final message from the owner 
 
 Changelog:
 - January 20:
-	-Nicole:
+	- Nicole:
             - bug fix: hangman no longer lets you restart the game every time the mouse is clicked
 			- bug fix: password at the end of hangman is given
 			- new feature (ish) : "click to continue" message of the hangman congrats page is no longer just for show
@@ -41,12 +41,12 @@ Changelog:
 			- bug fix: hangman congrats page now working
 			- new feature: reinserted retry and quit buttons, which now work
 			
--January 21:
+- January 21:
 			- bug found: mouseClicks is not working
 			- new feature: text boxes for certificate
 			- to-do: fix scene transition; text box positioning
 			- merged folders to HelloWorld and MissionGnocchi2
-	-Nicole:
+	- Nicole:
 			- bug found: word solved is not triggering
 			- scene changes are not triggering either
 			- bug found: text boxes on certificate are not registering and storing
@@ -54,14 +54,14 @@ Changelog:
 	- Yuki:
 			- textfields inserted
 			- new breakthrough: folder passwords can be used!
--January 22:
+- January 22:
 	- Nicole:
 			- bug fix: scene changes and environ changes are registering with mouseClicks
 			- bug fix: the text boxes are recognized as filled in, letting the tutorial go on
 	- Yuki:
 			- bug fix: optimized scene / environ changes with keyPressed()
 			- invisible text boxes now
--January 23:
+- January 23:
 	- Nicole:
 			- creating a third game -- similar to geometry dash
 			- this is the "boss level", so it'll have a cover page and an instructions page
@@ -72,7 +72,7 @@ Changelog:
 			- Background music changes according to different setting
 			- Transitioning between scenes
 
--January 24:
+- January 24:
 	- Nicole:
 			- Dashing Geometry: title page and instructions page complete
 			- bug found: looping background has glitches
@@ -88,7 +88,7 @@ Changelog:
 			- Wrote very cheesy script for character
 			- Still need to fix some bug with final scene
 			- Still need to complete the "minimize" and "maximize" functions for windows
--January 25:
+- January 25:
 	- Nicole:
 			- combined HelloWorld2 and GeoDash into HelloWorld3
 			- reorganized tabs for clarity
