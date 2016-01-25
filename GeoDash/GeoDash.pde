@@ -6,7 +6,8 @@ PFont ins;
 PImage redright, redleft; // red panda char
 int first, second, third; // to loop background
 boolean right;
-float[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
+int[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
+int step = 0; // which part of game are we up to? 
 
 void setup(){
   intro = loadImage("intro.jpg");
@@ -70,11 +71,13 @@ void keyPressed(){
       second+=10;
       third+=10;
       right=false; // going left
+      step+=10;
     }else if(key=='d'){
       first-=10;
       second-=10;
       third-=10;
       right=true; // going right
+      step-=10;
     }
   }else if(g==1){
     g++; // move to game
@@ -105,4 +108,10 @@ void geo(){
     second = -800;
     third = -1600;
   }
+  if(Math.random()>.8){
+  println(first);
+  println(second);
+  println(third);
+  }
+  rect(1000-step, 300, 120, 30);
 }
