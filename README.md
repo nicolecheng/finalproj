@@ -9,7 +9,7 @@ Project description:</b><br>
 You are put into the shoes of a secret agent tasked with the diffcult mission of unlocking an enemy computer to unlock sensitive information.<br>
 <br>
 <b>To compile/run:</b><br>
-The G4P library is needed for the passcode functions to work.<br> 
+The G4P library is needed for the passcode functions to work.<br>
 The Minim (2.2.2) library is needed for the audio.<br>
 To run, open the file up in processing and press run.<br>
 <br>
@@ -24,9 +24,10 @@ After unlocking the final file, you will receive a final message from the owner 
 <br>
 <b>Changelog:</b><br>
 <ul>
-<li> January 20: 
+<li> January 20:
 <ul>	<li> Nicole:<br>
 	<ul>
+	
      <li>        bug fix: hangman no longer lets you restart the game every time the mouse is clicked </li>
 	 <li>		 bug fix: password at the end of hangman is given</li>
 	<li>		 new feature (ish) : "click to continue" message of the hangman congrats page is no longer just for show</li>
@@ -38,6 +39,7 @@ After unlocking the final file, you will receive a final message from the owner 
 	<li>		 bug found: pressing on an incorrect letter multiple times takes away chances</li>
 		<li>	 bug fix: ^ fixed that</li></li>
 		</ul>
+		
 	<li> Yuki:<br>
 	<ul>
 <li>			 start of passwords</li>
@@ -46,8 +48,8 @@ After unlocking the final file, you will receive a final message from the owner 
 <li>			 bug fix: hangman congrats page now working</li>
 	<li>		 new feature: reinserted retry and quit buttons, which now work</li>
 	</li></li></ul></ul>
-			
-<li> January 21: 
+
+<li> January 21:
 <ul>
 		<li>	 bug found: mouseClicks is not working</li>
 	<li>		 new feature: text boxes for certificate</li>
@@ -57,34 +59,35 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>	 bug found: word solved is not triggering</li>
 <li>			 scene changes are not triggering either</li>
 	<li>		 bug found: text boxes on certificate are not registering and storing</li>
-		<li>	 bug fix: ^ fixed</li></li></ul>
+		<li>	 bug fix: ^ fixed</li>
+		</ul></li>
 	<li> Yuki: <ul>
 <li>			 textfields inserted</li>
 	<li>		 new breakthrough: folder passwords can be used!</li>
-	</li></li> </ul>
-	</ul>
+	</ul></li>
+	</ul></li> 
 <li> January 22:
 <ul>
 	<li> Nicole: <ul>
 		<li>	 bug fix: scene changes and environ changes are registering with mouseClicks</li>
-	<li>		 bug fix: the text boxes are recognized as filled in, letting the tutorial go on</li></li></ul>
+	<li>		 bug fix: the text boxes are recognized as filled in, letting the tutorial go on</li></ul></li>
 	<li> Yuki: <ul>
 		<li>	 bug fix: optimized scene / environ changes with keyPressed()</li>
 			<li> invisible text boxes now</li>
-			</li>
-			</li></ul></ul>
+			</ul></li>
+			</ul></li>
 <li> January 23:
 	<ul><li> Nicole: <ul>
 <li>			 creating a third game -- similar to geometry dash</li>
 	<li>		 this is the "boss level", so it'll have a cover page and an instructions page</li>
 		<li>	 intro page to the game looks nice</li>
 <li>			 instructions page is coming along</li>
-</li></ul>
+</ul></li>
 	<li> Yuki: <ul>
 	<li>		 Add background music into project</li>
 		<li>	 Background music changes according to different setting</li>
 		<li>	 Transitioning between scenes</li>
-</li></li></ul></ul>
+</ul></li></ul></li>
 <li> January 24:
 	<ul><li> Nicole:<ul>
 <li>			 Dashing Geometry: title page and instructions page complete</li>
@@ -94,7 +97,7 @@ After unlocking the final file, you will receive a final message from the owner 
 	<li>		 new feature: shape bullets shooting</li>
 		<li>	 new feature: hp, steps, and remaining bullets stats on screen</li>
 			<li> game is fully-functioning, i believe</li>
-			</li></ul>
+	</ul></li></ul></li>
  	<lu> Yuki : <ul>
 <li>			 Finalizing the way background music is played</li>
 	<li>		 create another folder to contain new game GeoDash</li>
@@ -102,14 +105,13 @@ After unlocking the final file, you will receive a final message from the owner 
 			<li> Wrote very cheesy script for character</li>
 <li>			 Still need to fix some bug with final scene</li>
 	<li>		 Still need to complete the "minimize" and "maximize" functions for windows</li>
-	</li></li></ul></ul>
+	</ul></li></ul></li>
 <li> January 25:
 	<ul><li> Nicole: <ul>
 		<li>	 combined HelloWorld2 and GeoDash into HelloWorld3</li>
 <li>			 reorganized tabs for clarity</li>
 	<li>		 to do: password on congrats page for GeoDash and a click anywhere or press any key thing to go back to desktop</li>
 		<li>	 ^item completed</li>
-<li>			 to do: grammar issues in finale</li> 
-</li>
-</ul></li>
-</ul></ul>
+<li>			 to do: grammar issues in finale</li>
+</ul></li></ul></li>
+</ul>
