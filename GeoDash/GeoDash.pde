@@ -8,7 +8,10 @@ int first, second, third, fourth; // to loop background
 boolean right;
 boolean bend;
 int[]wren = {300,350}; // xcor, ycor
-int step = 0; // which part of game are we up to? 
+double[][]shapes; // 3d array of shooting shapes
+int nshapes;
+int health;
+int step; // you must cover a certain amount of ground to win
 
 void setup(){
   intro = loadImage("intro.jpg");
@@ -30,6 +33,22 @@ void setup(){
   third = -800; // left
   fourth = 800; // just to patch first, second, third
   right = true;
+  nshapes = 200; // how many shooting shapes?
+  shapes = new double[nshapes][9]; //[xcor, ycor, velocity, loopval, hit?, shape, r, g, b]
+  health = 100;
+  
+  for (int m = 0; m < nshapes; m++) {
+    shapes[m][0] = 800+(int)(Math.random() * 20000); // when will they come onto the screen?
+    shapes[m][1] = (int)(Math.random() * 500); // ycor
+    shapes[m][2] = 5; // init speed
+    shapes[m][3] = 1; // used to multiply by acceleration constant to determine velocity
+    shapes[m][4] = 0; // no, it has not hit wren yet
+    shapes[m][5] = (int)(Math.random()*3); // 0 = circle, 1 = square, 2 = triangle
+    for(int i=6; i<9;i++){
+      shapes[m][i]=(int)(Math.random()*255); // color
+    }
+  }
+  
 }
 
 void draw(){
@@ -59,8 +78,7 @@ void draw(){
     text("Note: Wren can levitate. Gravity and jumping don't exist for him.", 100, 580);
   }else if(g==2){
     geo();
-  }
-    
+  }  
 }
 
 void mouseClicked(){
@@ -76,15 +94,15 @@ void keyPressed(){
       second+=10;
       third+=10;
       right=false; // going left
-      step-=10;
       fourth=-800+first;
+      step+=10;
     }else if(key=='d'){ // forward
       first-=10;
       second-=10;
       third-=10;
       right=true; // going right
-      step+=10;
       fourth=800+first;
+      step-=10;
     }else if(key=='w'){ // up
       wren[1]-=10;
     }else if(key=='s'){ //down
@@ -106,12 +124,14 @@ void geo(){
   noStroke();
   rect(0,450,800,150);
   
+  //wren
   if(right){
     image(redright, wren[0], wren[1], width/5, height/5);
   }else{
     image(redleft, wren[0], wren[1], width/5, height/5);
   }
   
+  //bg
   if (first<=-800){
     first = 0;
     second = 800;
@@ -121,10 +141,42 @@ void geo(){
     second = -800;
     third = -1600;
   }
-  if(Math.random()>.8){
-  println(first);
-  println(second);
-  println(third);
+  
+  for (int r = 0; r < nshapes; r++) {
+    if (shapes[r][4] == 0) { // if still hasn't hit wren
+      if (shapes[r][0] < 800) { // if on screen
+        shapes[r][2] += .003 * shapes[r][3]; // increase speed
+        shapes[r][0] -= shapes[r][2]; // xcor change
+        shapes[r][3]++; // increase loopval thingy
+      } else { // shape is not yet on the screen
+        shapes[r][0]--; // don't start accelerating yet
+      }
+      if(shapes[r][5]==0){
+        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
+        ellipse((float)shapes[r][0], (float)shapes[r][1],10,10);
+      }else if(shapes[r][5]==1){
+        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
+        rect((float)shapes[r][0], (float)shapes[r][1],10,10);
+      }else if(shapes[r][5]==2){
+        fill((float)shapes[r][6],(float)shapes[r][7],(float)shapes[r][8]);
+        triangle((float)shapes[r][0], (float)shapes[r][1],(float)shapes[r][0]-5, (float)shapes[r][1]+10,(float)shapes[r][0]+5, (float)shapes[r][1]+10);
+      }
+      //image(cat, (float)cats[r][0], (float)cats[r][1], width/15, height/25); // 333x500 -> 20.8x20
+    }
+/*
+    // past ycor threshold and in basket range?
+    if (cats[r][1] >= 525 && cats[r][0] >= mouseX && cats[r][0] <= mouseX + 80 && cats[r][4] == 1) { 
+      cats[r][4] = 0;
+      score += 10; // 10 pts to griffindor!  
+      remcat--;
+    }
+
+    if (cats[r][1] >= 625 && (cats[r][0] < mouseX || cats[r][0] > mouseX + 80) && cats[r][4] == 1) {
+      cats[r][4] = 0;
+      score -= 20; // lose 20 pts for dropping the kitten
+      remcat--;
+    }
+  
+  */
   }
-  rect(1000-step, 300, 120, 30);
 }
