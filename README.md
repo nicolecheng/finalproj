@@ -53,3 +53,9 @@ Changelog:
 			- this is the "boss level", so it'll have a cover page and an instructions page
 			- intro page to the game looks nice
 			- instructions page is coming along
+-January 24:
+	- Nicole:
+			- Dashing Geometry: title page and instructions page complete
+			- bug found: looping background has glitches
+			- bug fix: ^ fixed
+			- new feature: cute little red panda character with left and right-facing positions

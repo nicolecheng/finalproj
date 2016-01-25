@@ -4,7 +4,7 @@ int g;
 PImage wasd, play, geogif;
 PFont ins;
 PImage redright, redleft; // red panda char
-int first, second, third; // to loop background
+int first, second, third, fourth; // to loop background
 boolean right;
 int[]wren = {300,350,0,0}; // xcor, ycor, in air? (0/1), velocity in air (with gravitational acceleration)
 int step = 0; // which part of game are we up to? 
@@ -27,6 +27,7 @@ void setup(){
   first = 0; // center
   second = 800; // right
   third = -800; // left
+  fourth = 800; // just to patch first, second, third
   right = true;
 }
 
@@ -72,12 +73,14 @@ void keyPressed(){
       third+=10;
       right=false; // going left
       step+=10;
+      fourth=-800+first;
     }else if(key=='d'){
       first-=10;
       second-=10;
       third-=10;
       right=true; // going right
       step-=10;
+      fourth=800+first;
     }
   }else if(g==1){
     g++; // move to game
@@ -90,6 +93,7 @@ void geo(){
   image(intro, first, 0);
   image(intro, second, 0);
   image(intro, third, 0);
+  image(intro, fourth, 0);
   fill(111);
   noStroke();
   rect(0,450,800,150);
