@@ -154,8 +154,8 @@ void scene2() {
     " We have recently uncovered an enemy laptop near your base. \n" +
     " The enemy was holding onto it with his dear life until...\n one of our men took him down. \n" +
     " We believe that there is very sensitive information to be uncovered. \n" +
-    " You are the only one who can unlock it. \n " +
-    " Your talent in " + specialty + " makes you perfect for the job. \n" + 
+    " You are the only one who can unlock it. \n" +
+    " Your talent in " + specialty + " makes you perfect for the job. \n " + 
     name + ", we are relying on you to save the world. \n \n" +
     " Signed, \n Agent P"; //  P&F fandom (?!)
 
@@ -180,8 +180,9 @@ void scene3() {
     "The fate of justice lies on your shoulders. \n" +
     "Should you be brave enough to accept this mission, best of luck. \n" + 
     "If not, I am sorry that you live such a cowardly life. It must be hard. \n\n" +
-    "All the Best,\n Agent Yuniclo";      
-  text(s3m, 45, 120);
+    "All the Best,\n Agent Yuniclo"; 
+  textSize(24);
+  text(s3m, 55, 120);
   fill(200);
   text("to accept, click anywhere on the screen...", 375, 580);
 }

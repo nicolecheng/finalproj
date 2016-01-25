@@ -141,10 +141,9 @@ void  setup() {
     noStroke();
 
     //  var init
-    ncat =  20;
+    ncat =  30;
     cats = new double[ncat][5];
     score = 0;
-    remcat = ncat;
     remcat = ncat;
     f = createFont("Algerian", 16, true);
     textFont(f, 20); // size 20  
@@ -157,7 +156,7 @@ void  setup() {
 
     // setup cats
     for (int m = 0; m < ncat; m++) {
-      cats[m][0] = (int)(Math.random() * 500); // xcor
+      cats[m][0] = (int)(Math.random() * 800); // xcor
       cats[m][1] = (-1)*(int)(Math.random() * 1000); // when will the kittens fall down?
       cats[m][2] = 5; // init speed
       cats[m][3] = 1;
@@ -341,12 +340,12 @@ void draw() {
       }
     }
 
-    fill(50, 150, 0);
+    fill(255);
     text("Kitten Drop", 15, 25);
-    fill(111, 111, 111);
-    text("Score:" + score, 390, 25);
-    text("Cats remaining:"+remcat, 300, 50);
-
+    text("Score:" + score, 690, 25);
+    text("Cats remaining:"+remcat, 600, 50);
+    text("Move your mouse to catch the kittens!",15, 50);
+  
     //println(score);
 
     if (remcat == 0) {

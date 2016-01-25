@@ -8,7 +8,9 @@ Project description:
 You are put into the shoes of a secret agent tasked with the diffcult mission of unlocking an enemy computer to unlock sensitive information.
 
 To compile/run:
-The G4P library is needed for the passcode functions to work. To run, open the file up in processing and press run.
+The G4P library is needed for the passcode functions to work. 
+The Minim (2.2.2) library is needed for the audio.
+To run, open the file up in processing and press run.
 
 How to use it:
 Upon running the program, you are prompted to complete a tutorial, in which you click the mouse to move to the next scene. 
@@ -53,23 +55,9 @@ Changelog:
 			- this is the "boss level", so it'll have a cover page and an instructions page
 			- intro page to the game looks nice
 			- instructions page is coming along
-
-	- Yuki:
-			- Add background music into project
-			- Background music changes according to different setting
-			- Transitioning between scenes
-
 -January 24:
 	- Nicole:
 			- Dashing Geometry: title page and instructions page complete
 			- bug found: looping background has glitches
 			- bug fix: ^ fixed
 			- new feature: cute little red panda character with left and right-facing positions
-
- 	- Yuki :
-			- Finalizing the way background music is played
-			- create another folder to contain new game GeoDash
-			- Add new scene/final scene
-			- Wrote very cheesy script for character
-			- Still need to fix some bug with final scene
-			- Still need to complete the "minimize" and "maximize" functions for windows
