@@ -2,11 +2,13 @@ import g4p_controls.*;
 
 GPassword pw1;
 GPassword pw2;
+GPassword pw3;
 
 GLabel rule;
 
 String strPw1 = "";
 String strPw2 = "";
+String strPw3 = "";
 
 public void createPW(){
   rule = new GLabel(this,200,350,350,40,"Please press \"Enter\" key to confirm password");
@@ -27,6 +29,13 @@ public void createPW(){
  pw2.setMaxWordLength(100);
  pw2.setOpaque(true);
  pw2.addEventHandler(this, "password2_change2");
+  }else if (winNum == 3){
+    pw3 = new GPassword(this, 300, 300, 150, 40);
+    pw3.setFocus(true);
+    pw3.setVisibleChar('*');
+ pw3.setMaxWordLength(100);
+ pw3.setOpaque(true);
+ pw3.addEventHandler(this, "password3_change2");
   }
 }
 
@@ -50,20 +59,35 @@ public void password2_change2(GPassword source, GEvent event) { //_CODE_:passwor
   }
 }
 
+public void password3_change2(GPassword source, GEvent event) { //_CODE_:password1:804951
+  if (event.toString() == "ENTERED"){
+    strPw3 = source.getPassword();
+  }
+  if(event.toString() == "LOST_FOCUS"){
+   pw3.setVisible(false);
+   rule.setVisible(false);
+  }
+}
+
 void checkPW(){
- if(strPw1.equals("KittensAreCute") || strPw2.equals("PAWSITIVE")){
+ if(strPw1.equals("KittensAreCute") || strPw2.equals("PAWSITIVE") || strPw3.equals("SnowDay")){
    fill(255);
   strPw1 = "";
   strPw2 = "";
+  strPw3 = "";
   if(winNum == 1){
    openNew[1] = true; 
   }else if (winNum == 2){
    openNew[2] = true; 
+  }else if (winNum == 3){
+   openNew[3] = true; 
   }
   if(winNum == 0 || winNum == 1){
   pw1.setVisible(false);
   }else if(winNum == 2){
    pw2.setVisible(false); 
+  }else if (winNum == 3){
+   pw3.setVisible(false); 
   }
  }
 }

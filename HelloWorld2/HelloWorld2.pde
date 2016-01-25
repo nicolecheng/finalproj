@@ -14,23 +14,35 @@ PImage toolBar2;
 PImage toolBar3;
 PImage gameHangman;
 PImage gameKittendrop;
+PImage gameGeoDash;
+
 int mouseClicks;
+
 boolean overFolder1 = false;
 boolean overFolder2 = false;
 boolean overFolder3 = false;
-boolean [] openNew = {false, false, false};
+boolean overFolder4 = false;
+
+boolean [] openNew = {false, false, false, false};
+
 boolean openPW = false;
+
 boolean overClose = false;
 boolean overHangman = false;
 boolean overKittendrop = false;
-int gameClicks = 0;
-float xOff = 0;
-float yOff = 0;
+boolean overGeoDash = false;
 boolean over = false;
 boolean locked = false;
+
+int gameClicks = 0;
+
+float xOff = 0;
+float yOff = 0;
+
 float winx = 200;
 float winy = 150;
-Window w, e, r;
+
+Window w, e, r, t;
 
 //Hang man variables
 String[] wordlist;
@@ -58,9 +70,8 @@ PFont f; // player's stats to display
 PImage cat; // cat image!
 PImage basket;
 
-//testing
-float coords[][] = {{200, 150}, {200, 150}, {200, 150}};
-float offs[][] ={{0, 0}, {0, 0}, {0, 0}};
+float coords[][] = {{200, 150}, {200, 150}, {200, 150}, {200, 150}};
+float offs[][] ={{0, 0}, {0, 0}, {0, 0}, {0, 0}};
 int winNum = 0;
 
 void  setup() {
@@ -69,7 +80,7 @@ void  setup() {
   opening = minim.loadFile("Opening.mp3");
   desktop = minim.loadFile("desktop.mp3");
   hangman = minim.loadFile("Hangman.mp3");
-kittendrop = minim.loadFile("kittenDrop.mp3");
+  kittendrop = minim.loadFile("kittenDrop.mp3");
 
   size(800, 600);
   //load image for button "restart" and "quit"
@@ -83,6 +94,7 @@ kittendrop = minim.loadFile("kittenDrop.mp3");
     toolBar3 = loadImage("x.PNG");
     gameHangman = loadImage("hangman.jpeg");
     gameKittendrop = loadImage("kittendrop.jpg");
+    gameGeoDash = loadImage("GeoDash.jpg");
     mouseClicks = 0;
     gameClicks = 0;
     tab = 0;
@@ -169,6 +181,9 @@ void draw() {
     //Third Folder
     folders(30, 270, "Hello World");
 
+    //fourth folder
+    folders(30, 390, "Hello World");
+
     //debugging use
     textSize(18);
     fill(255);
@@ -185,10 +200,13 @@ void draw() {
         winNum = 0;
       } else if (overFolder2) {
         winNum = 1;
-      } else {
+      } else if (overFolder3) {
         winNum = 2;
+      } else if (overFolder4) {
+        winNum = 3;
       }
-      if (winNum == 1 || winNum == 2) {
+      if (winNum == 1 || winNum == 2 || winNum == 3) {
+        println("password plz");
         createPW();
       } else if (winNum == 0) {
         openNew[0] = true;
@@ -212,6 +230,9 @@ void draw() {
     } else if ((winNum == 2) && openNew[2]) {
       r = new Window(coords[2][0], coords[2][1]);
       r.check();
+    } else if ((winNum == 3) && openNew[3]) {
+      t = new Window(coords[3][0], coords[3][1]);
+      t.check();
     }
 
     //open up different games accordingly

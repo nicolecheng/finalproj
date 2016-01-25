@@ -33,18 +33,22 @@ void cursor() {
       overFolder2 = true;
     } else if (mouseY>270 && mouseY<330) {
       overFolder3 = true;
+    }else if (mouseY>390 && mouseY<450){
+      overFolder4 = true;
     } else {
       overFolder1 = false;
       overFolder2 = false;
       overFolder3 = false;
+      overFolder4 = false;
     }
   } else {
     overFolder1 = false;
     overFolder2 = false;
     overFolder3 = false;
+    overFolder4 = false;
   }
 
-  if (overFolder1 || overFolder2 || overFolder3) {
+  if (overFolder1 || overFolder2 || overFolder3 || overFolder4) {
     cursor(HAND);
   } else {
     cursor(ARROW);

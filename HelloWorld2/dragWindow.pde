@@ -1,6 +1,6 @@
 
 void mousePressed() {
-  
+
   //__________________________Related to Opening______________
   //if(environ == -1){
   // s++; 
@@ -10,7 +10,7 @@ void mousePressed() {
   if (environ == 0) {
     //if click mouse over the close-window button, then close the window
     if (overClose) {
-      for(int i = 0; i < openNew.length; i++){
+      for (int i = 0; i < openNew.length; i++) {
         openNew[i] = false;
       }
       overClose = false;
@@ -32,17 +32,24 @@ void mousePressed() {
     } 
 
     //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
-    if ((overFolder1 || overFolder2 || overFolder3)&&(mouseButton == LEFT)) {
+    if ((overFolder1 || overFolder2 || overFolder3 || overFolder4)&&(mouseButton == LEFT)) {
       mouseClicks +=1;
-      if(overFolder1){
-       openNew[1]=false;
-       openNew[2]=false;
-      }else if(overFolder2){
+      if (overFolder1) {
+        openNew[1]=false;
+        openNew[2]=false;
+        openNew[3]=false;
+      } else if (overFolder2) {
         openNew[0]=false;
-       openNew[2]=false;
-      }else if(overFolder3){
-       openNew[1]=false;
-       openNew[0]=false; 
+        openNew[2]=false;
+        openNew[3]=false;
+      } else if (overFolder3) {
+        openNew[1]=false;
+        openNew[0]=false; 
+        openNew[3]=false;
+      } else if (overFolder4) {
+        openNew[1]=false;
+        openNew[2]=false;
+        openNew[0]=false;
       }
     }
   }
