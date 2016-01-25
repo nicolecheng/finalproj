@@ -4,11 +4,13 @@
 // 1 = Hang man
 // 2 = Kitten drop
 // 3 = ending
-int environ = 3;
+int environ = -1;
 AudioPlayer opening;
 AudioPlayer desktop;
 AudioPlayer hangman;
 AudioPlayer kittendrop;
+AudioPlayer geodash;
+AudioPlayer ending;
 
 //Main desktop stimulation variables
 PImage toolBar1;
@@ -79,12 +81,13 @@ float offs[][] ={{0, 0}, {0, 0}, {0, 0}, {0, 0}};
 int winNum = 0;
 
 void  setup() {
-  //playMusic();
   minim = new Minim(this);
   opening = minim.loadFile("Opening.mp3");
   desktop = minim.loadFile("desktop.mp3");
   hangman = minim.loadFile("Hangman.mp3");
   kittendrop = minim.loadFile("kittenDrop.mp3");
+  geodash = minim.loadFile("geodash.mp3");
+  ending = minim.loadFile("ending.mp3");
 
   size(800, 600);
   //load image for button "restart" and "quit"
@@ -193,14 +196,14 @@ void draw() {
     //fourth folder
     folders(30, 390, "Hello World");
 
-    //debugging use
-    textSize(18);
-    fill(255);
-    text(winNum, 500, 50);
-    text(gameClicks, 500, 70);
-    text("folder 1"+coords[0][0]+","+coords[0][1], 500, 100);
-    text("folder 2"+coords[1][0]+","+coords[1][1], 500, 125);
-    text("folder 3"+coords[2][0]+","+coords[2][1], 500, 150);
+    ////debugging use
+    //textSize(18);
+    //fill(255);
+    //text(winNum, 500, 50);
+    //text(gameClicks, 500, 70);
+    //text("folder 1"+coords[0][0]+","+coords[0][1], 500, 100);
+    //text("folder 2"+coords[1][0]+","+coords[1][1], 500, 125);
+    //text("folder 3"+coords[2][0]+","+coords[2][1], 500, 150);
 
     //check if mouse is double-clicked ,if so, check for password
     if (mouseClicks>=2) {
@@ -254,9 +257,13 @@ void draw() {
         desktop.pause();
         playKittenDrop = true;
       } else if (overGeoDash) {
+        desktop.pause();
+        playGeoDash = true;
         //_______________________________________________________Put GeoDash stuff here______________________________________________________
       } else if (overSecret) {
         environ = 3;
+        desktop.pause();
+        playEnding = true;
       }
       setup();
     }
