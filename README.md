@@ -34,6 +34,12 @@ Changelog:
 			- bug fix: ^ removed, and working now
 			- bug found: pressing on an incorrect letter multiple times takes away chances
 			- bug fix: ^ fixed that
+	- Yuki:
+			- start of passwords
+				- cannot use certain symbols
+				- not "entering"
+			- bug fix: hangman congrats page now working
+			- new feature: reinserted retry and quit buttons, which now work
 			
 -January 21:
 			- bug found: mouseClicks is not working
@@ -45,19 +51,47 @@ Changelog:
 			- scene changes are not triggering either
 			- bug found: text boxes on certificate are not registering and storing
 			- bug fix: ^ fixed
+	- Yuki:
+			- textfields inserted
+			- new breakthrough: folder passwords can be used!
 -January 22:
 	- Nicole:
 			- bug fix: scene changes and environ changes are registering with mouseClicks
 			- bug fix: the text boxes are recognized as filled in, letting the tutorial go on
+	- Yuki:
+			- bug fix: optimized scene / environ changes with keyPressed()
+			- invisible text boxes now
 -January 23:
 	- Nicole:
 			- creating a third game -- similar to geometry dash
 			- this is the "boss level", so it'll have a cover page and an instructions page
 			- intro page to the game looks nice
 			- instructions page is coming along
+	- Yuki:
+			- Add background music into project
+			- Background music changes according to different setting
+			- Transitioning between scenes
+
 -January 24:
 	- Nicole:
 			- Dashing Geometry: title page and instructions page complete
 			- bug found: looping background has glitches
 			- bug fix: ^ fixed
 			- new feature: cute little red panda character with left and right-facing positions
+			- new feature: shape bullets shooting
+			- new feature: hp, steps, and remaining bullets stats on screen
+			- game is fully-functioning, i believe
+ 	- Yuki :
+			- Finalizing the way background music is played
+			- create another folder to contain new game GeoDash
+			- Add new scene/final scene
+			- Wrote very cheesy script for character
+			- Still need to fix some bug with final scene
+			- Still need to complete the "minimize" and "maximize" functions for windows
+-January 25:
+	- Nicole:
+			- combined HelloWorld2 and GeoDash into HelloWorld3
+			- reorganized tabs for clarity
+			- to do: password on congrats page for GeoDash and a click anywhere or press any key thing to go back to desktop
+			- ^item completed
+			- to do: grammar issues in finale

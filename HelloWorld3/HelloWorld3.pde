@@ -239,12 +239,11 @@ void mouseClicked() {
     }
     if (geohealth<=0) { // lost dashing geometry -- click to restart
       setup();
+    }else if(steps>=1000){
+      environ = 0; 
     }
   }
-print(" g: ");
-print(g);
-print(" environ:");
-print(environ);
+
   //_____________must restart____Related to Ending___________________________
   if (environ == 4) {
     if (index<=10) {

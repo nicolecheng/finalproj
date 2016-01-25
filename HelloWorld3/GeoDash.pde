@@ -41,7 +41,7 @@ void geoSetup(){
   steps = 0;
   
   for (int m = 0; m < nshapes; m++) {
-    shapes[m][0] = 800+(int)(Math.random() * 30000); // when will they come onto the screen?
+    shapes[m][0] = 800+(int)(Math.random() * 20000); // when will they come onto the screen?
     shapes[m][1] = (int)(Math.random() * 600); // ycor
     shapes[m][2] = 0; // no, it has not hit wren yet
     shapes[m][3] = (int)(Math.random()*3); // 0 = circle, 1 = square, 2 = triangle
@@ -147,7 +147,8 @@ void geo(){
     textSize(30);
     fill(255);
     text("You got Agent Wren through the passage.\n           Congratulations.", 80, 220);
-    text("Agent Wren and the agency thank you deeply. \n     The final password is: PASSWORD", 50, 320);
+    text("Agent Wren and the agency thank you deeply. \n     The final password is: SnowDay", 50, 320);
+    text("Click here to continue.", 200, 420);
   }
   if(geohealth<=0){
     background(intro);
