@@ -7,6 +7,8 @@
 // 4 = ending
 
 int environ = -1;
+
+//Initiate Music for game
 AudioPlayer opening;
 AudioPlayer desktop;
 AudioPlayer ending;
@@ -15,23 +17,31 @@ AudioPlayer ending;
 PImage toolBar1;
 PImage toolBar2;
 PImage toolBar3;
+//Icon for games and file
 PImage gameHangman;
 PImage gameKittendrop;
 PImage gameGeoDash;
 PImage topSecret;
 
+//count mouse clicks on desktop
 int mouseClicks;
 
+//whether mouse is hovering over folder
 boolean overFolder1 = false;
 boolean overFolder2 = false;
 boolean overFolder3 = false;
 boolean overFolder4 = false;
 
+//list to check which folder should be opened
 boolean [] openNew = {false, false, false, false};
 
+//check whether to generate password
 boolean openPW = false;
 
+//chech if mouse hovering over close-window
 boolean overClose = false;
+
+//check if mouse hovering over the folder content
 boolean overHangman = false;
 boolean overKittendrop = false;
 boolean overGeoDash = false;
@@ -39,37 +49,38 @@ boolean overSecret = false;
 boolean over = false;
 boolean locked = false;
 
+//count mouseclicks on folder content
 int gameClicks = 0;
 
+//measurement for window
 float xOff = 0;
 float yOff = 0;
-
 float winx = 200;
 float winy = 150;
-
-Window w, e, r, t;
-
-
-
 float coords[][] = {{200, 150}, {200, 150}, {200, 150}, {200, 150}};
 float offs[][] ={{0, 0}, {0, 0}, {0, 0}, {0, 0}};
 int winNum = 0;
 
+//Windows
+Window w, e, r, t;
+
 void  setup() {
+  
+  //Universal setup
   minim = new Minim(this);
-  opening = minim.loadFile("Opening.mp3");
+  size(800, 600);
+  
+  //load music
+  opening = minim.loadFile("LessonsInLove_NeonTrees.mp3");
   desktop = minim.loadFile("Fever_TheBlackKeys.mp3");
   ending = minim.loadFile("ending.mp3");
-
-  size(800, 600);
+  
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
   quit = loadImage("quit.png");
 
   //_____________desktop set up_______________________
   if (environ == 0) {
-    toolBar1 = loadImage("minimize.PNG");
-    toolBar2 = loadImage("square.PNG");
     toolBar3 = loadImage("x.PNG");
     gameHangman = loadImage("hangman.jpeg");
     gameKittendrop = loadImage("kittendrop.jpg");
@@ -101,17 +112,17 @@ void  setup() {
 void draw() {
 
   playMusic();    
+  
   //____________________________Related to Opening
   if (environ == -1 && !stopLoop) {
-    //println(s);
     Opening();
     playOpening = false;
   }
 
   //_________________________________Related to desktop__________________________________
   if ( environ == 0) {
-    // setup();
     background(0);
+    
     //First Folder
     folders(30, 30, "Hello World");
 
@@ -123,15 +134,6 @@ void draw() {
 
     //fourth folder
     folders(30, 390, "Hello World");
-
-    ////debugging use
-    //textSize(18);
-    //fill(255);
-    //text(winNum, 500, 50);
-    //text(gameClicks, 500, 70);
-    //text("folder 1"+coords[0][0]+","+coords[0][1], 500, 100);
-    //text("folder 2"+coords[1][0]+","+coords[1][1], 500, 125);
-    //text("folder 3"+coords[2][0]+","+coords[2][1], 500, 150);
 
     //check if mouse is double-clicked ,if so, check for password
     if (mouseClicks>=2) {
@@ -156,13 +158,13 @@ void draw() {
     checkPW();
 
     //if new window allowed to be opened(Password is correct), create the window and start it at position 200,150
-    //first folder
+    //first folder, don't require password
     if (openNew[0]) {
       w = new Window(coords[0][0], coords[0][1]);
       //check if mouse is over the tool bar, if so, allow user to drag the window
       w.check();
     }
-    //second folder
+    //other folders, require password
     else if ((winNum == 1) && openNew[1]) {
       e = new Window(coords[1][0], coords[1][1]);
       e.check();
@@ -182,8 +184,8 @@ void draw() {
         environ = 2;
       } else if (overGeoDash) {
         environ = 3;
-        //_______________________________________________________Put GeoDash stuff here______________________________________________________
       } else if (overSecret) {
+          //stop desktop music and start ending music
         desktop.pause();
         playEnding = true;
         environ = 4;
@@ -214,13 +216,17 @@ void draw() {
 }
 
 void mouseClicked() {
+  //Opening scene
+  //check if all three fields are filled out, if no, don't allow user to go to next stage
   if (environ==-1 && filledOut()) {
     stopLoop=false;
   }
+  //if all filled out, move on to next stage
   if (environ==-1 && !stopLoop) {
     s++;
   }
 
+//GeoDash
   if (environ==3) {
     if(g==-1 || g==0) {
       g++; // move to instructions page
@@ -241,6 +247,5 @@ void mouseClicked() {
     if (index == 6) {
       fin = true;
     }
-    //endSetting();
   }
 }
