@@ -119,7 +119,9 @@ After unlocking the final file, you will receive a final message from the owner 
 <li>We both made this project <i>more</i> beautiful</li>
 	<li> Nicole: <ul>
 		<li>	 bug found: music overlap</li>
-	<li>		 new script for ending</li></ul></li>
+	<li>		 new script for ending</li>
+			<li> changed songs</li>
+		<li>	 one more life in hangman bc hangman is hard af</li></ul></li>
 	<li> Yuki: <ul>
 		<li>	 bug fix: music overlap thingy</li>
 			<li> slides for ending</li>

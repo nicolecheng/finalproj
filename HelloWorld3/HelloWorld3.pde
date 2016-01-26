@@ -60,9 +60,9 @@ int winNum = 0;
 
 void  setup() {
   minim = new Minim(this);
-  opening = minim.loadFile("Opening.mp3");
-  desktop = minim.loadFile("desktop.mp3");
-  hangman = minim.loadFile("Hangman.mp3");
+  opening = minim.loadFile("Fever_TheBlackKeys.mp3");//Opening.mp3");
+  desktop = minim.loadFile("LessonsInLove_NeonTrees.mp3");//"desktop.mp3");
+  hangman = minim.loadFile("Starlight_Muse.mp3");//Hangman.mp3");
   kittendrop = minim.loadFile("kittenDrop.mp3");
   geodash = minim.loadFile("geodash.mp3");
   ending = minim.loadFile("ending.mp3");

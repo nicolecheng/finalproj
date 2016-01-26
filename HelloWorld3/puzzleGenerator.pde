@@ -9,9 +9,9 @@ void questionSlot(String word){
    fill(0);
    text("Finished!",100,550);
   }
-  for (int i = 0; i < correct.length; i++){
-   text(correct[i], 100+i*10, 600); 
-  }
+  //for (int i = 0; i < correct.length; i++){
+  // text(correct[i], 100+i*10, 600); 
+  //}
   
     //check which slots should show the letter
   toShow(word,chars);

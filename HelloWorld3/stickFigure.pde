@@ -9,8 +9,10 @@ void stickFigure(){
  vertex(160,80);
  vertex(160,100);
  endShape();
- ellipse(160,120,40,40);
  
+ if(chances <= 5){
+   ellipse(160,120,40,40);
+ }
  //first failed try
  if(chances <= 4){
    noFill();
