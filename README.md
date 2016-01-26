@@ -124,7 +124,7 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>	 one more life in hangman bc hangman is hard af</li></ul></li>
 	<li> Yuki: <ul>
 		<li>	 bug fix: music overlap thingy</li>
-			<li> slides for ending</li>
-			</ul></li>
-			</ul></li>
+			<li> slides for ending, changed script</li>
+			</ul>Finished documentation for all files</li>
+			</ul>Change music and folder names</li>
 </ul>
