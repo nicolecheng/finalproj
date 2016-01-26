@@ -15,6 +15,7 @@ boolean exit = false;
 boolean finished = false;
 
 void hangmanSetup() {
+  //reset
   correct = subset(correct, correct.length-1);
   correct[0] = 0;
   chances = 5;
@@ -57,8 +58,11 @@ void hangmanDraw() {
     text("" + chances + "  Tries left", 330, 100);
     //Show letters guessed so far
     text(inputs, 400-3*inputs.length(), 180);
-    //since I cannot figure out the word lol
-    text(wordlist[wordSelect], 50, 50);
+    
+    //_____________________________________________________________________CHEAT HERE__________________________________________________
+    //if you can't figure out the word, un-comment this code
+    //since I can't figure out the word myself lol
+    //text(wordlist[wordSelect], 50, 50);
 
     //tab 1 is the pop-up window background
   } else if (tab == 1) {

@@ -86,7 +86,7 @@ void kittenDraw() {
 }
 
 void Congrats() {
-//if the player win the game
+  //if the player win the game
   if (score > 0) {
     background(bg);
     textFont(f, 30); // size 20 
@@ -109,7 +109,7 @@ void Congrats() {
     text("AH, FIDDLESTICKS!", 285, 220);
     text("You didn't save enough kittens.", 190, 270);
     text("Try again.", 310, 320);
-//allow user to choose between going back(quit) to desktop or play the game again
+    //allow user to choose between going back(quit) to desktop or play the game again
     image(restart, 280, 450, 50, 50);
     image(quit, 450, 450, 50, 50);
     //high light button when hovering over it

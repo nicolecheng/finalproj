@@ -1,11 +1,16 @@
+//text field to fill out
 GTextField enterName;
 GTextField enterCodeName;
 GTextField enterSpecialty;
 
+//usable variable for user input
 String name;
 String codeName;
 String specialty;
+
 int s = 0; // which slide are we up to?
+
+//variable regarding whether to move on to next stage
 boolean countClicks = true;
 boolean stopLoop = false;
 boolean [] filled = {false, false, false};
@@ -72,6 +77,7 @@ void s1Setup() {
   fill(255);
   textFont(fo, 20);
   text("Fill out your certificate!", 280, 55);
+  //create text field and add event handlers for each
   enterName = new GTextField(this, 210, 255, 200, 20);
   enterName.addEventHandler(this, "nameHandler");
   enterCodeName = new GTextField(this, 280, 290, 200, 20);
@@ -79,15 +85,13 @@ void s1Setup() {
   enterSpecialty = new GTextField(this, 260, 320, 200, 20);
   enterSpecialty.addEventHandler(this, "specialtyHandler");
 
-  //text("Press 3 to move to next field", 260, 80);
-  //text("Press 4 to clear certificate", 270, 105);
   text("After filling in, click anywhere to continue...", 370, 570);
 }
 
+//event handlers take in user inputs and put them into usable variables
 void codeNameHandler(GTextField source, GEvent event) {
   codeName = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
-    //countClicks = false;
   }
   if (event.toString().equals("CHANGED")) {
     filled[1] = true;
@@ -97,7 +101,6 @@ void codeNameHandler(GTextField source, GEvent event) {
 void nameHandler(GTextField source, GEvent event) {
   name = source.getText();
   if (event.toString().equals("GETS_FOCUS")) {
-    //countClicks = false;
   }
   if (event.toString().equals("CHANGED")) {
     filled[0] = true;
@@ -113,18 +116,8 @@ void specialtyHandler(GTextField source, GEvent event) {
     filled[2] = true;
   }
 }
-/*
-void filledOut(){
- boolean goOn = true;
- for(int i = 0; i < filled.length; i++){
- goOn = goOn && filled[i];
- }
- if(goOn){
- stopLoop = false; 
- print("here");
- s=1;
- }
- }*/
+
+//check whether all fields are filled out
 boolean filledOut() {
   for (int i=0; i<filled.length; i++) {
     if (!filled[i]) {
@@ -133,6 +126,7 @@ boolean filledOut() {
   }
   return true;
 }
+
 
 void scene2() {
   /*

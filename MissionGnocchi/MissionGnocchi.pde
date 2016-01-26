@@ -65,16 +65,16 @@ int winNum = 0;
 Window w, e, r, t;
 
 void  setup() {
-  
+
   //Universal setup
   minim = new Minim(this);
   size(800, 600);
-  
+
   //load music
   opening = minim.loadFile("LessonsInLove_NeonTrees.mp3");
   desktop = minim.loadFile("Fever_TheBlackKeys.mp3");
   ending = minim.loadFile("ending.mp3");
-  
+
   //load image for button "restart" and "quit"
   restart = loadImage("restart.png");
   quit = loadImage("quit.png");
@@ -112,7 +112,7 @@ void  setup() {
 void draw() {
 
   playMusic();    
-  
+
   //____________________________Related to Opening
   if (environ == -1 && !stopLoop) {
     Opening();
@@ -122,18 +122,18 @@ void draw() {
   //_________________________________Related to desktop__________________________________
   if ( environ == 0) {
     background(0);
-    
+
     //First Folder
-    folders(30, 30, "Hello World");
+    folders(30, 30, "Game Time?");
 
     //Second Folder
-    folders(30, 150, "Hello World");
+    folders(30, 150, "Animal Lover?");
 
     //Third Folder
-    folders(30, 270, "Hello World");
+    folders(30, 270, "Quick Reaction?");
 
     //fourth folder
-    folders(30, 390, "Hello World");
+    folders(30, 390, "Hello....");
 
     //check if mouse is double-clicked ,if so, check for password
     if (mouseClicks>=2) {
@@ -185,8 +185,9 @@ void draw() {
       } else if (overGeoDash) {
         environ = 3;
       } else if (overSecret) {
-          //stop desktop music and start ending music
+        //stop desktop music and start ending music
         desktop.pause();
+        playDesktop = false;
         playEnding = true;
         environ = 4;
       }
@@ -226,21 +227,21 @@ void mouseClicked() {
     s++;
   }
 
-//GeoDash
+  //GeoDash
   if (environ==3) {
-    if(g==-1 || g==0) {
+    if (g==-1 || g==0) {
       g++; // move to instructions page
     }
     if (geohealth<=0) { // lost dashing geometry -- click to restart
       setup();
-    }else if(steps>=1000){
-      environ = 0; 
+    } else if (steps>=1000) {
+      environ = 0;
     }
   }
 
   //_____________Related to Ending___________________________
   if (environ == 4) {
-        endSetting();
+    endSetting();
     if (index<=5) {
       index++;
     }

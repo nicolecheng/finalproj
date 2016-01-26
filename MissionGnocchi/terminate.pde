@@ -38,7 +38,7 @@ void popUp() {
     text("KittensAreCute", 290, 350);
     image(quit, 450, 450, 50, 50);
     if (mouseX>450 && mouseX<500 && mouseY>450 && mouseY<500) {
-       tint(3, 158, 168, 100);
+      tint(3, 158, 168, 100);
       image(quit, 450, 450, 50, 50);
       exit = true;
     }

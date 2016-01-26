@@ -1,18 +1,13 @@
 
 void mousePressed() {
-
-  //__________________________Related to Opening______________
-  //if(environ == -1){
-  // s++; 
-  //}
   //_________________Related to desktop_________________
-
   if (environ == 0) {
     //if click mouse over the close-window button, then close the window
     if (overClose) {
       for (int i = 0; i < openNew.length; i++) {
         openNew[i] = false;
       }
+      //reset everything
       overClose = false;
       mouseClicks = 0;
       coords[winNum][0] = 200;
@@ -24,6 +19,7 @@ void mousePressed() {
     //if mouse over the tool bar, then make the boolean true
     if (over) {
       locked = true; 
+
       //calculate the value at which the window should be generated to create motion of movement
       offs[winNum][0] = mouseX - coords[winNum][0];
       offs[winNum][1] = mouseY - coords[winNum][1];
@@ -34,6 +30,7 @@ void mousePressed() {
     //if mouse over folder, and left mouse is clicked, then add 1 to mouseClicks
     if ((overFolder1 || overFolder2 || overFolder3 || overFolder4)&&(mouseButton == LEFT)) {
       mouseClicks +=1;
+      //when one folder is open, close other folders
       if (overFolder1) {
         openNew[1]=false;
         openNew[2]=false;
