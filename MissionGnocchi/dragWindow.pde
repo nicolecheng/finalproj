@@ -69,8 +69,6 @@ void mousePressed() {
       environ = 0;
       exit = false;
       finished = false;
-      hangman.pause();
-      playDesktop = true;
       setup();
       //draw();
     }
@@ -87,8 +85,6 @@ void mousePressed() {
     } else if (exit) {
       environ = 0;
       exit = false;
-      kittendrop.pause();
-      playDesktop = true;
       setup();
       draw();
     }

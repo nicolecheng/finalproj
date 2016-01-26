@@ -9,9 +9,6 @@
 int environ = -1;
 AudioPlayer opening;
 AudioPlayer desktop;
-AudioPlayer hangman;
-AudioPlayer kittendrop;
-AudioPlayer geodash;
 AudioPlayer ending;
 
 //Main desktop stimulation variables
@@ -61,10 +58,7 @@ int winNum = 0;
 void  setup() {
   minim = new Minim(this);
   opening = minim.loadFile("Opening.mp3");
-  desktop = minim.loadFile("desktop.mp3");
-  hangman = minim.loadFile("Hangman.mp3");
-  kittendrop = minim.loadFile("kittenDrop.mp3");
-  geodash = minim.loadFile("geodash.mp3");
+  desktop = minim.loadFile("Fever_TheBlackKeys.mp3");
   ending = minim.loadFile("ending.mp3");
 
   size(800, 600);
@@ -184,21 +178,15 @@ void draw() {
     if (gameClicks >= 2) {
       if (overHangman) {
         environ = 1;
-        desktop.pause();
-        playHangman = true;
       } else if (overKittendrop) {
         environ = 2;
-        desktop.pause();
-        playKittenDrop = true;
       } else if (overGeoDash) {
         environ = 3;
-        desktop.pause();
-        playGeoDash = true;
         //_______________________________________________________Put GeoDash stuff here______________________________________________________
       } else if (overSecret) {
-        environ = 4;
         desktop.pause();
         playEnding = true;
+        environ = 4;
       }
       setup();
     }
@@ -240,8 +228,6 @@ void mouseClicked() {
     if (geohealth<=0) { // lost dashing geometry -- click to restart
       setup();
     }else if(steps>=1000){
-      geodash.close();
-      playDesktop = true;
       environ = 0; 
     }
   }
