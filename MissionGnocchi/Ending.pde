@@ -36,7 +36,6 @@ void ending() {
   textFont(font);
   fill(0);
   text("Press anywhere on the screen to continue", 20, 20);
-  text(index, 20, 80);
   //show user's name on screen along with dialogue boxes
   if (index == 2) {
     text(codeName, 350, 405);
@@ -45,5 +44,6 @@ void ending() {
   if (index == 6 && showText) {
     text(name, 400, 405);
     text(codeName, 340, 440);
+        text(name, 420, 585);
   }
 }

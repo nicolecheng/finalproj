@@ -124,16 +124,16 @@ void draw() {
     background(0);
 
     //First Folder
-    folders(30, 30, "Game Time?");
+    folders(30, 30, "Secret Hangar");
 
     //Second Folder
-    folders(30, 150, "Animal Lover?");
+    folders(30, 150, "Concatenation");
 
     //Third Folder
-    folders(30, 270, "Quick Reaction?");
+    folders(30, 270, "Dash-tective");
 
     //fourth folder
-    folders(30, 390, "Hello....");
+    folders(30, 390, "Cluesing");
 
     //check if mouse is double-clicked ,if so, check for password
     if (mouseClicks>=2) {
