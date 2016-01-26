@@ -60,9 +60,9 @@ int winNum = 0;
 
 void  setup() {
   minim = new Minim(this);
-  opening = minim.loadFile("LessonsInLove_NeonTrees.mp3");//Opening.mp3");
-  desktop = minim.loadFile("Fever_TheBlackKeys.mp3");//"desktop.mp3");
-  hangman = minim.loadFile("Starlight_Muse.mp3");//Hangman.mp3");
+  opening = minim.loadFile("Opening.mp3");
+  desktop = minim.loadFile("desktop.mp3");
+  hangman = minim.loadFile("Hangman.mp3");
   kittendrop = minim.loadFile("kittenDrop.mp3");
   geodash = minim.loadFile("geodash.mp3");
   ending = minim.loadFile("ending.mp3");
@@ -240,18 +240,21 @@ void mouseClicked() {
     if (geohealth<=0) { // lost dashing geometry -- click to restart
       setup();
     }else if(steps>=1000){
+      geodash.close();
+      playDesktop = true;
       environ = 0; 
     }
   }
 
-  //_____________must restart____Related to Ending___________________________
+  //_____________Related to Ending___________________________
   if (environ == 4) {
-    if (index<=10) {
+        endSetting();
+    if (index<=5) {
       index++;
     }
-    if (index == 11) {
+    if (index == 6) {
       fin = true;
     }
-    endSetting();
+    //endSetting();
   }
 }

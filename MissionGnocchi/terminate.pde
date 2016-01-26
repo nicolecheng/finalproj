@@ -17,8 +17,7 @@ void popUp() {
   fill(0);
   //if puzzle not solved
   if (!finished) {
-    text("Sorry, you didn't finish the puzzle", 250, 240);
-    text("The word was: "+wordlist[wordSelect], 270, 270);
+    text("Sorry, you didn't finish the puzzle", 250, 260);
     image(restart, 280, 290, 50, 50);
     image(quit, 450, 290, 50, 50);
     //high light button when hovering over it
