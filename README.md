@@ -114,4 +114,15 @@ After unlocking the final file, you will receive a final message from the owner 
 		<li>	 ^item completed</li>
 <li>			 to do: grammar issues in finale</li>
 </ul></li></ul></li>
+<li> January 25:
+<ul>
+<li>We both made this project <i>more</i> beautiful</li>
+	<li> Nicole: <ul>
+		<li>	 bug found: music overlap</li>
+	<li>		 new script for ending</li></ul></li>
+	<li> Yuki: <ul>
+		<li>	 bug fix: music overlap thingy</li>
+			<li> slides for ending</li>
+			</ul></li>
+			</ul></li>
 </ul>
